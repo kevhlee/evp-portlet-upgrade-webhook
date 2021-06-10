@@ -1,6 +1,7 @@
+
 tasks:
-  mode: pr
-  upgrade:
+  modeX: pr
+  upgradeX:
     currentVersion: '6.2'
     upgradeVersion: '7.3'
     upgrades:
