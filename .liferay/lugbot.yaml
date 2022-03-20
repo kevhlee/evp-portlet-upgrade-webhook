@@ -3,7 +3,15 @@ tasks:
     currentVersion: "6.2"
     upgradeVersion: "7.3"
     upgrades:
-      - name: plugins-convert-build
+      - name: plugins-migrate-code
+      - name: remove-legacy-code
+      - name: update-service-builder-modules
+      - name: upgrade-workspace-version
+      - name: use-target-platform
+      - name: use-release-api
+      - name: auto-correct-breaking-changes
+      - name: find-breaking-changes
+      - name: upgrade-portal-properties
     workspacePath: liferay-workspace/
     plugins:
       - evp-portlet
