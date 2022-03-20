@@ -3,10 +3,6 @@ tasks:
     currentVersion: "6.2"
     upgradeVersion: "7.3"
     upgrades:
-      - name: create-workspace
-      - name: maven-create-modules
-      - name: plugins-create-modules
-      - name: maven-convert-build
       - name: plugins-convert-build
     workspacePath: liferay-workspace/
     plugins:
