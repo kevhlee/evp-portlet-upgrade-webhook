@@ -329,7 +329,7 @@ public class AlloyControllerImpl extends EVPAlloyControllerImpl {
 		else {
 			divisionOrganization = OrganizationLocalServiceUtil.getOrganization(evpDivision.getOrganizationId());
 
-			OrganizationLocalServiceUtil.updateOrganization(divisionOrganization.getCompanyId(), divisionOrganization.getOrganizationId(), parentOrganizationId, organizationName, divisionOrganization.getType(), divisionOrganization.getRegionId(), divisionOrganization.getCountryId(), divisionOrganization.getStatusId(), StringPool.BLANK, false, null);
+			OrganizationLocalServiceUtil.updateOrganization(divisionOrganization.getCompanyId(), divisionOrganization.getOrganizationId(), parentOrganizationId, organizationName, divisionOrganization.getType(), divisionOrganization.getRegionId(), divisionOrganization.getCountryId(), divisionOrganization.getStatusId(), StringPool.BLANK, false, null); <%-- FIXME: Updates the organization. --%>
 		}
 
 		evpDivision.setOrganizationId(divisionOrganization.getOrganizationId());

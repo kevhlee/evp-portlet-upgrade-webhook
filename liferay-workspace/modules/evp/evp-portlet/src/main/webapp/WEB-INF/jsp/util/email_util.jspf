@@ -48,7 +48,7 @@ public static class EmailUtil {
 
 		subscriptionSender.setReplyToAddress(fromAddress);
 		subscriptionSender.setSubject(subject);
-		subscriptionSender.setUserId(themeDisplay.getDefaultUserId());
+		subscriptionSender.setUserId(themeDisplay.getDefaultUserId()); <%-- FIXME: @deprecated As of Wilberforce (7.0.x), replaced by {#setCurrentUserId(long)} --%>
 
 		for (User recipient : recipients) {
 			subscriptionSender.addRuntimeSubscribers(recipient.getEmailAddress(), recipient.getEmailAddress());
