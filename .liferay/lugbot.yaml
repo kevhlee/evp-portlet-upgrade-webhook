@@ -16,8 +16,8 @@ tasks:
       # - plugins-migrate-code
       # - remove-legacy-files
       # - update-service-builder-modules
-      - upgrade-workspace-version
-      # - use-target-platform
+      # - upgrade-workspace-version
+      - use-target-platform
       # - use-release-api
       # - auto-correct-breaking-changes
       # - finding-breaking-changes
