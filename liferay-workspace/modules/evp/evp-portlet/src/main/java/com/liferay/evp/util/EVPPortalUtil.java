@@ -75,7 +75,7 @@ public class EVPPortalUtil {
 		List<ListType> listTypes = ListTypeServiceUtil.getListTypes(type);
 
 		for (ListType listType : listTypes) {
-			if (Validator.equals(listType.getName(), name)) {
+			if (Validator.equals(listType.getName(), name)) { // FIXME: @deprecated As of Judson (7.1.x)
 				return listType.getListTypeId();
 			}
 		}

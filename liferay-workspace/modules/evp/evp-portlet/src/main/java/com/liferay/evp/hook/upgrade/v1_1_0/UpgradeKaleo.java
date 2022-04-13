@@ -46,7 +46,7 @@ public class UpgradeKaleo extends UpgradeProcess {
 
 		for (String tableName : _TABLE_NAMES) {
 			try {
-				con = DataAccess.getUpgradeOptimizedConnection();
+				con = DataAccess.getUpgradeOptimizedConnection(); // FIXME: @deprecated As of Judson (7.1.x), replaced by {#getConnection()}
 
 				ps = con.prepareStatement("delete from " + tableName);
 

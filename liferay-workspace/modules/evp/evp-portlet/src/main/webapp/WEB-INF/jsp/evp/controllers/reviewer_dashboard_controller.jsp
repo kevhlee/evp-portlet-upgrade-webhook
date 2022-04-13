@@ -186,7 +186,7 @@ public class AlloyControllerImpl extends EVPAlloyControllerImpl {
 
 		String transitionName = ParamUtil.getString(request, "transitionName");
 
-		if (Validator.equals(transitionName, EVPWorkflowConstants.GRANT_TRANSITION_MARK_AS_CHECK_SENT)) {
+		if (Validator.equals(transitionName, EVPWorkflowConstants.GRANT_TRANSITION_MARK_AS_CHECK_SENT)) { <%-- FIXME: @deprecated As of Judson (7.1.x) --%>
 			EVPDivision subsidiaryEVPDivision = EVPDivisionUtil.getSubsidiaryEVPDivision(evpGrantRequest.getUserId());
 
 			List<EVPGrantTransaction> evpGrantTransactions = _fetchEVPGrantTransactions(evpGrantRequest.getEvpGrantRequestId());

@@ -62,7 +62,7 @@ public class AlloyControllerImpl extends EVPAlloyControllerImpl {
 			if (evpRequestOrganization.isNew()) {
 				updateModel(evpRequestOrganization, "organizationId", organization.getOrganizationId(), "description", evpRequestOrganizationDescription, "nonprofitType", organizationNonprofitType, "subsidiaryGroupId", subsidiaryEVPDivision.getOrganizationGroupId());
 			}
-			else if (!Validator.equals(evpRequestOrganization.getTaxIdentificationNumber(), taxIdentificationNumber) || !Validator.equals(evpRequestOrganization.getDescription(), evpRequestOrganizationDescription) || (evpRequestOrganization.getNonprofitType() != organizationNonprofitType)) {
+			else if (!Validator.equals(evpRequestOrganization.getTaxIdentificationNumber(), taxIdentificationNumber) || !Validator.equals(evpRequestOrganization.getDescription(), evpRequestOrganizationDescription) || (evpRequestOrganization.getNonprofitType() != organizationNonprofitType)) { <%-- FIXME: @deprecated As of Judson (7.1.x) --%> <%-- FIXME: @deprecated As of Judson (7.1.x) --%>
 				duplicateOrganization = true;
 			}
 
@@ -431,7 +431,7 @@ public class AlloyControllerImpl extends EVPAlloyControllerImpl {
 
 			redirect = ParamUtil.getString(request, "redirect");
 		}
-		else if (!Validator.equals(evpRequestOrganization.getTaxIdentificationNumber(), taxIdentificationNumber) || !Validator.equals(evpRequestOrganization.getDescription(), evpRequestOrganizationDescription) || (evpRequestOrganization.getNonprofitType() != organizationNonprofitType)) {
+		else if (!Validator.equals(evpRequestOrganization.getTaxIdentificationNumber(), taxIdentificationNumber) || !Validator.equals(evpRequestOrganization.getDescription(), evpRequestOrganizationDescription) || (evpRequestOrganization.getNonprofitType() != organizationNonprofitType)) { <%-- FIXME: @deprecated As of Judson (7.1.x) --%> <%-- FIXME: @deprecated As of Judson (7.1.x) --%>
 			redirect = _redirectToView(evpGrantRequest.getEvpGrantRequestId());
 		}
 

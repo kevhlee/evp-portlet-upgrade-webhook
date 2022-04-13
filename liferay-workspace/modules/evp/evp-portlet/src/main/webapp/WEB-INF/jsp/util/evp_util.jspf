@@ -203,7 +203,7 @@ public static class EVPUtil extends com.liferay.evp.util.EVPUtil {
 
 			MBMessage mbMessage = messages.get(messages.size() - 1);
 
-			if (Validator.equals(mbMessage.getBody(), String.valueOf(classPK))) {
+			if (Validator.equals(mbMessage.getBody(), String.valueOf(classPK))) { <%-- FIXME: @deprecated As of Judson (7.1.x) --%>
 				return StringPool.BLANK;
 			}
 
