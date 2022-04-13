@@ -12,6 +12,14 @@ tasks:
       # - plugins-create-modules
       # - maven-convert-build
       # - plugins-convert-build
-      - maven-migrate-code
-      - plugins-migrate-code
-
+      # - maven-migrate-code
+      # - plugins-migrate-code
+      - remove-legacy-files
+      # - update-service-builder-modules
+      # - upgrade-workspace-version
+      # - use-target-platform
+      # - use-release-api
+      # - auto-correct-breaking-changes
+      # - finding-breaking-changes
+      # - upgrade-portal-properties
+      # - cfg-to-config-file
