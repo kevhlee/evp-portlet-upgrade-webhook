@@ -24,9 +24,12 @@ import java.util.List;
  * This class is used by SOAP remote services.
  *
  * @author Val Nagy
+ * @deprecated As of Athanasius (7.3.x), with no direct replacement
  * @generated
  */
+@Deprecated
 public class EVPDivisionSoap implements Serializable {
+
 	public static EVPDivisionSoap toSoapModel(EVPDivision model) {
 		EVPDivisionSoap soapModel = new EVPDivisionSoap();
 
@@ -72,7 +75,8 @@ public class EVPDivisionSoap implements Serializable {
 	}
 
 	public static EVPDivisionSoap[] toSoapModels(List<EVPDivision> models) {
-		List<EVPDivisionSoap> soapModels = new ArrayList<EVPDivisionSoap>(models.size());
+		List<EVPDivisionSoap> soapModels = new ArrayList<EVPDivisionSoap>(
+			models.size());
 
 		for (EVPDivision model : models) {
 			soapModels.add(toSoapModel(model));
@@ -182,4 +186,5 @@ public class EVPDivisionSoap implements Serializable {
 	private long _parentEVPDivisionId;
 	private String _abbreviation;
 	private int _type;
+
 }

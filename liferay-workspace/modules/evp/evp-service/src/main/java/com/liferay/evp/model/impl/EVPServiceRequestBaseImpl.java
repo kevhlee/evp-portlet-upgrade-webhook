@@ -17,8 +17,6 @@ package com.liferay.evp.model.impl;
 import com.liferay.evp.model.EVPServiceRequest;
 import com.liferay.evp.service.EVPServiceRequestLocalServiceUtil;
 
-import com.liferay.portal.kernel.exception.SystemException;
-
 /**
  * The extended model base implementation for the EVPServiceRequest service. Represents a row in the &quot;EVPServiceRequest&quot; database table, with each column mapped to a property of this class.
  *
@@ -28,18 +26,19 @@ import com.liferay.portal.kernel.exception.SystemException;
  *
  * @author Val Nagy
  * @see EVPServiceRequestImpl
- * @see com.liferay.evp.model.EVPServiceRequest
+ * @see EVPServiceRequest
  * @generated
  */
 public abstract class EVPServiceRequestBaseImpl
 	extends EVPServiceRequestModelImpl implements EVPServiceRequest {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this class directly. All methods that expect a e v p service request model instance should use the {@link EVPServiceRequest} interface instead.
+	 * Never modify or reference this class directly. All methods that expect a evp service request model instance should use the <code>EVPServiceRequest</code> interface instead.
 	 */
 	@Override
-	public void persist() throws SystemException {
+	public void persist() {
 		if (this.isNew()) {
 			EVPServiceRequestLocalServiceUtil.addEVPServiceRequest(this);
 		}
@@ -47,4 +46,5 @@ public abstract class EVPServiceRequestBaseImpl
 			EVPServiceRequestLocalServiceUtil.updateEVPServiceRequest(this);
 		}
 	}
+
 }

@@ -14,21 +14,48 @@
 
 package com.liferay.evp.model;
 
-import com.liferay.portal.model.PersistedModel;
+import com.liferay.portal.kernel.annotation.ImplementationClassName;
+import com.liferay.portal.kernel.model.PersistedModel;
+import com.liferay.portal.kernel.util.Accessor;
+
+import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * The extended model interface for the EVPServiceRequest service. Represents a row in the &quot;EVPServiceRequest&quot; database table, with each column mapped to a property of this class.
  *
  * @author Val Nagy
  * @see EVPServiceRequestModel
- * @see com.liferay.evp.model.impl.EVPServiceRequestImpl
- * @see com.liferay.evp.model.impl.EVPServiceRequestModelImpl
  * @generated
  */
-public interface EVPServiceRequest extends EVPServiceRequestModel, PersistedModel {
+@ImplementationClassName("com.liferay.evp.model.impl.EVPServiceRequestImpl")
+@ProviderType
+public interface EVPServiceRequest
+	extends EVPServiceRequestModel, PersistedModel {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add methods to {@link com.liferay.evp.model.impl.EVPServiceRequestImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+	 * Never modify this interface directly. Add methods to <code>com.liferay.evp.model.impl.EVPServiceRequestImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+	public static final Accessor<EVPServiceRequest, Long>
+		EVP_SERVICE_REQUEST_ID_ACCESSOR =
+			new Accessor<EVPServiceRequest, Long>() {
+
+				@Override
+				public Long get(EVPServiceRequest evpServiceRequest) {
+					return evpServiceRequest.getEvpServiceRequestId();
+				}
+
+				@Override
+				public Class<Long> getAttributeClass() {
+					return Long.class;
+				}
+
+				@Override
+				public Class<EVPServiceRequest> getTypeClass() {
+					return EVPServiceRequest.class;
+				}
+
+			};
+
 }

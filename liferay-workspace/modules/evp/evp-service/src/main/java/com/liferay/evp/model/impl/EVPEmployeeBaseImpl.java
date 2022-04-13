@@ -17,8 +17,6 @@ package com.liferay.evp.model.impl;
 import com.liferay.evp.model.EVPEmployee;
 import com.liferay.evp.service.EVPEmployeeLocalServiceUtil;
 
-import com.liferay.portal.kernel.exception.SystemException;
-
 /**
  * The extended model base implementation for the EVPEmployee service. Represents a row in the &quot;EVPEmployee&quot; database table, with each column mapped to a property of this class.
  *
@@ -28,18 +26,19 @@ import com.liferay.portal.kernel.exception.SystemException;
  *
  * @author Val Nagy
  * @see EVPEmployeeImpl
- * @see com.liferay.evp.model.EVPEmployee
+ * @see EVPEmployee
  * @generated
  */
-public abstract class EVPEmployeeBaseImpl extends EVPEmployeeModelImpl
-	implements EVPEmployee {
+public abstract class EVPEmployeeBaseImpl
+	extends EVPEmployeeModelImpl implements EVPEmployee {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this class directly. All methods that expect a e v p employee model instance should use the {@link EVPEmployee} interface instead.
+	 * Never modify or reference this class directly. All methods that expect a evp employee model instance should use the <code>EVPEmployee</code> interface instead.
 	 */
 	@Override
-	public void persist() throws SystemException {
+	public void persist() {
 		if (this.isNew()) {
 			EVPEmployeeLocalServiceUtil.addEVPEmployee(this);
 		}
@@ -47,4 +46,5 @@ public abstract class EVPEmployeeBaseImpl extends EVPEmployeeModelImpl
 			EVPEmployeeLocalServiceUtil.updateEVPEmployee(this);
 		}
 	}
+
 }

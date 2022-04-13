@@ -15,10 +15,9 @@
 package com.liferay.evp.model.impl;
 
 import com.liferay.evp.model.EVPGrantTransaction;
-
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.model.CacheModel;
+import com.liferay.petra.lang.HashUtil;
+import com.liferay.petra.string.StringBundler;
+import com.liferay.portal.kernel.model.CacheModel;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -31,11 +30,38 @@ import java.util.Date;
  * The cache model class for representing EVPGrantTransaction in entity cache.
  *
  * @author Val Nagy
- * @see EVPGrantTransaction
  * @generated
  */
-public class EVPGrantTransactionCacheModel implements CacheModel<EVPGrantTransaction>,
-	Externalizable {
+public class EVPGrantTransactionCacheModel
+	implements CacheModel<EVPGrantTransaction>, Externalizable {
+
+	@Override
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+
+		if (!(object instanceof EVPGrantTransactionCacheModel)) {
+			return false;
+		}
+
+		EVPGrantTransactionCacheModel evpGrantTransactionCacheModel =
+			(EVPGrantTransactionCacheModel)object;
+
+		if (evpGrantTransactionId ==
+				evpGrantTransactionCacheModel.evpGrantTransactionId) {
+
+			return true;
+		}
+
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return HashUtil.hash(0, evpGrantTransactionId);
+	}
+
 	@Override
 	public String toString() {
 		StringBundler sb = new StringBundler(37);
@@ -83,14 +109,15 @@ public class EVPGrantTransactionCacheModel implements CacheModel<EVPGrantTransac
 
 	@Override
 	public EVPGrantTransaction toEntityModel() {
-		EVPGrantTransactionImpl evpGrantTransactionImpl = new EVPGrantTransactionImpl();
+		EVPGrantTransactionImpl evpGrantTransactionImpl =
+			new EVPGrantTransactionImpl();
 
 		evpGrantTransactionImpl.setEvpGrantTransactionId(evpGrantTransactionId);
 		evpGrantTransactionImpl.setCompanyId(companyId);
 		evpGrantTransactionImpl.setUserId(userId);
 
 		if (userName == null) {
-			evpGrantTransactionImpl.setUserName(StringPool.BLANK);
+			evpGrantTransactionImpl.setUserName("");
 		}
 		else {
 			evpGrantTransactionImpl.setUserName(userName);
@@ -116,7 +143,7 @@ public class EVPGrantTransactionCacheModel implements CacheModel<EVPGrantTransac
 		evpGrantTransactionImpl.setAmount(amount);
 
 		if (currencyCode == null) {
-			evpGrantTransactionImpl.setCurrencyCode(StringPool.BLANK);
+			evpGrantTransactionImpl.setCurrencyCode("");
 		}
 		else {
 			evpGrantTransactionImpl.setCurrencyCode(currencyCode);
@@ -130,42 +157,42 @@ public class EVPGrantTransactionCacheModel implements CacheModel<EVPGrantTransac
 		}
 
 		if (note == null) {
-			evpGrantTransactionImpl.setNote(StringPool.BLANK);
+			evpGrantTransactionImpl.setNote("");
 		}
 		else {
 			evpGrantTransactionImpl.setNote(note);
 		}
 
 		if (number == null) {
-			evpGrantTransactionImpl.setNumber(StringPool.BLANK);
+			evpGrantTransactionImpl.setNumber("");
 		}
 		else {
 			evpGrantTransactionImpl.setNumber(number);
 		}
 
 		if (bankBICCode == null) {
-			evpGrantTransactionImpl.setBankBICCode(StringPool.BLANK);
+			evpGrantTransactionImpl.setBankBICCode("");
 		}
 		else {
 			evpGrantTransactionImpl.setBankBICCode(bankBICCode);
 		}
 
 		if (bankIBANCode == null) {
-			evpGrantTransactionImpl.setBankIBANCode(StringPool.BLANK);
+			evpGrantTransactionImpl.setBankIBANCode("");
 		}
 		else {
 			evpGrantTransactionImpl.setBankIBANCode(bankIBANCode);
 		}
 
 		if (bankName == null) {
-			evpGrantTransactionImpl.setBankName(StringPool.BLANK);
+			evpGrantTransactionImpl.setBankName("");
 		}
 		else {
 			evpGrantTransactionImpl.setBankName(bankName);
 		}
 
 		if (purposeOfUse == null) {
-			evpGrantTransactionImpl.setPurposeOfUse(StringPool.BLANK);
+			evpGrantTransactionImpl.setPurposeOfUse("");
 		}
 		else {
 			evpGrantTransactionImpl.setPurposeOfUse(purposeOfUse);
@@ -179,14 +206,20 @@ public class EVPGrantTransactionCacheModel implements CacheModel<EVPGrantTransac
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		evpGrantTransactionId = objectInput.readLong();
+
 		companyId = objectInput.readLong();
+
 		userId = objectInput.readLong();
 		userName = objectInput.readUTF();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
+
 		evpGrantRequestId = objectInput.readLong();
+
 		fileEntryId = objectInput.readLong();
+
 		grantType = objectInput.readInt();
+
 		amount = objectInput.readDouble();
 		currencyCode = objectInput.readUTF();
 		date = objectInput.readLong();
@@ -199,14 +232,15 @@ public class EVPGrantTransactionCacheModel implements CacheModel<EVPGrantTransac
 	}
 
 	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
+	public void writeExternal(ObjectOutput objectOutput) throws IOException {
 		objectOutput.writeLong(evpGrantTransactionId);
+
 		objectOutput.writeLong(companyId);
+
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -214,13 +248,17 @@ public class EVPGrantTransactionCacheModel implements CacheModel<EVPGrantTransac
 
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
+
 		objectOutput.writeLong(evpGrantRequestId);
+
 		objectOutput.writeLong(fileEntryId);
+
 		objectOutput.writeInt(grantType);
+
 		objectOutput.writeDouble(amount);
 
 		if (currencyCode == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(currencyCode);
@@ -229,42 +267,42 @@ public class EVPGrantTransactionCacheModel implements CacheModel<EVPGrantTransac
 		objectOutput.writeLong(date);
 
 		if (note == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(note);
 		}
 
 		if (number == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(number);
 		}
 
 		if (bankBICCode == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(bankBICCode);
 		}
 
 		if (bankIBANCode == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(bankIBANCode);
 		}
 
 		if (bankName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(bankName);
 		}
 
 		if (purposeOfUse == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(purposeOfUse);
@@ -289,4 +327,5 @@ public class EVPGrantTransactionCacheModel implements CacheModel<EVPGrantTransac
 	public String bankIBANCode;
 	public String bankName;
 	public String purposeOfUse;
+
 }

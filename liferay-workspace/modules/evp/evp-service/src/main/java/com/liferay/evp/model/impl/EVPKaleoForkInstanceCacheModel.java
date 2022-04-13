@@ -15,10 +15,9 @@
 package com.liferay.evp.model.impl;
 
 import com.liferay.evp.model.EVPKaleoForkInstance;
-
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.model.CacheModel;
+import com.liferay.petra.lang.HashUtil;
+import com.liferay.petra.string.StringBundler;
+import com.liferay.portal.kernel.model.CacheModel;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -31,11 +30,38 @@ import java.util.Date;
  * The cache model class for representing EVPKaleoForkInstance in entity cache.
  *
  * @author Val Nagy
- * @see EVPKaleoForkInstance
  * @generated
  */
-public class EVPKaleoForkInstanceCacheModel implements CacheModel<EVPKaleoForkInstance>,
-	Externalizable {
+public class EVPKaleoForkInstanceCacheModel
+	implements CacheModel<EVPKaleoForkInstance>, Externalizable {
+
+	@Override
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+
+		if (!(object instanceof EVPKaleoForkInstanceCacheModel)) {
+			return false;
+		}
+
+		EVPKaleoForkInstanceCacheModel evpKaleoForkInstanceCacheModel =
+			(EVPKaleoForkInstanceCacheModel)object;
+
+		if (evpKaleoForkInstanceId ==
+				evpKaleoForkInstanceCacheModel.evpKaleoForkInstanceId) {
+
+			return true;
+		}
+
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return HashUtil.hash(0, evpKaleoForkInstanceId);
+	}
+
 	@Override
 	public String toString() {
 		StringBundler sb = new StringBundler(21);
@@ -67,14 +93,16 @@ public class EVPKaleoForkInstanceCacheModel implements CacheModel<EVPKaleoForkIn
 
 	@Override
 	public EVPKaleoForkInstance toEntityModel() {
-		EVPKaleoForkInstanceImpl evpKaleoForkInstanceImpl = new EVPKaleoForkInstanceImpl();
+		EVPKaleoForkInstanceImpl evpKaleoForkInstanceImpl =
+			new EVPKaleoForkInstanceImpl();
 
-		evpKaleoForkInstanceImpl.setEvpKaleoForkInstanceId(evpKaleoForkInstanceId);
+		evpKaleoForkInstanceImpl.setEvpKaleoForkInstanceId(
+			evpKaleoForkInstanceId);
 		evpKaleoForkInstanceImpl.setCompanyId(companyId);
 		evpKaleoForkInstanceImpl.setUserId(userId);
 
 		if (userName == null) {
-			evpKaleoForkInstanceImpl.setUserName(StringPool.BLANK);
+			evpKaleoForkInstanceImpl.setUserName("");
 		}
 		else {
 			evpKaleoForkInstanceImpl.setUserName(userName);
@@ -107,26 +135,33 @@ public class EVPKaleoForkInstanceCacheModel implements CacheModel<EVPKaleoForkIn
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		evpKaleoForkInstanceId = objectInput.readLong();
+
 		companyId = objectInput.readLong();
+
 		userId = objectInput.readLong();
 		userName = objectInput.readUTF();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
+
 		classNameId = objectInput.readLong();
+
 		classPK = objectInput.readLong();
+
 		type = objectInput.readInt();
+
 		status = objectInput.readInt();
 	}
 
 	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
+	public void writeExternal(ObjectOutput objectOutput) throws IOException {
 		objectOutput.writeLong(evpKaleoForkInstanceId);
+
 		objectOutput.writeLong(companyId);
+
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -134,9 +169,13 @@ public class EVPKaleoForkInstanceCacheModel implements CacheModel<EVPKaleoForkIn
 
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
+
 		objectOutput.writeLong(classNameId);
+
 		objectOutput.writeLong(classPK);
+
 		objectOutput.writeInt(type);
+
 		objectOutput.writeInt(status);
 	}
 
@@ -150,4 +189,5 @@ public class EVPKaleoForkInstanceCacheModel implements CacheModel<EVPKaleoForkIn
 	public long classPK;
 	public int type;
 	public int status;
+
 }

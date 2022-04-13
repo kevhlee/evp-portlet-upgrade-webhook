@@ -14,22 +14,48 @@
 
 package com.liferay.evp.model;
 
-import com.liferay.portal.model.PersistedModel;
+import com.liferay.portal.kernel.annotation.ImplementationClassName;
+import com.liferay.portal.kernel.model.PersistedModel;
+import com.liferay.portal.kernel.util.Accessor;
+
+import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * The extended model interface for the EVPDivision service. Represents a row in the &quot;EVPDivision&quot; database table, with each column mapped to a property of this class.
  *
  * @author Val Nagy
  * @see EVPDivisionModel
- * @see com.liferay.evp.model.impl.EVPDivisionImpl
- * @see com.liferay.evp.model.impl.EVPDivisionModelImpl
  * @generated
  */
+@ImplementationClassName("com.liferay.evp.model.impl.EVPDivisionImpl")
+@ProviderType
 public interface EVPDivision extends EVPDivisionModel, PersistedModel {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add methods to {@link com.liferay.evp.model.impl.EVPDivisionImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+	 * Never modify this interface directly. Add methods to <code>com.liferay.evp.model.impl.EVPDivisionImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+	public static final Accessor<EVPDivision, Long> EVP_DIVISION_ID_ACCESSOR =
+		new Accessor<EVPDivision, Long>() {
+
+			@Override
+			public Long get(EVPDivision evpDivision) {
+				return evpDivision.getEvpDivisionId();
+			}
+
+			@Override
+			public Class<Long> getAttributeClass() {
+				return Long.class;
+			}
+
+			@Override
+			public Class<EVPDivision> getTypeClass() {
+				return EVPDivision.class;
+			}
+
+		};
+
 	public long getOrganizationGroupId();
+
 }

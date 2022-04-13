@@ -17,8 +17,6 @@ package com.liferay.evp.model.impl;
 import com.liferay.evp.model.EVPDivision;
 import com.liferay.evp.service.EVPDivisionLocalServiceUtil;
 
-import com.liferay.portal.kernel.exception.SystemException;
-
 /**
  * The extended model base implementation for the EVPDivision service. Represents a row in the &quot;EVPDivision&quot; database table, with each column mapped to a property of this class.
  *
@@ -28,18 +26,19 @@ import com.liferay.portal.kernel.exception.SystemException;
  *
  * @author Val Nagy
  * @see EVPDivisionImpl
- * @see com.liferay.evp.model.EVPDivision
+ * @see EVPDivision
  * @generated
  */
-public abstract class EVPDivisionBaseImpl extends EVPDivisionModelImpl
-	implements EVPDivision {
+public abstract class EVPDivisionBaseImpl
+	extends EVPDivisionModelImpl implements EVPDivision {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this class directly. All methods that expect a e v p division model instance should use the {@link EVPDivision} interface instead.
+	 * Never modify or reference this class directly. All methods that expect a evp division model instance should use the <code>EVPDivision</code> interface instead.
 	 */
 	@Override
-	public void persist() throws SystemException {
+	public void persist() {
 		if (this.isNew()) {
 			EVPDivisionLocalServiceUtil.addEVPDivision(this);
 		}
@@ -47,4 +46,5 @@ public abstract class EVPDivisionBaseImpl extends EVPDivisionModelImpl
 			EVPDivisionLocalServiceUtil.updateEVPDivision(this);
 		}
 	}
+
 }

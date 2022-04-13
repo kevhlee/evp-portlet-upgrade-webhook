@@ -15,10 +15,9 @@
 package com.liferay.evp.model.impl;
 
 import com.liferay.evp.model.EVPServiceRequest;
-
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.model.CacheModel;
+import com.liferay.petra.lang.HashUtil;
+import com.liferay.petra.string.StringBundler;
+import com.liferay.portal.kernel.model.CacheModel;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -31,11 +30,38 @@ import java.util.Date;
  * The cache model class for representing EVPServiceRequest in entity cache.
  *
  * @author Val Nagy
- * @see EVPServiceRequest
  * @generated
  */
-public class EVPServiceRequestCacheModel implements CacheModel<EVPServiceRequest>,
-	Externalizable {
+public class EVPServiceRequestCacheModel
+	implements CacheModel<EVPServiceRequest>, Externalizable {
+
+	@Override
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+
+		if (!(object instanceof EVPServiceRequestCacheModel)) {
+			return false;
+		}
+
+		EVPServiceRequestCacheModel evpServiceRequestCacheModel =
+			(EVPServiceRequestCacheModel)object;
+
+		if (evpServiceRequestId ==
+				evpServiceRequestCacheModel.evpServiceRequestId) {
+
+			return true;
+		}
+
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return HashUtil.hash(0, evpServiceRequestId);
+	}
+
 	@Override
 	public String toString() {
 		StringBundler sb = new StringBundler(81);
@@ -127,14 +153,15 @@ public class EVPServiceRequestCacheModel implements CacheModel<EVPServiceRequest
 
 	@Override
 	public EVPServiceRequest toEntityModel() {
-		EVPServiceRequestImpl evpServiceRequestImpl = new EVPServiceRequestImpl();
+		EVPServiceRequestImpl evpServiceRequestImpl =
+			new EVPServiceRequestImpl();
 
 		evpServiceRequestImpl.setEvpServiceRequestId(evpServiceRequestId);
 		evpServiceRequestImpl.setCompanyId(companyId);
 		evpServiceRequestImpl.setUserId(userId);
 
 		if (userName == null) {
-			evpServiceRequestImpl.setUserName(StringPool.BLANK);
+			evpServiceRequestImpl.setUserName("");
 		}
 		else {
 			evpServiceRequestImpl.setUserName(userName);
@@ -157,15 +184,19 @@ public class EVPServiceRequestCacheModel implements CacheModel<EVPServiceRequest
 		evpServiceRequestImpl.setContactEmailAddressId(contactEmailAddressId);
 		evpServiceRequestImpl.setContactPhoneId(contactPhoneId);
 		evpServiceRequestImpl.setContactUserId(contactUserId);
-		evpServiceRequestImpl.setEvpRequestOrganizationId(evpRequestOrganizationId);
+		evpServiceRequestImpl.setEvpRequestOrganizationId(
+			evpRequestOrganizationId);
 		evpServiceRequestImpl.setManagerUserId(managerUserId);
-		evpServiceRequestImpl.setParentEVPServiceRequestId(parentEVPServiceRequestId);
-		evpServiceRequestImpl.setRequestOrganizationAddressId(requestOrganizationAddressId);
-		evpServiceRequestImpl.setRequestOrganizationWebsiteId(requestOrganizationWebsiteId);
+		evpServiceRequestImpl.setParentEVPServiceRequestId(
+			parentEVPServiceRequestId);
+		evpServiceRequestImpl.setRequestOrganizationAddressId(
+			requestOrganizationAddressId);
+		evpServiceRequestImpl.setRequestOrganizationWebsiteId(
+			requestOrganizationWebsiteId);
 		evpServiceRequestImpl.setSubsidiaryGroupId(subsidiaryGroupId);
 
 		if (description == null) {
-			evpServiceRequestImpl.setDescription(StringPool.BLANK);
+			evpServiceRequestImpl.setDescription("");
 		}
 		else {
 			evpServiceRequestImpl.setDescription(description);
@@ -175,28 +206,28 @@ public class EVPServiceRequestCacheModel implements CacheModel<EVPServiceRequest
 		evpServiceRequestImpl.setEmploymentHoursPerWeek(employmentHoursPerWeek);
 
 		if (purpose == null) {
-			evpServiceRequestImpl.setPurpose(StringPool.BLANK);
+			evpServiceRequestImpl.setPurpose("");
 		}
 		else {
 			evpServiceRequestImpl.setPurpose(purpose);
 		}
 
 		if (purposeOther == null) {
-			evpServiceRequestImpl.setPurposeOther(StringPool.BLANK);
+			evpServiceRequestImpl.setPurposeOther("");
 		}
 		else {
 			evpServiceRequestImpl.setPurposeOther(purposeOther);
 		}
 
 		if (behalfOf == null) {
-			evpServiceRequestImpl.setBehalfOf(StringPool.BLANK);
+			evpServiceRequestImpl.setBehalfOf("");
 		}
 		else {
 			evpServiceRequestImpl.setBehalfOf(behalfOf);
 		}
 
 		if (behalfOfOther == null) {
-			evpServiceRequestImpl.setBehalfOfOther(StringPool.BLANK);
+			evpServiceRequestImpl.setBehalfOfOther("");
 		}
 		else {
 			evpServiceRequestImpl.setBehalfOfOther(behalfOfOther);
@@ -206,15 +237,16 @@ public class EVPServiceRequestCacheModel implements CacheModel<EVPServiceRequest
 			evpServiceRequestImpl.setRequestedStartDate(null);
 		}
 		else {
-			evpServiceRequestImpl.setRequestedStartDate(new Date(
-					requestedStartDate));
+			evpServiceRequestImpl.setRequestedStartDate(
+				new Date(requestedStartDate));
 		}
 
 		if (requestedEndDate == Long.MIN_VALUE) {
 			evpServiceRequestImpl.setRequestedEndDate(null);
 		}
 		else {
-			evpServiceRequestImpl.setRequestedEndDate(new Date(requestedEndDate));
+			evpServiceRequestImpl.setRequestedEndDate(
+				new Date(requestedEndDate));
 		}
 
 		evpServiceRequestImpl.setRequestedTotalHours(requestedTotalHours);
@@ -224,56 +256,57 @@ public class EVPServiceRequestCacheModel implements CacheModel<EVPServiceRequest
 			evpServiceRequestImpl.setConfirmedStartDate(null);
 		}
 		else {
-			evpServiceRequestImpl.setConfirmedStartDate(new Date(
-					confirmedStartDate));
+			evpServiceRequestImpl.setConfirmedStartDate(
+				new Date(confirmedStartDate));
 		}
 
 		if (confirmedEndDate == Long.MIN_VALUE) {
 			evpServiceRequestImpl.setConfirmedEndDate(null);
 		}
 		else {
-			evpServiceRequestImpl.setConfirmedEndDate(new Date(confirmedEndDate));
+			evpServiceRequestImpl.setConfirmedEndDate(
+				new Date(confirmedEndDate));
 		}
 
 		evpServiceRequestImpl.setConfirmedTotalHours(confirmedTotalHours);
 
 		if (contactBenefit == null) {
-			evpServiceRequestImpl.setContactBenefit(StringPool.BLANK);
+			evpServiceRequestImpl.setContactBenefit("");
 		}
 		else {
 			evpServiceRequestImpl.setContactBenefit(contactBenefit);
 		}
 
 		if (contactComments == null) {
-			evpServiceRequestImpl.setContactComments(StringPool.BLANK);
+			evpServiceRequestImpl.setContactComments("");
 		}
 		else {
 			evpServiceRequestImpl.setContactComments(contactComments);
 		}
 
 		if (hash == null) {
-			evpServiceRequestImpl.setHash(StringPool.BLANK);
+			evpServiceRequestImpl.setHash("");
 		}
 		else {
 			evpServiceRequestImpl.setHash(hash);
 		}
 
 		if (feedbackDescription == null) {
-			evpServiceRequestImpl.setFeedbackDescription(StringPool.BLANK);
+			evpServiceRequestImpl.setFeedbackDescription("");
 		}
 		else {
 			evpServiceRequestImpl.setFeedbackDescription(feedbackDescription);
 		}
 
 		if (employeeBenefit == null) {
-			evpServiceRequestImpl.setEmployeeBenefit(StringPool.BLANK);
+			evpServiceRequestImpl.setEmployeeBenefit("");
 		}
 		else {
 			evpServiceRequestImpl.setEmployeeBenefit(employeeBenefit);
 		}
 
 		if (recipientBenefit == null) {
-			evpServiceRequestImpl.setRecipientBenefit(StringPool.BLANK);
+			evpServiceRequestImpl.setRecipientBenefit("");
 		}
 		else {
 			evpServiceRequestImpl.setRecipientBenefit(recipientBenefit);
@@ -284,7 +317,7 @@ public class EVPServiceRequestCacheModel implements CacheModel<EVPServiceRequest
 		evpServiceRequestImpl.setStatusByUserId(statusByUserId);
 
 		if (statusByUserName == null) {
-			evpServiceRequestImpl.setStatusByUserName(StringPool.BLANK);
+			evpServiceRequestImpl.setStatusByUserName("");
 		}
 		else {
 			evpServiceRequestImpl.setStatusByUserName(statusByUserName);
@@ -305,22 +338,35 @@ public class EVPServiceRequestCacheModel implements CacheModel<EVPServiceRequest
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		evpServiceRequestId = objectInput.readLong();
+
 		companyId = objectInput.readLong();
+
 		userId = objectInput.readLong();
 		userName = objectInput.readUTF();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
+
 		contactEmailAddressId = objectInput.readLong();
+
 		contactPhoneId = objectInput.readLong();
+
 		contactUserId = objectInput.readLong();
+
 		evpRequestOrganizationId = objectInput.readLong();
+
 		managerUserId = objectInput.readLong();
+
 		parentEVPServiceRequestId = objectInput.readLong();
+
 		requestOrganizationAddressId = objectInput.readLong();
+
 		requestOrganizationWebsiteId = objectInput.readLong();
+
 		subsidiaryGroupId = objectInput.readLong();
 		description = objectInput.readUTF();
+
 		employmentType = objectInput.readInt();
+
 		employmentHoursPerWeek = objectInput.readInt();
 		purpose = objectInput.readUTF();
 		purposeOther = objectInput.readUTF();
@@ -328,10 +374,13 @@ public class EVPServiceRequestCacheModel implements CacheModel<EVPServiceRequest
 		behalfOfOther = objectInput.readUTF();
 		requestedStartDate = objectInput.readLong();
 		requestedEndDate = objectInput.readLong();
+
 		requestedTotalHours = objectInput.readInt();
+
 		promoteTrip = objectInput.readBoolean();
 		confirmedStartDate = objectInput.readLong();
 		confirmedEndDate = objectInput.readLong();
+
 		confirmedTotalHours = objectInput.readInt();
 		contactBenefit = objectInput.readUTF();
 		contactComments = objectInput.readUTF();
@@ -339,22 +388,26 @@ public class EVPServiceRequestCacheModel implements CacheModel<EVPServiceRequest
 		feedbackDescription = objectInput.readUTF();
 		employeeBenefit = objectInput.readUTF();
 		recipientBenefit = objectInput.readUTF();
+
 		shareStory = objectInput.readBoolean();
+
 		status = objectInput.readInt();
+
 		statusByUserId = objectInput.readLong();
 		statusByUserName = objectInput.readUTF();
 		statusDate = objectInput.readLong();
 	}
 
 	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
+	public void writeExternal(ObjectOutput objectOutput) throws IOException {
 		objectOutput.writeLong(evpServiceRequestId);
+
 		objectOutput.writeLong(companyId);
+
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -362,49 +415,59 @@ public class EVPServiceRequestCacheModel implements CacheModel<EVPServiceRequest
 
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
+
 		objectOutput.writeLong(contactEmailAddressId);
+
 		objectOutput.writeLong(contactPhoneId);
+
 		objectOutput.writeLong(contactUserId);
+
 		objectOutput.writeLong(evpRequestOrganizationId);
+
 		objectOutput.writeLong(managerUserId);
+
 		objectOutput.writeLong(parentEVPServiceRequestId);
+
 		objectOutput.writeLong(requestOrganizationAddressId);
+
 		objectOutput.writeLong(requestOrganizationWebsiteId);
+
 		objectOutput.writeLong(subsidiaryGroupId);
 
 		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		objectOutput.writeInt(employmentType);
+
 		objectOutput.writeInt(employmentHoursPerWeek);
 
 		if (purpose == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(purpose);
 		}
 
 		if (purposeOther == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(purposeOther);
 		}
 
 		if (behalfOf == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(behalfOf);
 		}
 
 		if (behalfOfOther == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(behalfOfOther);
@@ -412,60 +475,65 @@ public class EVPServiceRequestCacheModel implements CacheModel<EVPServiceRequest
 
 		objectOutput.writeLong(requestedStartDate);
 		objectOutput.writeLong(requestedEndDate);
+
 		objectOutput.writeInt(requestedTotalHours);
+
 		objectOutput.writeBoolean(promoteTrip);
 		objectOutput.writeLong(confirmedStartDate);
 		objectOutput.writeLong(confirmedEndDate);
+
 		objectOutput.writeInt(confirmedTotalHours);
 
 		if (contactBenefit == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(contactBenefit);
 		}
 
 		if (contactComments == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(contactComments);
 		}
 
 		if (hash == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(hash);
 		}
 
 		if (feedbackDescription == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(feedbackDescription);
 		}
 
 		if (employeeBenefit == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(employeeBenefit);
 		}
 
 		if (recipientBenefit == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(recipientBenefit);
 		}
 
 		objectOutput.writeBoolean(shareStory);
+
 		objectOutput.writeInt(status);
+
 		objectOutput.writeLong(statusByUserId);
 
 		if (statusByUserName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(statusByUserName);
@@ -514,4 +582,5 @@ public class EVPServiceRequestCacheModel implements CacheModel<EVPServiceRequest
 	public long statusByUserId;
 	public String statusByUserName;
 	public long statusDate;
+
 }

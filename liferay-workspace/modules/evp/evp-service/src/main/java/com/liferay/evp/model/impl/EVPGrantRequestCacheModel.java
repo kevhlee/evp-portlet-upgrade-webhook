@@ -15,10 +15,9 @@
 package com.liferay.evp.model.impl;
 
 import com.liferay.evp.model.EVPGrantRequest;
-
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.model.CacheModel;
+import com.liferay.petra.lang.HashUtil;
+import com.liferay.petra.string.StringBundler;
+import com.liferay.portal.kernel.model.CacheModel;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -31,11 +30,36 @@ import java.util.Date;
  * The cache model class for representing EVPGrantRequest in entity cache.
  *
  * @author Val Nagy
- * @see EVPGrantRequest
  * @generated
  */
-public class EVPGrantRequestCacheModel implements CacheModel<EVPGrantRequest>,
-	Externalizable {
+public class EVPGrantRequestCacheModel
+	implements CacheModel<EVPGrantRequest>, Externalizable {
+
+	@Override
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+
+		if (!(object instanceof EVPGrantRequestCacheModel)) {
+			return false;
+		}
+
+		EVPGrantRequestCacheModel evpGrantRequestCacheModel =
+			(EVPGrantRequestCacheModel)object;
+
+		if (evpGrantRequestId == evpGrantRequestCacheModel.evpGrantRequestId) {
+			return true;
+		}
+
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return HashUtil.hash(0, evpGrantRequestId);
+	}
+
 	@Override
 	public String toString() {
 		StringBundler sb = new StringBundler(51);
@@ -104,7 +128,7 @@ public class EVPGrantRequestCacheModel implements CacheModel<EVPGrantRequest>,
 		evpGrantRequestImpl.setUserId(userId);
 
 		if (userName == null) {
-			evpGrantRequestImpl.setUserName(StringPool.BLANK);
+			evpGrantRequestImpl.setUserName("");
 		}
 		else {
 			evpGrantRequestImpl.setUserName(userName);
@@ -127,14 +151,17 @@ public class EVPGrantRequestCacheModel implements CacheModel<EVPGrantRequest>,
 		evpGrantRequestImpl.setContactEmailAddressId(contactEmailAddressId);
 		evpGrantRequestImpl.setContactPhoneId(contactPhoneId);
 		evpGrantRequestImpl.setContactUserId(contactUserId);
-		evpGrantRequestImpl.setEvpRequestOrganizationId(evpRequestOrganizationId);
+		evpGrantRequestImpl.setEvpRequestOrganizationId(
+			evpRequestOrganizationId);
 		evpGrantRequestImpl.setParentEVPGrantRequestId(parentEVPGrantRequestId);
-		evpGrantRequestImpl.setRequestOrganizationAddressId(requestOrganizationAddressId);
-		evpGrantRequestImpl.setRequestOrganizationWebsiteId(requestOrganizationWebsiteId);
+		evpGrantRequestImpl.setRequestOrganizationAddressId(
+			requestOrganizationAddressId);
+		evpGrantRequestImpl.setRequestOrganizationWebsiteId(
+			requestOrganizationWebsiteId);
 		evpGrantRequestImpl.setSubsidiaryGroupId(subsidiaryGroupId);
 
 		if (description == null) {
-			evpGrantRequestImpl.setDescription(StringPool.BLANK);
+			evpGrantRequestImpl.setDescription("");
 		}
 		else {
 			evpGrantRequestImpl.setDescription(description);
@@ -144,28 +171,28 @@ public class EVPGrantRequestCacheModel implements CacheModel<EVPGrantRequest>,
 		evpGrantRequestImpl.setEmploymentHoursPerWeek(employmentHoursPerWeek);
 
 		if (purpose == null) {
-			evpGrantRequestImpl.setPurpose(StringPool.BLANK);
+			evpGrantRequestImpl.setPurpose("");
 		}
 		else {
 			evpGrantRequestImpl.setPurpose(purpose);
 		}
 
 		if (purposeOther == null) {
-			evpGrantRequestImpl.setPurposeOther(StringPool.BLANK);
+			evpGrantRequestImpl.setPurposeOther("");
 		}
 		else {
 			evpGrantRequestImpl.setPurposeOther(purposeOther);
 		}
 
 		if (behalfOf == null) {
-			evpGrantRequestImpl.setBehalfOf(StringPool.BLANK);
+			evpGrantRequestImpl.setBehalfOf("");
 		}
 		else {
 			evpGrantRequestImpl.setBehalfOf(behalfOf);
 		}
 
 		if (behalfOfOther == null) {
-			evpGrantRequestImpl.setBehalfOfOther(StringPool.BLANK);
+			evpGrantRequestImpl.setBehalfOfOther("");
 		}
 		else {
 			evpGrantRequestImpl.setBehalfOfOther(behalfOfOther);
@@ -175,7 +202,7 @@ public class EVPGrantRequestCacheModel implements CacheModel<EVPGrantRequest>,
 		evpGrantRequestImpl.setStatusByUserId(statusByUserId);
 
 		if (statusByUserName == null) {
-			evpGrantRequestImpl.setStatusByUserName(StringPool.BLANK);
+			evpGrantRequestImpl.setStatusByUserName("");
 		}
 		else {
 			evpGrantRequestImpl.setStatusByUserName(statusByUserName);
@@ -196,41 +223,56 @@ public class EVPGrantRequestCacheModel implements CacheModel<EVPGrantRequest>,
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		evpGrantRequestId = objectInput.readLong();
+
 		companyId = objectInput.readLong();
+
 		userId = objectInput.readLong();
 		userName = objectInput.readUTF();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
+
 		contactEmailAddressId = objectInput.readLong();
+
 		contactPhoneId = objectInput.readLong();
+
 		contactUserId = objectInput.readLong();
+
 		evpRequestOrganizationId = objectInput.readLong();
+
 		parentEVPGrantRequestId = objectInput.readLong();
+
 		requestOrganizationAddressId = objectInput.readLong();
+
 		requestOrganizationWebsiteId = objectInput.readLong();
+
 		subsidiaryGroupId = objectInput.readLong();
 		description = objectInput.readUTF();
+
 		employmentType = objectInput.readInt();
+
 		employmentHoursPerWeek = objectInput.readInt();
 		purpose = objectInput.readUTF();
 		purposeOther = objectInput.readUTF();
 		behalfOf = objectInput.readUTF();
 		behalfOfOther = objectInput.readUTF();
+
 		status = objectInput.readInt();
+
 		statusByUserId = objectInput.readLong();
 		statusByUserName = objectInput.readUTF();
 		statusDate = objectInput.readLong();
 	}
 
 	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
+	public void writeExternal(ObjectOutput objectOutput) throws IOException {
 		objectOutput.writeLong(evpGrantRequestId);
+
 		objectOutput.writeLong(companyId);
+
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -238,58 +280,68 @@ public class EVPGrantRequestCacheModel implements CacheModel<EVPGrantRequest>,
 
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
+
 		objectOutput.writeLong(contactEmailAddressId);
+
 		objectOutput.writeLong(contactPhoneId);
+
 		objectOutput.writeLong(contactUserId);
+
 		objectOutput.writeLong(evpRequestOrganizationId);
+
 		objectOutput.writeLong(parentEVPGrantRequestId);
+
 		objectOutput.writeLong(requestOrganizationAddressId);
+
 		objectOutput.writeLong(requestOrganizationWebsiteId);
+
 		objectOutput.writeLong(subsidiaryGroupId);
 
 		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		objectOutput.writeInt(employmentType);
+
 		objectOutput.writeInt(employmentHoursPerWeek);
 
 		if (purpose == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(purpose);
 		}
 
 		if (purposeOther == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(purposeOther);
 		}
 
 		if (behalfOf == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(behalfOf);
 		}
 
 		if (behalfOfOther == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(behalfOfOther);
 		}
 
 		objectOutput.writeInt(status);
+
 		objectOutput.writeLong(statusByUserId);
 
 		if (statusByUserName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(statusByUserName);
@@ -323,4 +375,5 @@ public class EVPGrantRequestCacheModel implements CacheModel<EVPGrantRequest>,
 	public long statusByUserId;
 	public String statusByUserName;
 	public long statusDate;
+
 }

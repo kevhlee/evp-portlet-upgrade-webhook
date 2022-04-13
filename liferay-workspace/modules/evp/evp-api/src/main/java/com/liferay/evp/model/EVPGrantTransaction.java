@@ -14,22 +14,48 @@
 
 package com.liferay.evp.model;
 
-import com.liferay.portal.model.PersistedModel;
+import com.liferay.portal.kernel.annotation.ImplementationClassName;
+import com.liferay.portal.kernel.model.PersistedModel;
+import com.liferay.portal.kernel.util.Accessor;
+
+import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * The extended model interface for the EVPGrantTransaction service. Represents a row in the &quot;EVPGrantTransaction&quot; database table, with each column mapped to a property of this class.
  *
  * @author Val Nagy
  * @see EVPGrantTransactionModel
- * @see com.liferay.evp.model.impl.EVPGrantTransactionImpl
- * @see com.liferay.evp.model.impl.EVPGrantTransactionModelImpl
  * @generated
  */
-public interface EVPGrantTransaction extends EVPGrantTransactionModel,
-	PersistedModel {
+@ImplementationClassName("com.liferay.evp.model.impl.EVPGrantTransactionImpl")
+@ProviderType
+public interface EVPGrantTransaction
+	extends EVPGrantTransactionModel, PersistedModel {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add methods to {@link com.liferay.evp.model.impl.EVPGrantTransactionImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+	 * Never modify this interface directly. Add methods to <code>com.liferay.evp.model.impl.EVPGrantTransactionImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+	public static final Accessor<EVPGrantTransaction, Long>
+		EVP_GRANT_TRANSACTION_ID_ACCESSOR =
+			new Accessor<EVPGrantTransaction, Long>() {
+
+				@Override
+				public Long get(EVPGrantTransaction evpGrantTransaction) {
+					return evpGrantTransaction.getEvpGrantTransactionId();
+				}
+
+				@Override
+				public Class<Long> getAttributeClass() {
+					return Long.class;
+				}
+
+				@Override
+				public Class<EVPGrantTransaction> getTypeClass() {
+					return EVPGrantTransaction.class;
+				}
+
+			};
+
 }

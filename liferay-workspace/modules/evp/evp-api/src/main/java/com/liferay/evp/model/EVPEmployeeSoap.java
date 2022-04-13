@@ -24,9 +24,12 @@ import java.util.List;
  * This class is used by SOAP remote services.
  *
  * @author Val Nagy
+ * @deprecated As of Athanasius (7.3.x), with no direct replacement
  * @generated
  */
+@Deprecated
 public class EVPEmployeeSoap implements Serializable {
+
 	public static EVPEmployeeSoap toSoapModel(EVPEmployee model) {
 		EVPEmployeeSoap soapModel = new EVPEmployeeSoap();
 
@@ -38,7 +41,8 @@ public class EVPEmployeeSoap implements Serializable {
 		soapModel.setModifiedDate(model.getModifiedDate());
 		soapModel.setEmployeeUserId(model.getEmployeeUserId());
 		soapModel.setManagerUserId(model.getManagerUserId());
-		soapModel.setSubsidiaryEVPDivisionId(model.getSubsidiaryEVPDivisionId());
+		soapModel.setSubsidiaryEVPDivisionId(
+			model.getSubsidiaryEVPDivisionId());
 		soapModel.setEmploymentType(model.getEmploymentType());
 		soapModel.setHireDate(model.getHireDate());
 
@@ -73,7 +77,8 @@ public class EVPEmployeeSoap implements Serializable {
 	}
 
 	public static EVPEmployeeSoap[] toSoapModels(List<EVPEmployee> models) {
-		List<EVPEmployeeSoap> soapModels = new ArrayList<EVPEmployeeSoap>(models.size());
+		List<EVPEmployeeSoap> soapModels = new ArrayList<EVPEmployeeSoap>(
+			models.size());
 
 		for (EVPEmployee model : models) {
 			soapModels.add(toSoapModel(model));
@@ -192,4 +197,5 @@ public class EVPEmployeeSoap implements Serializable {
 	private long _subsidiaryEVPDivisionId;
 	private int _employmentType;
 	private Date _hireDate;
+
 }

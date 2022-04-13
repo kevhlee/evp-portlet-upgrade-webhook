@@ -14,8 +14,8 @@
 
 package com.liferay.evp.model;
 
-import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.model.ModelWrapper;
+import com.liferay.portal.kernel.model.ModelWrapper;
+import com.liferay.portal.kernel.model.wrapper.BaseModelWrapper;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -30,20 +30,12 @@ import java.util.Map;
  * @see EVPGrantTransaction
  * @generated
  */
-public class EVPGrantTransactionWrapper implements EVPGrantTransaction,
-	ModelWrapper<EVPGrantTransaction> {
+public class EVPGrantTransactionWrapper
+	extends BaseModelWrapper<EVPGrantTransaction>
+	implements EVPGrantTransaction, ModelWrapper<EVPGrantTransaction> {
+
 	public EVPGrantTransactionWrapper(EVPGrantTransaction evpGrantTransaction) {
-		_evpGrantTransaction = evpGrantTransaction;
-	}
-
-	@Override
-	public Class<?> getModelClass() {
-		return EVPGrantTransaction.class;
-	}
-
-	@Override
-	public String getModelClassName() {
-		return EVPGrantTransaction.class.getName();
+		super(evpGrantTransaction);
 	}
 
 	@Override
@@ -75,7 +67,7 @@ public class EVPGrantTransactionWrapper implements EVPGrantTransaction,
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
 		Long evpGrantTransactionId = (Long)attributes.get(
-				"evpGrantTransactionId");
+			"evpGrantTransactionId");
 
 		if (evpGrantTransactionId != null) {
 			setEvpGrantTransactionId(evpGrantTransactionId);
@@ -185,548 +177,415 @@ public class EVPGrantTransactionWrapper implements EVPGrantTransaction,
 	}
 
 	/**
-	* Returns the primary key of this e v p grant transaction.
-	*
-	* @return the primary key of this e v p grant transaction
-	*/
-	@Override
-	public long getPrimaryKey() {
-		return _evpGrantTransaction.getPrimaryKey();
-	}
-
-	/**
-	* Sets the primary key of this e v p grant transaction.
-	*
-	* @param primaryKey the primary key of this e v p grant transaction
-	*/
-	@Override
-	public void setPrimaryKey(long primaryKey) {
-		_evpGrantTransaction.setPrimaryKey(primaryKey);
-	}
-
-	/**
-	* Returns the evp grant transaction ID of this e v p grant transaction.
-	*
-	* @return the evp grant transaction ID of this e v p grant transaction
-	*/
-	@Override
-	public long getEvpGrantTransactionId() {
-		return _evpGrantTransaction.getEvpGrantTransactionId();
-	}
-
-	/**
-	* Sets the evp grant transaction ID of this e v p grant transaction.
-	*
-	* @param evpGrantTransactionId the evp grant transaction ID of this e v p grant transaction
-	*/
-	@Override
-	public void setEvpGrantTransactionId(long evpGrantTransactionId) {
-		_evpGrantTransaction.setEvpGrantTransactionId(evpGrantTransactionId);
-	}
-
-	/**
-	* Returns the company ID of this e v p grant transaction.
-	*
-	* @return the company ID of this e v p grant transaction
-	*/
-	@Override
-	public long getCompanyId() {
-		return _evpGrantTransaction.getCompanyId();
-	}
-
-	/**
-	* Sets the company ID of this e v p grant transaction.
-	*
-	* @param companyId the company ID of this e v p grant transaction
-	*/
-	@Override
-	public void setCompanyId(long companyId) {
-		_evpGrantTransaction.setCompanyId(companyId);
-	}
-
-	/**
-	* Returns the user ID of this e v p grant transaction.
-	*
-	* @return the user ID of this e v p grant transaction
-	*/
-	@Override
-	public long getUserId() {
-		return _evpGrantTransaction.getUserId();
-	}
-
-	/**
-	* Sets the user ID of this e v p grant transaction.
-	*
-	* @param userId the user ID of this e v p grant transaction
-	*/
-	@Override
-	public void setUserId(long userId) {
-		_evpGrantTransaction.setUserId(userId);
-	}
-
-	/**
-	* Returns the user uuid of this e v p grant transaction.
-	*
-	* @return the user uuid of this e v p grant transaction
-	* @throws SystemException if a system exception occurred
-	*/
-	@Override
-	public java.lang.String getUserUuid()
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _evpGrantTransaction.getUserUuid();
-	}
-
-	/**
-	* Sets the user uuid of this e v p grant transaction.
-	*
-	* @param userUuid the user uuid of this e v p grant transaction
-	*/
-	@Override
-	public void setUserUuid(java.lang.String userUuid) {
-		_evpGrantTransaction.setUserUuid(userUuid);
-	}
-
-	/**
-	* Returns the user name of this e v p grant transaction.
-	*
-	* @return the user name of this e v p grant transaction
-	*/
-	@Override
-	public java.lang.String getUserName() {
-		return _evpGrantTransaction.getUserName();
-	}
-
-	/**
-	* Sets the user name of this e v p grant transaction.
-	*
-	* @param userName the user name of this e v p grant transaction
-	*/
-	@Override
-	public void setUserName(java.lang.String userName) {
-		_evpGrantTransaction.setUserName(userName);
-	}
-
-	/**
-	* Returns the create date of this e v p grant transaction.
-	*
-	* @return the create date of this e v p grant transaction
-	*/
-	@Override
-	public java.util.Date getCreateDate() {
-		return _evpGrantTransaction.getCreateDate();
-	}
-
-	/**
-	* Sets the create date of this e v p grant transaction.
-	*
-	* @param createDate the create date of this e v p grant transaction
-	*/
-	@Override
-	public void setCreateDate(java.util.Date createDate) {
-		_evpGrantTransaction.setCreateDate(createDate);
-	}
-
-	/**
-	* Returns the modified date of this e v p grant transaction.
-	*
-	* @return the modified date of this e v p grant transaction
-	*/
-	@Override
-	public java.util.Date getModifiedDate() {
-		return _evpGrantTransaction.getModifiedDate();
-	}
-
-	/**
-	* Sets the modified date of this e v p grant transaction.
-	*
-	* @param modifiedDate the modified date of this e v p grant transaction
-	*/
-	@Override
-	public void setModifiedDate(java.util.Date modifiedDate) {
-		_evpGrantTransaction.setModifiedDate(modifiedDate);
-	}
-
-	/**
-	* Returns the evp grant request ID of this e v p grant transaction.
-	*
-	* @return the evp grant request ID of this e v p grant transaction
-	*/
-	@Override
-	public long getEvpGrantRequestId() {
-		return _evpGrantTransaction.getEvpGrantRequestId();
-	}
-
-	/**
-	* Sets the evp grant request ID of this e v p grant transaction.
-	*
-	* @param evpGrantRequestId the evp grant request ID of this e v p grant transaction
-	*/
-	@Override
-	public void setEvpGrantRequestId(long evpGrantRequestId) {
-		_evpGrantTransaction.setEvpGrantRequestId(evpGrantRequestId);
-	}
-
-	/**
-	* Returns the file entry ID of this e v p grant transaction.
-	*
-	* @return the file entry ID of this e v p grant transaction
-	*/
-	@Override
-	public long getFileEntryId() {
-		return _evpGrantTransaction.getFileEntryId();
-	}
-
-	/**
-	* Sets the file entry ID of this e v p grant transaction.
-	*
-	* @param fileEntryId the file entry ID of this e v p grant transaction
-	*/
-	@Override
-	public void setFileEntryId(long fileEntryId) {
-		_evpGrantTransaction.setFileEntryId(fileEntryId);
-	}
-
-	/**
-	* Returns the grant type of this e v p grant transaction.
-	*
-	* @return the grant type of this e v p grant transaction
-	*/
-	@Override
-	public int getGrantType() {
-		return _evpGrantTransaction.getGrantType();
-	}
-
-	/**
-	* Sets the grant type of this e v p grant transaction.
-	*
-	* @param grantType the grant type of this e v p grant transaction
-	*/
-	@Override
-	public void setGrantType(int grantType) {
-		_evpGrantTransaction.setGrantType(grantType);
-	}
-
-	/**
-	* Returns the amount of this e v p grant transaction.
-	*
-	* @return the amount of this e v p grant transaction
-	*/
+	 * Returns the amount of this evp grant transaction.
+	 *
+	 * @return the amount of this evp grant transaction
+	 */
 	@Override
 	public double getAmount() {
-		return _evpGrantTransaction.getAmount();
+		return model.getAmount();
 	}
 
 	/**
-	* Sets the amount of this e v p grant transaction.
-	*
-	* @param amount the amount of this e v p grant transaction
-	*/
+	 * Returns the bank bic code of this evp grant transaction.
+	 *
+	 * @return the bank bic code of this evp grant transaction
+	 */
+	@Override
+	public String getBankBICCode() {
+		return model.getBankBICCode();
+	}
+
+	/**
+	 * Returns the bank iban code of this evp grant transaction.
+	 *
+	 * @return the bank iban code of this evp grant transaction
+	 */
+	@Override
+	public String getBankIBANCode() {
+		return model.getBankIBANCode();
+	}
+
+	/**
+	 * Returns the bank name of this evp grant transaction.
+	 *
+	 * @return the bank name of this evp grant transaction
+	 */
+	@Override
+	public String getBankName() {
+		return model.getBankName();
+	}
+
+	/**
+	 * Returns the company ID of this evp grant transaction.
+	 *
+	 * @return the company ID of this evp grant transaction
+	 */
+	@Override
+	public long getCompanyId() {
+		return model.getCompanyId();
+	}
+
+	/**
+	 * Returns the create date of this evp grant transaction.
+	 *
+	 * @return the create date of this evp grant transaction
+	 */
+	@Override
+	public Date getCreateDate() {
+		return model.getCreateDate();
+	}
+
+	/**
+	 * Returns the currency code of this evp grant transaction.
+	 *
+	 * @return the currency code of this evp grant transaction
+	 */
+	@Override
+	public String getCurrencyCode() {
+		return model.getCurrencyCode();
+	}
+
+	/**
+	 * Returns the date of this evp grant transaction.
+	 *
+	 * @return the date of this evp grant transaction
+	 */
+	@Override
+	public Date getDate() {
+		return model.getDate();
+	}
+
+	/**
+	 * Returns the evp grant request ID of this evp grant transaction.
+	 *
+	 * @return the evp grant request ID of this evp grant transaction
+	 */
+	@Override
+	public long getEvpGrantRequestId() {
+		return model.getEvpGrantRequestId();
+	}
+
+	/**
+	 * Returns the evp grant transaction ID of this evp grant transaction.
+	 *
+	 * @return the evp grant transaction ID of this evp grant transaction
+	 */
+	@Override
+	public long getEvpGrantTransactionId() {
+		return model.getEvpGrantTransactionId();
+	}
+
+	/**
+	 * Returns the file entry ID of this evp grant transaction.
+	 *
+	 * @return the file entry ID of this evp grant transaction
+	 */
+	@Override
+	public long getFileEntryId() {
+		return model.getFileEntryId();
+	}
+
+	/**
+	 * Returns the grant type of this evp grant transaction.
+	 *
+	 * @return the grant type of this evp grant transaction
+	 */
+	@Override
+	public int getGrantType() {
+		return model.getGrantType();
+	}
+
+	/**
+	 * Returns the modified date of this evp grant transaction.
+	 *
+	 * @return the modified date of this evp grant transaction
+	 */
+	@Override
+	public Date getModifiedDate() {
+		return model.getModifiedDate();
+	}
+
+	/**
+	 * Returns the note of this evp grant transaction.
+	 *
+	 * @return the note of this evp grant transaction
+	 */
+	@Override
+	public String getNote() {
+		return model.getNote();
+	}
+
+	/**
+	 * Returns the number of this evp grant transaction.
+	 *
+	 * @return the number of this evp grant transaction
+	 */
+	@Override
+	public String getNumber() {
+		return model.getNumber();
+	}
+
+	/**
+	 * Returns the primary key of this evp grant transaction.
+	 *
+	 * @return the primary key of this evp grant transaction
+	 */
+	@Override
+	public long getPrimaryKey() {
+		return model.getPrimaryKey();
+	}
+
+	/**
+	 * Returns the purpose of use of this evp grant transaction.
+	 *
+	 * @return the purpose of use of this evp grant transaction
+	 */
+	@Override
+	public String getPurposeOfUse() {
+		return model.getPurposeOfUse();
+	}
+
+	/**
+	 * Returns the user ID of this evp grant transaction.
+	 *
+	 * @return the user ID of this evp grant transaction
+	 */
+	@Override
+	public long getUserId() {
+		return model.getUserId();
+	}
+
+	/**
+	 * Returns the user name of this evp grant transaction.
+	 *
+	 * @return the user name of this evp grant transaction
+	 */
+	@Override
+	public String getUserName() {
+		return model.getUserName();
+	}
+
+	/**
+	 * Returns the user uuid of this evp grant transaction.
+	 *
+	 * @return the user uuid of this evp grant transaction
+	 */
+	@Override
+	public String getUserUuid() {
+		return model.getUserUuid();
+	}
+
+	@Override
+	public void persist() {
+		model.persist();
+	}
+
+	/**
+	 * Sets the amount of this evp grant transaction.
+	 *
+	 * @param amount the amount of this evp grant transaction
+	 */
 	@Override
 	public void setAmount(double amount) {
-		_evpGrantTransaction.setAmount(amount);
+		model.setAmount(amount);
 	}
 
 	/**
-	* Returns the currency code of this e v p grant transaction.
-	*
-	* @return the currency code of this e v p grant transaction
-	*/
-	@Override
-	public java.lang.String getCurrencyCode() {
-		return _evpGrantTransaction.getCurrencyCode();
-	}
-
-	/**
-	* Sets the currency code of this e v p grant transaction.
-	*
-	* @param currencyCode the currency code of this e v p grant transaction
-	*/
-	@Override
-	public void setCurrencyCode(java.lang.String currencyCode) {
-		_evpGrantTransaction.setCurrencyCode(currencyCode);
-	}
-
-	/**
-	* Returns the date of this e v p grant transaction.
-	*
-	* @return the date of this e v p grant transaction
-	*/
-	@Override
-	public java.util.Date getDate() {
-		return _evpGrantTransaction.getDate();
-	}
-
-	/**
-	* Sets the date of this e v p grant transaction.
-	*
-	* @param date the date of this e v p grant transaction
-	*/
-	@Override
-	public void setDate(java.util.Date date) {
-		_evpGrantTransaction.setDate(date);
-	}
-
-	/**
-	* Returns the note of this e v p grant transaction.
-	*
-	* @return the note of this e v p grant transaction
-	*/
-	@Override
-	public java.lang.String getNote() {
-		return _evpGrantTransaction.getNote();
-	}
-
-	/**
-	* Sets the note of this e v p grant transaction.
-	*
-	* @param note the note of this e v p grant transaction
-	*/
-	@Override
-	public void setNote(java.lang.String note) {
-		_evpGrantTransaction.setNote(note);
-	}
-
-	/**
-	* Returns the number of this e v p grant transaction.
-	*
-	* @return the number of this e v p grant transaction
-	*/
-	@Override
-	public java.lang.String getNumber() {
-		return _evpGrantTransaction.getNumber();
-	}
-
-	/**
-	* Sets the number of this e v p grant transaction.
-	*
-	* @param number the number of this e v p grant transaction
-	*/
-	@Override
-	public void setNumber(java.lang.String number) {
-		_evpGrantTransaction.setNumber(number);
-	}
-
-	/**
-	* Returns the bank b i c code of this e v p grant transaction.
-	*
-	* @return the bank b i c code of this e v p grant transaction
-	*/
-	@Override
-	public java.lang.String getBankBICCode() {
-		return _evpGrantTransaction.getBankBICCode();
-	}
-
-	/**
-	* Sets the bank b i c code of this e v p grant transaction.
-	*
-	* @param bankBICCode the bank b i c code of this e v p grant transaction
-	*/
-	@Override
-	public void setBankBICCode(java.lang.String bankBICCode) {
-		_evpGrantTransaction.setBankBICCode(bankBICCode);
-	}
-
-	/**
-	* Returns the bank i b a n code of this e v p grant transaction.
-	*
-	* @return the bank i b a n code of this e v p grant transaction
-	*/
-	@Override
-	public java.lang.String getBankIBANCode() {
-		return _evpGrantTransaction.getBankIBANCode();
-	}
-
-	/**
-	* Sets the bank i b a n code of this e v p grant transaction.
-	*
-	* @param bankIBANCode the bank i b a n code of this e v p grant transaction
-	*/
-	@Override
-	public void setBankIBANCode(java.lang.String bankIBANCode) {
-		_evpGrantTransaction.setBankIBANCode(bankIBANCode);
-	}
-
-	/**
-	* Returns the bank name of this e v p grant transaction.
-	*
-	* @return the bank name of this e v p grant transaction
-	*/
-	@Override
-	public java.lang.String getBankName() {
-		return _evpGrantTransaction.getBankName();
-	}
-
-	/**
-	* Sets the bank name of this e v p grant transaction.
-	*
-	* @param bankName the bank name of this e v p grant transaction
-	*/
-	@Override
-	public void setBankName(java.lang.String bankName) {
-		_evpGrantTransaction.setBankName(bankName);
-	}
-
-	/**
-	* Returns the purpose of use of this e v p grant transaction.
-	*
-	* @return the purpose of use of this e v p grant transaction
-	*/
-	@Override
-	public java.lang.String getPurposeOfUse() {
-		return _evpGrantTransaction.getPurposeOfUse();
-	}
-
-	/**
-	* Sets the purpose of use of this e v p grant transaction.
-	*
-	* @param purposeOfUse the purpose of use of this e v p grant transaction
-	*/
-	@Override
-	public void setPurposeOfUse(java.lang.String purposeOfUse) {
-		_evpGrantTransaction.setPurposeOfUse(purposeOfUse);
-	}
-
-	@Override
-	public boolean isNew() {
-		return _evpGrantTransaction.isNew();
-	}
-
-	@Override
-	public void setNew(boolean n) {
-		_evpGrantTransaction.setNew(n);
-	}
-
-	@Override
-	public boolean isCachedModel() {
-		return _evpGrantTransaction.isCachedModel();
-	}
-
-	@Override
-	public void setCachedModel(boolean cachedModel) {
-		_evpGrantTransaction.setCachedModel(cachedModel);
-	}
-
-	@Override
-	public boolean isEscapedModel() {
-		return _evpGrantTransaction.isEscapedModel();
-	}
-
-	@Override
-	public java.io.Serializable getPrimaryKeyObj() {
-		return _evpGrantTransaction.getPrimaryKeyObj();
-	}
-
-	@Override
-	public void setPrimaryKeyObj(java.io.Serializable primaryKeyObj) {
-		_evpGrantTransaction.setPrimaryKeyObj(primaryKeyObj);
-	}
-
-	@Override
-	public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
-		return _evpGrantTransaction.getExpandoBridge();
-	}
-
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portal.model.BaseModel<?> baseModel) {
-		_evpGrantTransaction.setExpandoBridgeAttributes(baseModel);
-	}
-
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portlet.expando.model.ExpandoBridge expandoBridge) {
-		_evpGrantTransaction.setExpandoBridgeAttributes(expandoBridge);
-	}
-
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portal.service.ServiceContext serviceContext) {
-		_evpGrantTransaction.setExpandoBridgeAttributes(serviceContext);
-	}
-
-	@Override
-	public java.lang.Object clone() {
-		return new EVPGrantTransactionWrapper((EVPGrantTransaction)_evpGrantTransaction.clone());
-	}
-
-	@Override
-	public int compareTo(
-		com.liferay.evp.model.EVPGrantTransaction evpGrantTransaction) {
-		return _evpGrantTransaction.compareTo(evpGrantTransaction);
-	}
-
-	@Override
-	public int hashCode() {
-		return _evpGrantTransaction.hashCode();
-	}
-
-	@Override
-	public com.liferay.portal.model.CacheModel<com.liferay.evp.model.EVPGrantTransaction> toCacheModel() {
-		return _evpGrantTransaction.toCacheModel();
-	}
-
-	@Override
-	public com.liferay.evp.model.EVPGrantTransaction toEscapedModel() {
-		return new EVPGrantTransactionWrapper(_evpGrantTransaction.toEscapedModel());
-	}
-
-	@Override
-	public com.liferay.evp.model.EVPGrantTransaction toUnescapedModel() {
-		return new EVPGrantTransactionWrapper(_evpGrantTransaction.toUnescapedModel());
-	}
-
-	@Override
-	public java.lang.String toString() {
-		return _evpGrantTransaction.toString();
-	}
-
-	@Override
-	public java.lang.String toXmlString() {
-		return _evpGrantTransaction.toXmlString();
-	}
-
-	@Override
-	public void persist()
-		throws com.liferay.portal.kernel.exception.SystemException {
-		_evpGrantTransaction.persist();
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-
-		if (!(obj instanceof EVPGrantTransactionWrapper)) {
-			return false;
-		}
-
-		EVPGrantTransactionWrapper evpGrantTransactionWrapper = (EVPGrantTransactionWrapper)obj;
-
-		if (Validator.equals(_evpGrantTransaction,
-					evpGrantTransactionWrapper._evpGrantTransaction)) {
-			return true;
-		}
-
-		return false;
-	}
-
-	/**
-	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedModel}
+	 * Sets the bank bic code of this evp grant transaction.
+	 *
+	 * @param bankBICCode the bank bic code of this evp grant transaction
 	 */
-	public EVPGrantTransaction getWrappedEVPGrantTransaction() {
-		return _evpGrantTransaction;
+	@Override
+	public void setBankBICCode(String bankBICCode) {
+		model.setBankBICCode(bankBICCode);
+	}
+
+	/**
+	 * Sets the bank iban code of this evp grant transaction.
+	 *
+	 * @param bankIBANCode the bank iban code of this evp grant transaction
+	 */
+	@Override
+	public void setBankIBANCode(String bankIBANCode) {
+		model.setBankIBANCode(bankIBANCode);
+	}
+
+	/**
+	 * Sets the bank name of this evp grant transaction.
+	 *
+	 * @param bankName the bank name of this evp grant transaction
+	 */
+	@Override
+	public void setBankName(String bankName) {
+		model.setBankName(bankName);
+	}
+
+	/**
+	 * Sets the company ID of this evp grant transaction.
+	 *
+	 * @param companyId the company ID of this evp grant transaction
+	 */
+	@Override
+	public void setCompanyId(long companyId) {
+		model.setCompanyId(companyId);
+	}
+
+	/**
+	 * Sets the create date of this evp grant transaction.
+	 *
+	 * @param createDate the create date of this evp grant transaction
+	 */
+	@Override
+	public void setCreateDate(Date createDate) {
+		model.setCreateDate(createDate);
+	}
+
+	/**
+	 * Sets the currency code of this evp grant transaction.
+	 *
+	 * @param currencyCode the currency code of this evp grant transaction
+	 */
+	@Override
+	public void setCurrencyCode(String currencyCode) {
+		model.setCurrencyCode(currencyCode);
+	}
+
+	/**
+	 * Sets the date of this evp grant transaction.
+	 *
+	 * @param date the date of this evp grant transaction
+	 */
+	@Override
+	public void setDate(Date date) {
+		model.setDate(date);
+	}
+
+	/**
+	 * Sets the evp grant request ID of this evp grant transaction.
+	 *
+	 * @param evpGrantRequestId the evp grant request ID of this evp grant transaction
+	 */
+	@Override
+	public void setEvpGrantRequestId(long evpGrantRequestId) {
+		model.setEvpGrantRequestId(evpGrantRequestId);
+	}
+
+	/**
+	 * Sets the evp grant transaction ID of this evp grant transaction.
+	 *
+	 * @param evpGrantTransactionId the evp grant transaction ID of this evp grant transaction
+	 */
+	@Override
+	public void setEvpGrantTransactionId(long evpGrantTransactionId) {
+		model.setEvpGrantTransactionId(evpGrantTransactionId);
+	}
+
+	/**
+	 * Sets the file entry ID of this evp grant transaction.
+	 *
+	 * @param fileEntryId the file entry ID of this evp grant transaction
+	 */
+	@Override
+	public void setFileEntryId(long fileEntryId) {
+		model.setFileEntryId(fileEntryId);
+	}
+
+	/**
+	 * Sets the grant type of this evp grant transaction.
+	 *
+	 * @param grantType the grant type of this evp grant transaction
+	 */
+	@Override
+	public void setGrantType(int grantType) {
+		model.setGrantType(grantType);
+	}
+
+	/**
+	 * Sets the modified date of this evp grant transaction.
+	 *
+	 * @param modifiedDate the modified date of this evp grant transaction
+	 */
+	@Override
+	public void setModifiedDate(Date modifiedDate) {
+		model.setModifiedDate(modifiedDate);
+	}
+
+	/**
+	 * Sets the note of this evp grant transaction.
+	 *
+	 * @param note the note of this evp grant transaction
+	 */
+	@Override
+	public void setNote(String note) {
+		model.setNote(note);
+	}
+
+	/**
+	 * Sets the number of this evp grant transaction.
+	 *
+	 * @param number the number of this evp grant transaction
+	 */
+	@Override
+	public void setNumber(String number) {
+		model.setNumber(number);
+	}
+
+	/**
+	 * Sets the primary key of this evp grant transaction.
+	 *
+	 * @param primaryKey the primary key of this evp grant transaction
+	 */
+	@Override
+	public void setPrimaryKey(long primaryKey) {
+		model.setPrimaryKey(primaryKey);
+	}
+
+	/**
+	 * Sets the purpose of use of this evp grant transaction.
+	 *
+	 * @param purposeOfUse the purpose of use of this evp grant transaction
+	 */
+	@Override
+	public void setPurposeOfUse(String purposeOfUse) {
+		model.setPurposeOfUse(purposeOfUse);
+	}
+
+	/**
+	 * Sets the user ID of this evp grant transaction.
+	 *
+	 * @param userId the user ID of this evp grant transaction
+	 */
+	@Override
+	public void setUserId(long userId) {
+		model.setUserId(userId);
+	}
+
+	/**
+	 * Sets the user name of this evp grant transaction.
+	 *
+	 * @param userName the user name of this evp grant transaction
+	 */
+	@Override
+	public void setUserName(String userName) {
+		model.setUserName(userName);
+	}
+
+	/**
+	 * Sets the user uuid of this evp grant transaction.
+	 *
+	 * @param userUuid the user uuid of this evp grant transaction
+	 */
+	@Override
+	public void setUserUuid(String userUuid) {
+		model.setUserUuid(userUuid);
 	}
 
 	@Override
-	public EVPGrantTransaction getWrappedModel() {
-		return _evpGrantTransaction;
+	protected EVPGrantTransactionWrapper wrap(
+		EVPGrantTransaction evpGrantTransaction) {
+
+		return new EVPGrantTransactionWrapper(evpGrantTransaction);
 	}
 
-	@Override
-	public void resetOriginalValues() {
-		_evpGrantTransaction.resetOriginalValues();
-	}
-
-	private EVPGrantTransaction _evpGrantTransaction;
 }

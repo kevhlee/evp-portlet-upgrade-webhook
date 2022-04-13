@@ -15,10 +15,9 @@
 package com.liferay.evp.model.impl;
 
 import com.liferay.evp.model.EVPEmployee;
-
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.model.CacheModel;
+import com.liferay.petra.lang.HashUtil;
+import com.liferay.petra.string.StringBundler;
+import com.liferay.portal.kernel.model.CacheModel;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -31,11 +30,36 @@ import java.util.Date;
  * The cache model class for representing EVPEmployee in entity cache.
  *
  * @author Val Nagy
- * @see EVPEmployee
  * @generated
  */
-public class EVPEmployeeCacheModel implements CacheModel<EVPEmployee>,
-	Externalizable {
+public class EVPEmployeeCacheModel
+	implements CacheModel<EVPEmployee>, Externalizable {
+
+	@Override
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+
+		if (!(object instanceof EVPEmployeeCacheModel)) {
+			return false;
+		}
+
+		EVPEmployeeCacheModel evpEmployeeCacheModel =
+			(EVPEmployeeCacheModel)object;
+
+		if (evpEmployeeId == evpEmployeeCacheModel.evpEmployeeId) {
+			return true;
+		}
+
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return HashUtil.hash(0, evpEmployeeId);
+	}
+
 	@Override
 	public String toString() {
 		StringBundler sb = new StringBundler(23);
@@ -76,7 +100,7 @@ public class EVPEmployeeCacheModel implements CacheModel<EVPEmployee>,
 		evpEmployeeImpl.setUserId(userId);
 
 		if (userName == null) {
-			evpEmployeeImpl.setUserName(StringPool.BLANK);
+			evpEmployeeImpl.setUserName("");
 		}
 		else {
 			evpEmployeeImpl.setUserName(userName);
@@ -116,27 +140,34 @@ public class EVPEmployeeCacheModel implements CacheModel<EVPEmployee>,
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		evpEmployeeId = objectInput.readLong();
+
 		companyId = objectInput.readLong();
+
 		userId = objectInput.readLong();
 		userName = objectInput.readUTF();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
+
 		employeeUserId = objectInput.readLong();
+
 		managerUserId = objectInput.readLong();
+
 		subsidiaryEVPDivisionId = objectInput.readLong();
+
 		employmentType = objectInput.readInt();
 		hireDate = objectInput.readLong();
 	}
 
 	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
+	public void writeExternal(ObjectOutput objectOutput) throws IOException {
 		objectOutput.writeLong(evpEmployeeId);
+
 		objectOutput.writeLong(companyId);
+
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -144,9 +175,13 @@ public class EVPEmployeeCacheModel implements CacheModel<EVPEmployee>,
 
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
+
 		objectOutput.writeLong(employeeUserId);
+
 		objectOutput.writeLong(managerUserId);
+
 		objectOutput.writeLong(subsidiaryEVPDivisionId);
+
 		objectOutput.writeInt(employmentType);
 		objectOutput.writeLong(hireDate);
 	}
@@ -162,4 +197,5 @@ public class EVPEmployeeCacheModel implements CacheModel<EVPEmployee>,
 	public long subsidiaryEVPDivisionId;
 	public int employmentType;
 	public long hireDate;
+
 }

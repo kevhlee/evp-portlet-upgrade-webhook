@@ -14,21 +14,46 @@
 
 package com.liferay.evp.model;
 
-import com.liferay.portal.model.PersistedModel;
+import com.liferay.portal.kernel.annotation.ImplementationClassName;
+import com.liferay.portal.kernel.model.PersistedModel;
+import com.liferay.portal.kernel.util.Accessor;
+
+import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * The extended model interface for the EVPEmployee service. Represents a row in the &quot;EVPEmployee&quot; database table, with each column mapped to a property of this class.
  *
  * @author Val Nagy
  * @see EVPEmployeeModel
- * @see com.liferay.evp.model.impl.EVPEmployeeImpl
- * @see com.liferay.evp.model.impl.EVPEmployeeModelImpl
  * @generated
  */
+@ImplementationClassName("com.liferay.evp.model.impl.EVPEmployeeImpl")
+@ProviderType
 public interface EVPEmployee extends EVPEmployeeModel, PersistedModel {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add methods to {@link com.liferay.evp.model.impl.EVPEmployeeImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+	 * Never modify this interface directly. Add methods to <code>com.liferay.evp.model.impl.EVPEmployeeImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+	public static final Accessor<EVPEmployee, Long> EVP_EMPLOYEE_ID_ACCESSOR =
+		new Accessor<EVPEmployee, Long>() {
+
+			@Override
+			public Long get(EVPEmployee evpEmployee) {
+				return evpEmployee.getEvpEmployeeId();
+			}
+
+			@Override
+			public Class<Long> getAttributeClass() {
+				return Long.class;
+			}
+
+			@Override
+			public Class<EVPEmployee> getTypeClass() {
+				return EVPEmployee.class;
+			}
+
+		};
+
 }

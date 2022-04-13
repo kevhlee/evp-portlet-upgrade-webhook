@@ -17,8 +17,6 @@ package com.liferay.evp.model.impl;
 import com.liferay.evp.model.EVPRequestOrganization;
 import com.liferay.evp.service.EVPRequestOrganizationLocalServiceUtil;
 
-import com.liferay.portal.kernel.exception.SystemException;
-
 /**
  * The extended model base implementation for the EVPRequestOrganization service. Represents a row in the &quot;EVPRequestOrganization&quot; database table, with each column mapped to a property of this class.
  *
@@ -28,23 +26,27 @@ import com.liferay.portal.kernel.exception.SystemException;
  *
  * @author Val Nagy
  * @see EVPRequestOrganizationImpl
- * @see com.liferay.evp.model.EVPRequestOrganization
+ * @see EVPRequestOrganization
  * @generated
  */
 public abstract class EVPRequestOrganizationBaseImpl
 	extends EVPRequestOrganizationModelImpl implements EVPRequestOrganization {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this class directly. All methods that expect a e v p request organization model instance should use the {@link EVPRequestOrganization} interface instead.
+	 * Never modify or reference this class directly. All methods that expect a evp request organization model instance should use the <code>EVPRequestOrganization</code> interface instead.
 	 */
 	@Override
-	public void persist() throws SystemException {
+	public void persist() {
 		if (this.isNew()) {
-			EVPRequestOrganizationLocalServiceUtil.addEVPRequestOrganization(this);
+			EVPRequestOrganizationLocalServiceUtil.addEVPRequestOrganization(
+				this);
 		}
 		else {
-			EVPRequestOrganizationLocalServiceUtil.updateEVPRequestOrganization(this);
+			EVPRequestOrganizationLocalServiceUtil.updateEVPRequestOrganization(
+				this);
 		}
 	}
+
 }

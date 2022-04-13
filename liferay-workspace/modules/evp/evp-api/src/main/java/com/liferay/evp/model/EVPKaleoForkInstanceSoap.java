@@ -24,11 +24,15 @@ import java.util.List;
  * This class is used by SOAP remote services.
  *
  * @author Val Nagy
+ * @deprecated As of Athanasius (7.3.x), with no direct replacement
  * @generated
  */
+@Deprecated
 public class EVPKaleoForkInstanceSoap implements Serializable {
+
 	public static EVPKaleoForkInstanceSoap toSoapModel(
 		EVPKaleoForkInstance model) {
+
 		EVPKaleoForkInstanceSoap soapModel = new EVPKaleoForkInstanceSoap();
 
 		soapModel.setEvpKaleoForkInstanceId(model.getEvpKaleoForkInstanceId());
@@ -47,7 +51,9 @@ public class EVPKaleoForkInstanceSoap implements Serializable {
 
 	public static EVPKaleoForkInstanceSoap[] toSoapModels(
 		EVPKaleoForkInstance[] models) {
-		EVPKaleoForkInstanceSoap[] soapModels = new EVPKaleoForkInstanceSoap[models.length];
+
+		EVPKaleoForkInstanceSoap[] soapModels =
+			new EVPKaleoForkInstanceSoap[models.length];
 
 		for (int i = 0; i < models.length; i++) {
 			soapModels[i] = toSoapModel(models[i]);
@@ -58,10 +64,12 @@ public class EVPKaleoForkInstanceSoap implements Serializable {
 
 	public static EVPKaleoForkInstanceSoap[][] toSoapModels(
 		EVPKaleoForkInstance[][] models) {
+
 		EVPKaleoForkInstanceSoap[][] soapModels = null;
 
 		if (models.length > 0) {
-			soapModels = new EVPKaleoForkInstanceSoap[models.length][models[0].length];
+			soapModels =
+				new EVPKaleoForkInstanceSoap[models.length][models[0].length];
 		}
 		else {
 			soapModels = new EVPKaleoForkInstanceSoap[0][0];
@@ -76,13 +84,16 @@ public class EVPKaleoForkInstanceSoap implements Serializable {
 
 	public static EVPKaleoForkInstanceSoap[] toSoapModels(
 		List<EVPKaleoForkInstance> models) {
-		List<EVPKaleoForkInstanceSoap> soapModels = new ArrayList<EVPKaleoForkInstanceSoap>(models.size());
+
+		List<EVPKaleoForkInstanceSoap> soapModels =
+			new ArrayList<EVPKaleoForkInstanceSoap>(models.size());
 
 		for (EVPKaleoForkInstance model : models) {
 			soapModels.add(toSoapModel(model));
 		}
 
-		return soapModels.toArray(new EVPKaleoForkInstanceSoap[soapModels.size()]);
+		return soapModels.toArray(
+			new EVPKaleoForkInstanceSoap[soapModels.size()]);
 	}
 
 	public EVPKaleoForkInstanceSoap() {
@@ -186,4 +197,5 @@ public class EVPKaleoForkInstanceSoap implements Serializable {
 	private long _classPK;
 	private int _type;
 	private int _status;
+
 }

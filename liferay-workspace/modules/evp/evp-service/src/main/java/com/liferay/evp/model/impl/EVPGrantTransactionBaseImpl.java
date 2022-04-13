@@ -17,8 +17,6 @@ package com.liferay.evp.model.impl;
 import com.liferay.evp.model.EVPGrantTransaction;
 import com.liferay.evp.service.EVPGrantTransactionLocalServiceUtil;
 
-import com.liferay.portal.kernel.exception.SystemException;
-
 /**
  * The extended model base implementation for the EVPGrantTransaction service. Represents a row in the &quot;EVPGrantTransaction&quot; database table, with each column mapped to a property of this class.
  *
@@ -28,18 +26,19 @@ import com.liferay.portal.kernel.exception.SystemException;
  *
  * @author Val Nagy
  * @see EVPGrantTransactionImpl
- * @see com.liferay.evp.model.EVPGrantTransaction
+ * @see EVPGrantTransaction
  * @generated
  */
 public abstract class EVPGrantTransactionBaseImpl
 	extends EVPGrantTransactionModelImpl implements EVPGrantTransaction {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this class directly. All methods that expect a e v p grant transaction model instance should use the {@link EVPGrantTransaction} interface instead.
+	 * Never modify or reference this class directly. All methods that expect a evp grant transaction model instance should use the <code>EVPGrantTransaction</code> interface instead.
 	 */
 	@Override
-	public void persist() throws SystemException {
+	public void persist() {
 		if (this.isNew()) {
 			EVPGrantTransactionLocalServiceUtil.addEVPGrantTransaction(this);
 		}
@@ -47,4 +46,5 @@ public abstract class EVPGrantTransactionBaseImpl
 			EVPGrantTransactionLocalServiceUtil.updateEVPGrantTransaction(this);
 		}
 	}
+
 }

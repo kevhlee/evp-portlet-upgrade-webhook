@@ -15,10 +15,9 @@
 package com.liferay.evp.model.impl;
 
 import com.liferay.evp.model.EVPRequestOrganization;
-
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.model.CacheModel;
+import com.liferay.petra.lang.HashUtil;
+import com.liferay.petra.string.StringBundler;
+import com.liferay.portal.kernel.model.CacheModel;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -31,11 +30,38 @@ import java.util.Date;
  * The cache model class for representing EVPRequestOrganization in entity cache.
  *
  * @author Val Nagy
- * @see EVPRequestOrganization
  * @generated
  */
-public class EVPRequestOrganizationCacheModel implements CacheModel<EVPRequestOrganization>,
-	Externalizable {
+public class EVPRequestOrganizationCacheModel
+	implements CacheModel<EVPRequestOrganization>, Externalizable {
+
+	@Override
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+
+		if (!(object instanceof EVPRequestOrganizationCacheModel)) {
+			return false;
+		}
+
+		EVPRequestOrganizationCacheModel evpRequestOrganizationCacheModel =
+			(EVPRequestOrganizationCacheModel)object;
+
+		if (evpRequestOrganizationId ==
+				evpRequestOrganizationCacheModel.evpRequestOrganizationId) {
+
+			return true;
+		}
+
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return HashUtil.hash(0, evpRequestOrganizationId);
+	}
+
 	@Override
 	public String toString() {
 		StringBundler sb = new StringBundler(27);
@@ -73,14 +99,16 @@ public class EVPRequestOrganizationCacheModel implements CacheModel<EVPRequestOr
 
 	@Override
 	public EVPRequestOrganization toEntityModel() {
-		EVPRequestOrganizationImpl evpRequestOrganizationImpl = new EVPRequestOrganizationImpl();
+		EVPRequestOrganizationImpl evpRequestOrganizationImpl =
+			new EVPRequestOrganizationImpl();
 
-		evpRequestOrganizationImpl.setEvpRequestOrganizationId(evpRequestOrganizationId);
+		evpRequestOrganizationImpl.setEvpRequestOrganizationId(
+			evpRequestOrganizationId);
 		evpRequestOrganizationImpl.setCompanyId(companyId);
 		evpRequestOrganizationImpl.setUserId(userId);
 
 		if (userName == null) {
-			evpRequestOrganizationImpl.setUserName(StringPool.BLANK);
+			evpRequestOrganizationImpl.setUserName("");
 		}
 		else {
 			evpRequestOrganizationImpl.setUserName(userName);
@@ -104,17 +132,18 @@ public class EVPRequestOrganizationCacheModel implements CacheModel<EVPRequestOr
 		evpRequestOrganizationImpl.setSubsidiaryGroupId(subsidiaryGroupId);
 
 		if (description == null) {
-			evpRequestOrganizationImpl.setDescription(StringPool.BLANK);
+			evpRequestOrganizationImpl.setDescription("");
 		}
 		else {
 			evpRequestOrganizationImpl.setDescription(description);
 		}
 
 		if (taxIdentificationNumber == null) {
-			evpRequestOrganizationImpl.setTaxIdentificationNumber(StringPool.BLANK);
+			evpRequestOrganizationImpl.setTaxIdentificationNumber("");
 		}
 		else {
-			evpRequestOrganizationImpl.setTaxIdentificationNumber(taxIdentificationNumber);
+			evpRequestOrganizationImpl.setTaxIdentificationNumber(
+				taxIdentificationNumber);
 		}
 
 		evpRequestOrganizationImpl.setNonprofitType(nonprofitType);
@@ -129,29 +158,37 @@ public class EVPRequestOrganizationCacheModel implements CacheModel<EVPRequestOr
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		evpRequestOrganizationId = objectInput.readLong();
+
 		companyId = objectInput.readLong();
+
 		userId = objectInput.readLong();
 		userName = objectInput.readUTF();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
+
 		organizationId = objectInput.readLong();
+
 		subsidiaryGroupId = objectInput.readLong();
 		description = objectInput.readUTF();
 		taxIdentificationNumber = objectInput.readUTF();
+
 		nonprofitType = objectInput.readInt();
+
 		verified = objectInput.readBoolean();
+
 		shared = objectInput.readBoolean();
 	}
 
 	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
+	public void writeExternal(ObjectOutput objectOutput) throws IOException {
 		objectOutput.writeLong(evpRequestOrganizationId);
+
 		objectOutput.writeLong(companyId);
+
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -159,25 +196,29 @@ public class EVPRequestOrganizationCacheModel implements CacheModel<EVPRequestOr
 
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
+
 		objectOutput.writeLong(organizationId);
+
 		objectOutput.writeLong(subsidiaryGroupId);
 
 		if (description == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		if (taxIdentificationNumber == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(taxIdentificationNumber);
 		}
 
 		objectOutput.writeInt(nonprofitType);
+
 		objectOutput.writeBoolean(verified);
+
 		objectOutput.writeBoolean(shared);
 	}
 
@@ -194,4 +235,5 @@ public class EVPRequestOrganizationCacheModel implements CacheModel<EVPRequestOr
 	public int nonprofitType;
 	public boolean verified;
 	public boolean shared;
+
 }

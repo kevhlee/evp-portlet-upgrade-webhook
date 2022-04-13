@@ -14,309 +14,310 @@
 
 package com.liferay.evp.service;
 
-import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
-import com.liferay.portal.kernel.util.ReferenceRegistry;
-import com.liferay.portal.service.InvokableLocalService;
+import com.liferay.evp.model.EVPRequestOrganization;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.model.PersistedModel;
+import com.liferay.portal.kernel.util.OrderByComparator;
+
+import java.io.Serializable;
+
+import java.util.List;
 
 /**
  * Provides the local service utility for EVPRequestOrganization. This utility wraps
- * {@link com.liferay.evp.service.impl.EVPRequestOrganizationLocalServiceImpl} and is the
- * primary access point for service operations in application layer code running
+ * <code>com.liferay.evp.service.impl.EVPRequestOrganizationLocalServiceImpl</code> and
+ * is an access point for service operations in application layer code running
  * on the local server. Methods of this service will not have security checks
  * based on the propagated JAAS credentials because this service can only be
  * accessed from within the same VM.
  *
  * @author Val Nagy
  * @see EVPRequestOrganizationLocalService
- * @see com.liferay.evp.service.base.EVPRequestOrganizationLocalServiceBaseImpl
- * @see com.liferay.evp.service.impl.EVPRequestOrganizationLocalServiceImpl
  * @generated
  */
 public class EVPRequestOrganizationLocalServiceUtil {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to {@link com.liferay.evp.service.impl.EVPRequestOrganizationLocalServiceImpl} and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.liferay.evp.service.impl.EVPRequestOrganizationLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 
 	/**
-	* Adds the e v p request organization to the database. Also notifies the appropriate model listeners.
-	*
-	* @param evpRequestOrganization the e v p request organization
-	* @return the e v p request organization that was added
-	* @throws SystemException if a system exception occurred
-	*/
-	public static com.liferay.evp.model.EVPRequestOrganization addEVPRequestOrganization(
-		com.liferay.evp.model.EVPRequestOrganization evpRequestOrganization)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	 * Adds the evp request organization to the database. Also notifies the appropriate model listeners.
+	 *
+	 * <p>
+	 * <strong>Important:</strong> Inspect EVPRequestOrganizationLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
+	 * </p>
+	 *
+	 * @param evpRequestOrganization the evp request organization
+	 * @return the evp request organization that was added
+	 */
+	public static EVPRequestOrganization addEVPRequestOrganization(
+		EVPRequestOrganization evpRequestOrganization) {
+
 		return getService().addEVPRequestOrganization(evpRequestOrganization);
 	}
 
+	public static EVPRequestOrganization addEVPRequestOrganization(
+			long companyId, long userId, java.util.Date createDate,
+			String organizationName, String taxIdentificationNumber,
+			String street1, String city, String zip, long regionId,
+			long countryId, String url)
+		throws Exception {
+
+		return getService().addEVPRequestOrganization(
+			companyId, userId, createDate, organizationName,
+			taxIdentificationNumber, street1, city, zip, regionId, countryId,
+			url);
+	}
+
 	/**
-	* Creates a new e v p request organization with the primary key. Does not add the e v p request organization to the database.
-	*
-	* @param evpRequestOrganizationId the primary key for the new e v p request organization
-	* @return the new e v p request organization
-	*/
-	public static com.liferay.evp.model.EVPRequestOrganization createEVPRequestOrganization(
+	 * Creates a new evp request organization with the primary key. Does not add the evp request organization to the database.
+	 *
+	 * @param evpRequestOrganizationId the primary key for the new evp request organization
+	 * @return the new evp request organization
+	 */
+	public static EVPRequestOrganization createEVPRequestOrganization(
 		long evpRequestOrganizationId) {
-		return getService()
-				   .createEVPRequestOrganization(evpRequestOrganizationId);
+
+		return getService().createEVPRequestOrganization(
+			evpRequestOrganizationId);
 	}
 
 	/**
-	* Deletes the e v p request organization with the primary key from the database. Also notifies the appropriate model listeners.
-	*
-	* @param evpRequestOrganizationId the primary key of the e v p request organization
-	* @return the e v p request organization that was removed
-	* @throws PortalException if a e v p request organization with the primary key could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public static com.liferay.evp.model.EVPRequestOrganization deleteEVPRequestOrganization(
-		long evpRequestOrganizationId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService()
-				   .deleteEVPRequestOrganization(evpRequestOrganizationId);
+	 * @throws PortalException
+	 */
+	public static PersistedModel createPersistedModel(
+			Serializable primaryKeyObj)
+		throws PortalException {
+
+		return getService().createPersistedModel(primaryKeyObj);
 	}
 
 	/**
-	* Deletes the e v p request organization from the database. Also notifies the appropriate model listeners.
-	*
-	* @param evpRequestOrganization the e v p request organization
-	* @return the e v p request organization that was removed
-	* @throws SystemException if a system exception occurred
-	*/
-	public static com.liferay.evp.model.EVPRequestOrganization deleteEVPRequestOrganization(
-		com.liferay.evp.model.EVPRequestOrganization evpRequestOrganization)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteEVPRequestOrganization(evpRequestOrganization);
+	 * Deletes the evp request organization from the database. Also notifies the appropriate model listeners.
+	 *
+	 * <p>
+	 * <strong>Important:</strong> Inspect EVPRequestOrganizationLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
+	 * </p>
+	 *
+	 * @param evpRequestOrganization the evp request organization
+	 * @return the evp request organization that was removed
+	 */
+	public static EVPRequestOrganization deleteEVPRequestOrganization(
+		EVPRequestOrganization evpRequestOrganization) {
+
+		return getService().deleteEVPRequestOrganization(
+			evpRequestOrganization);
 	}
 
-	public static com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery() {
+	/**
+	 * Deletes the evp request organization with the primary key from the database. Also notifies the appropriate model listeners.
+	 *
+	 * <p>
+	 * <strong>Important:</strong> Inspect EVPRequestOrganizationLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
+	 * </p>
+	 *
+	 * @param evpRequestOrganizationId the primary key of the evp request organization
+	 * @return the evp request organization that was removed
+	 * @throws PortalException if a evp request organization with the primary key could not be found
+	 */
+	public static EVPRequestOrganization deleteEVPRequestOrganization(
+			long evpRequestOrganizationId)
+		throws PortalException {
+
+		return getService().deleteEVPRequestOrganization(
+			evpRequestOrganizationId);
+	}
+
+	/**
+	 * @throws PortalException
+	 */
+	public static PersistedModel deletePersistedModel(
+			PersistedModel persistedModel)
+		throws PortalException {
+
+		return getService().deletePersistedModel(persistedModel);
+	}
+
+	public static DynamicQuery dynamicQuery() {
 		return getService().dynamicQuery();
 	}
 
 	/**
-	* Performs a dynamic query on the database and returns the matching rows.
-	*
-	* @param dynamicQuery the dynamic query
-	* @return the matching rows
-	* @throws SystemException if a system exception occurred
-	*/
-	@SuppressWarnings("rawtypes")
-	public static java.util.List dynamicQuery(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	 * Performs a dynamic query on the database and returns the matching rows.
+	 *
+	 * @param dynamicQuery the dynamic query
+	 * @return the matching rows
+	 */
+	public static <T> List<T> dynamicQuery(DynamicQuery dynamicQuery) {
 		return getService().dynamicQuery(dynamicQuery);
 	}
 
 	/**
-	* Performs a dynamic query on the database and returns a range of the matching rows.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.evp.model.impl.EVPRequestOrganizationModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param dynamicQuery the dynamic query
-	* @param start the lower bound of the range of model instances
-	* @param end the upper bound of the range of model instances (not inclusive)
-	* @return the range of matching rows
-	* @throws SystemException if a system exception occurred
-	*/
-	@SuppressWarnings("rawtypes")
-	public static java.util.List dynamicQuery(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
-		int end) throws com.liferay.portal.kernel.exception.SystemException {
+	 * Performs a dynamic query on the database and returns a range of the matching rows.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>com.liferay.evp.model.impl.EVPRequestOrganizationModelImpl</code>.
+	 * </p>
+	 *
+	 * @param dynamicQuery the dynamic query
+	 * @param start the lower bound of the range of model instances
+	 * @param end the upper bound of the range of model instances (not inclusive)
+	 * @return the range of matching rows
+	 */
+	public static <T> List<T> dynamicQuery(
+		DynamicQuery dynamicQuery, int start, int end) {
+
 		return getService().dynamicQuery(dynamicQuery, start, end);
 	}
 
 	/**
-	* Performs a dynamic query on the database and returns an ordered range of the matching rows.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.evp.model.impl.EVPRequestOrganizationModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param dynamicQuery the dynamic query
-	* @param start the lower bound of the range of model instances
-	* @param end the upper bound of the range of model instances (not inclusive)
-	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	* @return the ordered range of matching rows
-	* @throws SystemException if a system exception occurred
-	*/
-	@SuppressWarnings("rawtypes")
-	public static java.util.List dynamicQuery(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
-		int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService()
-				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
+	 * Performs a dynamic query on the database and returns an ordered range of the matching rows.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>com.liferay.evp.model.impl.EVPRequestOrganizationModelImpl</code>.
+	 * </p>
+	 *
+	 * @param dynamicQuery the dynamic query
+	 * @param start the lower bound of the range of model instances
+	 * @param end the upper bound of the range of model instances (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching rows
+	 */
+	public static <T> List<T> dynamicQuery(
+		DynamicQuery dynamicQuery, int start, int end,
+		OrderByComparator<T> orderByComparator) {
+
+		return getService().dynamicQuery(
+			dynamicQuery, start, end, orderByComparator);
 	}
 
 	/**
-	* Returns the number of rows that match the dynamic query.
-	*
-	* @param dynamicQuery the dynamic query
-	* @return the number of rows that match the dynamic query
-	* @throws SystemException if a system exception occurred
-	*/
-	public static long dynamicQueryCount(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	 * Returns the number of rows matching the dynamic query.
+	 *
+	 * @param dynamicQuery the dynamic query
+	 * @return the number of rows matching the dynamic query
+	 */
+	public static long dynamicQueryCount(DynamicQuery dynamicQuery) {
 		return getService().dynamicQueryCount(dynamicQuery);
 	}
 
 	/**
-	* Returns the number of rows that match the dynamic query.
-	*
-	* @param dynamicQuery the dynamic query
-	* @param projection the projection to apply to the query
-	* @return the number of rows that match the dynamic query
-	* @throws SystemException if a system exception occurred
-	*/
+	 * Returns the number of rows matching the dynamic query.
+	 *
+	 * @param dynamicQuery the dynamic query
+	 * @param projection the projection to apply to the query
+	 * @return the number of rows matching the dynamic query
+	 */
 	public static long dynamicQueryCount(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
-		com.liferay.portal.kernel.dao.orm.Projection projection)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		DynamicQuery dynamicQuery,
+		com.liferay.portal.kernel.dao.orm.Projection projection) {
+
 		return getService().dynamicQueryCount(dynamicQuery, projection);
 	}
 
-	public static com.liferay.evp.model.EVPRequestOrganization fetchEVPRequestOrganization(
-		long evpRequestOrganizationId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().fetchEVPRequestOrganization(evpRequestOrganizationId);
+	public static EVPRequestOrganization fetchEVPRequestOrganization(
+		long evpRequestOrganizationId) {
+
+		return getService().fetchEVPRequestOrganization(
+			evpRequestOrganizationId);
+	}
+
+	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery
+		getActionableDynamicQuery() {
+
+		return getService().getActionableDynamicQuery();
 	}
 
 	/**
-	* Returns the e v p request organization with the primary key.
-	*
-	* @param evpRequestOrganizationId the primary key of the e v p request organization
-	* @return the e v p request organization
-	* @throws PortalException if a e v p request organization with the primary key could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public static com.liferay.evp.model.EVPRequestOrganization getEVPRequestOrganization(
-		long evpRequestOrganizationId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+	 * Returns the evp request organization with the primary key.
+	 *
+	 * @param evpRequestOrganizationId the primary key of the evp request organization
+	 * @return the evp request organization
+	 * @throws PortalException if a evp request organization with the primary key could not be found
+	 */
+	public static EVPRequestOrganization getEVPRequestOrganization(
+			long evpRequestOrganizationId)
+		throws PortalException {
+
 		return getService().getEVPRequestOrganization(evpRequestOrganizationId);
 	}
 
-	public static com.liferay.portal.model.PersistedModel getPersistedModel(
-		java.io.Serializable primaryKeyObj)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getPersistedModel(primaryKeyObj);
-	}
-
 	/**
-	* Returns a range of all the e v p request organizations.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.evp.model.impl.EVPRequestOrganizationModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param start the lower bound of the range of e v p request organizations
-	* @param end the upper bound of the range of e v p request organizations (not inclusive)
-	* @return the range of e v p request organizations
-	* @throws SystemException if a system exception occurred
-	*/
-	public static java.util.List<com.liferay.evp.model.EVPRequestOrganization> getEVPRequestOrganizations(
-		int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	 * Returns a range of all the evp request organizations.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>com.liferay.evp.model.impl.EVPRequestOrganizationModelImpl</code>.
+	 * </p>
+	 *
+	 * @param start the lower bound of the range of evp request organizations
+	 * @param end the upper bound of the range of evp request organizations (not inclusive)
+	 * @return the range of evp request organizations
+	 */
+	public static List<EVPRequestOrganization> getEVPRequestOrganizations(
+		int start, int end) {
+
 		return getService().getEVPRequestOrganizations(start, end);
 	}
 
 	/**
-	* Returns the number of e v p request organizations.
-	*
-	* @return the number of e v p request organizations
-	* @throws SystemException if a system exception occurred
-	*/
-	public static int getEVPRequestOrganizationsCount()
-		throws com.liferay.portal.kernel.exception.SystemException {
+	 * Returns the number of evp request organizations.
+	 *
+	 * @return the number of evp request organizations
+	 */
+	public static int getEVPRequestOrganizationsCount() {
 		return getService().getEVPRequestOrganizationsCount();
 	}
 
-	/**
-	* Updates the e v p request organization in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
-	*
-	* @param evpRequestOrganization the e v p request organization
-	* @return the e v p request organization that was updated
-	* @throws SystemException if a system exception occurred
-	*/
-	public static com.liferay.evp.model.EVPRequestOrganization updateEVPRequestOrganization(
-		com.liferay.evp.model.EVPRequestOrganization evpRequestOrganization)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().updateEVPRequestOrganization(evpRequestOrganization);
+	public static
+		com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery
+			getIndexableActionableDynamicQuery() {
+
+		return getService().getIndexableActionableDynamicQuery();
 	}
 
 	/**
-	* Returns the Spring bean ID for this bean.
-	*
-	* @return the Spring bean ID for this bean
-	*/
-	public static java.lang.String getBeanIdentifier() {
-		return getService().getBeanIdentifier();
+	 * Returns the OSGi service identifier.
+	 *
+	 * @return the OSGi service identifier
+	 */
+	public static String getOSGiServiceIdentifier() {
+		return getService().getOSGiServiceIdentifier();
 	}
 
 	/**
-	* Sets the Spring bean ID for this bean.
-	*
-	* @param beanIdentifier the Spring bean ID for this bean
-	*/
-	public static void setBeanIdentifier(java.lang.String beanIdentifier) {
-		getService().setBeanIdentifier(beanIdentifier);
+	 * @throws PortalException
+	 */
+	public static PersistedModel getPersistedModel(Serializable primaryKeyObj)
+		throws PortalException {
+
+		return getService().getPersistedModel(primaryKeyObj);
 	}
 
-	public static java.lang.Object invokeMethod(java.lang.String name,
-		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
-		throws java.lang.Throwable {
-		return getService().invokeMethod(name, parameterTypes, arguments);
-	}
+	/**
+	 * Updates the evp request organization in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+	 *
+	 * <p>
+	 * <strong>Important:</strong> Inspect EVPRequestOrganizationLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
+	 * </p>
+	 *
+	 * @param evpRequestOrganization the evp request organization
+	 * @return the evp request organization that was updated
+	 */
+	public static EVPRequestOrganization updateEVPRequestOrganization(
+		EVPRequestOrganization evpRequestOrganization) {
 
-	public static com.liferay.evp.model.EVPRequestOrganization addEVPRequestOrganization(
-		long companyId, long userId, java.util.Date createDate,
-		java.lang.String organizationName,
-		java.lang.String taxIdentificationNumber, java.lang.String street1,
-		java.lang.String city, java.lang.String zip, long regionId,
-		long countryId, java.lang.String url) throws java.lang.Exception {
-		return getService()
-				   .addEVPRequestOrganization(companyId, userId, createDate,
-			organizationName, taxIdentificationNumber, street1, city, zip,
-			regionId, countryId, url);
-	}
-
-	public static void clearService() {
-		_service = null;
+		return getService().updateEVPRequestOrganization(
+			evpRequestOrganization);
 	}
 
 	public static EVPRequestOrganizationLocalService getService() {
-		if (_service == null) {
-			InvokableLocalService invokableLocalService = (InvokableLocalService)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(),
-					EVPRequestOrganizationLocalService.class.getName());
-
-			if (invokableLocalService instanceof EVPRequestOrganizationLocalService) {
-				_service = (EVPRequestOrganizationLocalService)invokableLocalService;
-			}
-			else {
-				_service = new EVPRequestOrganizationLocalServiceClp(invokableLocalService);
-			}
-
-			ReferenceRegistry.registerReference(EVPRequestOrganizationLocalServiceUtil.class,
-				"_service");
-		}
-
 		return _service;
 	}
 
-	/**
-	 * @deprecated As of 6.2.0
-	 */
-	public void setService(EVPRequestOrganizationLocalService service) {
-	}
+	private static volatile EVPRequestOrganizationLocalService _service;
 
-	private static EVPRequestOrganizationLocalService _service;
 }

@@ -15,10 +15,9 @@
 package com.liferay.evp.model.impl;
 
 import com.liferay.evp.model.EVPDivision;
-
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.model.CacheModel;
+import com.liferay.petra.lang.HashUtil;
+import com.liferay.petra.string.StringBundler;
+import com.liferay.portal.kernel.model.CacheModel;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -31,11 +30,36 @@ import java.util.Date;
  * The cache model class for representing EVPDivision in entity cache.
  *
  * @author Val Nagy
- * @see EVPDivision
  * @generated
  */
-public class EVPDivisionCacheModel implements CacheModel<EVPDivision>,
-	Externalizable {
+public class EVPDivisionCacheModel
+	implements CacheModel<EVPDivision>, Externalizable {
+
+	@Override
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+
+		if (!(object instanceof EVPDivisionCacheModel)) {
+			return false;
+		}
+
+		EVPDivisionCacheModel evpDivisionCacheModel =
+			(EVPDivisionCacheModel)object;
+
+		if (evpDivisionId == evpDivisionCacheModel.evpDivisionId) {
+			return true;
+		}
+
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return HashUtil.hash(0, evpDivisionId);
+	}
+
 	@Override
 	public String toString() {
 		StringBundler sb = new StringBundler(21);
@@ -74,7 +98,7 @@ public class EVPDivisionCacheModel implements CacheModel<EVPDivision>,
 		evpDivisionImpl.setUserId(userId);
 
 		if (userName == null) {
-			evpDivisionImpl.setUserName(StringPool.BLANK);
+			evpDivisionImpl.setUserName("");
 		}
 		else {
 			evpDivisionImpl.setUserName(userName);
@@ -98,7 +122,7 @@ public class EVPDivisionCacheModel implements CacheModel<EVPDivision>,
 		evpDivisionImpl.setParentEVPDivisionId(parentEVPDivisionId);
 
 		if (abbreviation == null) {
-			evpDivisionImpl.setAbbreviation(StringPool.BLANK);
+			evpDivisionImpl.setAbbreviation("");
 		}
 		else {
 			evpDivisionImpl.setAbbreviation(abbreviation);
@@ -114,26 +138,32 @@ public class EVPDivisionCacheModel implements CacheModel<EVPDivision>,
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		evpDivisionId = objectInput.readLong();
+
 		companyId = objectInput.readLong();
+
 		userId = objectInput.readLong();
 		userName = objectInput.readUTF();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
+
 		organizationId = objectInput.readLong();
+
 		parentEVPDivisionId = objectInput.readLong();
 		abbreviation = objectInput.readUTF();
+
 		type = objectInput.readInt();
 	}
 
 	@Override
-	public void writeExternal(ObjectOutput objectOutput)
-		throws IOException {
+	public void writeExternal(ObjectOutput objectOutput) throws IOException {
 		objectOutput.writeLong(evpDivisionId);
+
 		objectOutput.writeLong(companyId);
+
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -141,11 +171,13 @@ public class EVPDivisionCacheModel implements CacheModel<EVPDivision>,
 
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
+
 		objectOutput.writeLong(organizationId);
+
 		objectOutput.writeLong(parentEVPDivisionId);
 
 		if (abbreviation == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
+			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(abbreviation);
@@ -164,4 +196,5 @@ public class EVPDivisionCacheModel implements CacheModel<EVPDivision>,
 	public long parentEVPDivisionId;
 	public String abbreviation;
 	public int type;
+
 }

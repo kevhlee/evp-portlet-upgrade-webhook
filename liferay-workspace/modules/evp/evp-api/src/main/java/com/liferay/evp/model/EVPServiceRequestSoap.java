@@ -24,9 +24,12 @@ import java.util.List;
  * This class is used by SOAP remote services.
  *
  * @author Val Nagy
+ * @deprecated As of Athanasius (7.3.x), with no direct replacement
  * @generated
  */
+@Deprecated
 public class EVPServiceRequestSoap implements Serializable {
+
 	public static EVPServiceRequestSoap toSoapModel(EVPServiceRequest model) {
 		EVPServiceRequestSoap soapModel = new EVPServiceRequestSoap();
 
@@ -39,11 +42,15 @@ public class EVPServiceRequestSoap implements Serializable {
 		soapModel.setContactEmailAddressId(model.getContactEmailAddressId());
 		soapModel.setContactPhoneId(model.getContactPhoneId());
 		soapModel.setContactUserId(model.getContactUserId());
-		soapModel.setEvpRequestOrganizationId(model.getEvpRequestOrganizationId());
+		soapModel.setEvpRequestOrganizationId(
+			model.getEvpRequestOrganizationId());
 		soapModel.setManagerUserId(model.getManagerUserId());
-		soapModel.setParentEVPServiceRequestId(model.getParentEVPServiceRequestId());
-		soapModel.setRequestOrganizationAddressId(model.getRequestOrganizationAddressId());
-		soapModel.setRequestOrganizationWebsiteId(model.getRequestOrganizationWebsiteId());
+		soapModel.setParentEVPServiceRequestId(
+			model.getParentEVPServiceRequestId());
+		soapModel.setRequestOrganizationAddressId(
+			model.getRequestOrganizationAddressId());
+		soapModel.setRequestOrganizationWebsiteId(
+			model.getRequestOrganizationWebsiteId());
 		soapModel.setSubsidiaryGroupId(model.getSubsidiaryGroupId());
 		soapModel.setDescription(model.getDescription());
 		soapModel.setEmploymentType(model.getEmploymentType());
@@ -55,7 +62,7 @@ public class EVPServiceRequestSoap implements Serializable {
 		soapModel.setRequestedStartDate(model.getRequestedStartDate());
 		soapModel.setRequestedEndDate(model.getRequestedEndDate());
 		soapModel.setRequestedTotalHours(model.getRequestedTotalHours());
-		soapModel.setPromoteTrip(model.getPromoteTrip());
+		soapModel.setPromoteTrip(model.isPromoteTrip());
 		soapModel.setConfirmedStartDate(model.getConfirmedStartDate());
 		soapModel.setConfirmedEndDate(model.getConfirmedEndDate());
 		soapModel.setConfirmedTotalHours(model.getConfirmedTotalHours());
@@ -65,7 +72,7 @@ public class EVPServiceRequestSoap implements Serializable {
 		soapModel.setFeedbackDescription(model.getFeedbackDescription());
 		soapModel.setEmployeeBenefit(model.getEmployeeBenefit());
 		soapModel.setRecipientBenefit(model.getRecipientBenefit());
-		soapModel.setShareStory(model.getShareStory());
+		soapModel.setShareStory(model.isShareStory());
 		soapModel.setStatus(model.getStatus());
 		soapModel.setStatusByUserId(model.getStatusByUserId());
 		soapModel.setStatusByUserName(model.getStatusByUserName());
@@ -76,7 +83,9 @@ public class EVPServiceRequestSoap implements Serializable {
 
 	public static EVPServiceRequestSoap[] toSoapModels(
 		EVPServiceRequest[] models) {
-		EVPServiceRequestSoap[] soapModels = new EVPServiceRequestSoap[models.length];
+
+		EVPServiceRequestSoap[] soapModels =
+			new EVPServiceRequestSoap[models.length];
 
 		for (int i = 0; i < models.length; i++) {
 			soapModels[i] = toSoapModel(models[i]);
@@ -87,10 +96,12 @@ public class EVPServiceRequestSoap implements Serializable {
 
 	public static EVPServiceRequestSoap[][] toSoapModels(
 		EVPServiceRequest[][] models) {
+
 		EVPServiceRequestSoap[][] soapModels = null;
 
 		if (models.length > 0) {
-			soapModels = new EVPServiceRequestSoap[models.length][models[0].length];
+			soapModels =
+				new EVPServiceRequestSoap[models.length][models[0].length];
 		}
 		else {
 			soapModels = new EVPServiceRequestSoap[0][0];
@@ -105,7 +116,9 @@ public class EVPServiceRequestSoap implements Serializable {
 
 	public static EVPServiceRequestSoap[] toSoapModels(
 		List<EVPServiceRequest> models) {
-		List<EVPServiceRequestSoap> soapModels = new ArrayList<EVPServiceRequestSoap>(models.size());
+
+		List<EVPServiceRequestSoap> soapModels =
+			new ArrayList<EVPServiceRequestSoap>(models.size());
 
 		for (EVPServiceRequest model : models) {
 			soapModels.add(toSoapModel(model));
@@ -227,6 +240,7 @@ public class EVPServiceRequestSoap implements Serializable {
 
 	public void setRequestOrganizationAddressId(
 		long requestOrganizationAddressId) {
+
 		_requestOrganizationAddressId = requestOrganizationAddressId;
 	}
 
@@ -236,6 +250,7 @@ public class EVPServiceRequestSoap implements Serializable {
 
 	public void setRequestOrganizationWebsiteId(
 		long requestOrganizationWebsiteId) {
+
 		_requestOrganizationWebsiteId = requestOrganizationWebsiteId;
 	}
 
@@ -495,4 +510,5 @@ public class EVPServiceRequestSoap implements Serializable {
 	private long _statusByUserId;
 	private String _statusByUserName;
 	private Date _statusDate;
+
 }

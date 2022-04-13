@@ -24,14 +24,19 @@ import java.util.List;
  * This class is used by SOAP remote services.
  *
  * @author Val Nagy
+ * @deprecated As of Athanasius (7.3.x), with no direct replacement
  * @generated
  */
+@Deprecated
 public class EVPRequestOrganizationSoap implements Serializable {
+
 	public static EVPRequestOrganizationSoap toSoapModel(
 		EVPRequestOrganization model) {
+
 		EVPRequestOrganizationSoap soapModel = new EVPRequestOrganizationSoap();
 
-		soapModel.setEvpRequestOrganizationId(model.getEvpRequestOrganizationId());
+		soapModel.setEvpRequestOrganizationId(
+			model.getEvpRequestOrganizationId());
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setUserId(model.getUserId());
 		soapModel.setUserName(model.getUserName());
@@ -40,17 +45,20 @@ public class EVPRequestOrganizationSoap implements Serializable {
 		soapModel.setOrganizationId(model.getOrganizationId());
 		soapModel.setSubsidiaryGroupId(model.getSubsidiaryGroupId());
 		soapModel.setDescription(model.getDescription());
-		soapModel.setTaxIdentificationNumber(model.getTaxIdentificationNumber());
+		soapModel.setTaxIdentificationNumber(
+			model.getTaxIdentificationNumber());
 		soapModel.setNonprofitType(model.getNonprofitType());
-		soapModel.setVerified(model.getVerified());
-		soapModel.setShared(model.getShared());
+		soapModel.setVerified(model.isVerified());
+		soapModel.setShared(model.isShared());
 
 		return soapModel;
 	}
 
 	public static EVPRequestOrganizationSoap[] toSoapModels(
 		EVPRequestOrganization[] models) {
-		EVPRequestOrganizationSoap[] soapModels = new EVPRequestOrganizationSoap[models.length];
+
+		EVPRequestOrganizationSoap[] soapModels =
+			new EVPRequestOrganizationSoap[models.length];
 
 		for (int i = 0; i < models.length; i++) {
 			soapModels[i] = toSoapModel(models[i]);
@@ -61,10 +69,12 @@ public class EVPRequestOrganizationSoap implements Serializable {
 
 	public static EVPRequestOrganizationSoap[][] toSoapModels(
 		EVPRequestOrganization[][] models) {
+
 		EVPRequestOrganizationSoap[][] soapModels = null;
 
 		if (models.length > 0) {
-			soapModels = new EVPRequestOrganizationSoap[models.length][models[0].length];
+			soapModels =
+				new EVPRequestOrganizationSoap[models.length][models[0].length];
 		}
 		else {
 			soapModels = new EVPRequestOrganizationSoap[0][0];
@@ -79,13 +89,16 @@ public class EVPRequestOrganizationSoap implements Serializable {
 
 	public static EVPRequestOrganizationSoap[] toSoapModels(
 		List<EVPRequestOrganization> models) {
-		List<EVPRequestOrganizationSoap> soapModels = new ArrayList<EVPRequestOrganizationSoap>(models.size());
+
+		List<EVPRequestOrganizationSoap> soapModels =
+			new ArrayList<EVPRequestOrganizationSoap>(models.size());
 
 		for (EVPRequestOrganization model : models) {
 			soapModels.add(toSoapModel(model));
 		}
 
-		return soapModels.toArray(new EVPRequestOrganizationSoap[soapModels.size()]);
+		return soapModels.toArray(
+			new EVPRequestOrganizationSoap[soapModels.size()]);
 	}
 
 	public EVPRequestOrganizationSoap() {
@@ -224,4 +237,5 @@ public class EVPRequestOrganizationSoap implements Serializable {
 	private int _nonprofitType;
 	private boolean _verified;
 	private boolean _shared;
+
 }

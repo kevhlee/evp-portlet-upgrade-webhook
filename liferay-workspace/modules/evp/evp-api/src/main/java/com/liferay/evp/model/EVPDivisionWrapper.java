@@ -14,8 +14,8 @@
 
 package com.liferay.evp.model;
 
-import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.model.ModelWrapper;
+import com.liferay.portal.kernel.model.ModelWrapper;
+import com.liferay.portal.kernel.model.wrapper.BaseModelWrapper;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -30,20 +30,12 @@ import java.util.Map;
  * @see EVPDivision
  * @generated
  */
-public class EVPDivisionWrapper implements EVPDivision,
-	ModelWrapper<EVPDivision> {
+public class EVPDivisionWrapper
+	extends BaseModelWrapper<EVPDivision>
+	implements EVPDivision, ModelWrapper<EVPDivision> {
+
 	public EVPDivisionWrapper(EVPDivision evpDivision) {
-		_evpDivision = evpDivision;
-	}
-
-	@Override
-	public Class<?> getModelClass() {
-		return EVPDivision.class;
-	}
-
-	@Override
-	public String getModelClassName() {
-		return EVPDivision.class.getName();
+		super(evpDivision);
 	}
 
 	@Override
@@ -128,391 +120,258 @@ public class EVPDivisionWrapper implements EVPDivision,
 	}
 
 	/**
-	* Returns the primary key of this e v p division.
-	*
-	* @return the primary key of this e v p division
-	*/
+	 * Returns the abbreviation of this evp division.
+	 *
+	 * @return the abbreviation of this evp division
+	 */
 	@Override
-	public long getPrimaryKey() {
-		return _evpDivision.getPrimaryKey();
+	public String getAbbreviation() {
+		return model.getAbbreviation();
 	}
 
 	/**
-	* Sets the primary key of this e v p division.
-	*
-	* @param primaryKey the primary key of this e v p division
-	*/
-	@Override
-	public void setPrimaryKey(long primaryKey) {
-		_evpDivision.setPrimaryKey(primaryKey);
-	}
-
-	/**
-	* Returns the evp division ID of this e v p division.
-	*
-	* @return the evp division ID of this e v p division
-	*/
-	@Override
-	public long getEvpDivisionId() {
-		return _evpDivision.getEvpDivisionId();
-	}
-
-	/**
-	* Sets the evp division ID of this e v p division.
-	*
-	* @param evpDivisionId the evp division ID of this e v p division
-	*/
-	@Override
-	public void setEvpDivisionId(long evpDivisionId) {
-		_evpDivision.setEvpDivisionId(evpDivisionId);
-	}
-
-	/**
-	* Returns the company ID of this e v p division.
-	*
-	* @return the company ID of this e v p division
-	*/
+	 * Returns the company ID of this evp division.
+	 *
+	 * @return the company ID of this evp division
+	 */
 	@Override
 	public long getCompanyId() {
-		return _evpDivision.getCompanyId();
+		return model.getCompanyId();
 	}
 
 	/**
-	* Sets the company ID of this e v p division.
-	*
-	* @param companyId the company ID of this e v p division
-	*/
+	 * Returns the create date of this evp division.
+	 *
+	 * @return the create date of this evp division
+	 */
 	@Override
-	public void setCompanyId(long companyId) {
-		_evpDivision.setCompanyId(companyId);
+	public Date getCreateDate() {
+		return model.getCreateDate();
 	}
 
 	/**
-	* Returns the user ID of this e v p division.
-	*
-	* @return the user ID of this e v p division
-	*/
+	 * Returns the evp division ID of this evp division.
+	 *
+	 * @return the evp division ID of this evp division
+	 */
 	@Override
-	public long getUserId() {
-		return _evpDivision.getUserId();
+	public long getEvpDivisionId() {
+		return model.getEvpDivisionId();
 	}
 
 	/**
-	* Sets the user ID of this e v p division.
-	*
-	* @param userId the user ID of this e v p division
-	*/
+	 * Returns the modified date of this evp division.
+	 *
+	 * @return the modified date of this evp division
+	 */
 	@Override
-	public void setUserId(long userId) {
-		_evpDivision.setUserId(userId);
-	}
-
-	/**
-	* Returns the user uuid of this e v p division.
-	*
-	* @return the user uuid of this e v p division
-	* @throws SystemException if a system exception occurred
-	*/
-	@Override
-	public java.lang.String getUserUuid()
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _evpDivision.getUserUuid();
-	}
-
-	/**
-	* Sets the user uuid of this e v p division.
-	*
-	* @param userUuid the user uuid of this e v p division
-	*/
-	@Override
-	public void setUserUuid(java.lang.String userUuid) {
-		_evpDivision.setUserUuid(userUuid);
-	}
-
-	/**
-	* Returns the user name of this e v p division.
-	*
-	* @return the user name of this e v p division
-	*/
-	@Override
-	public java.lang.String getUserName() {
-		return _evpDivision.getUserName();
-	}
-
-	/**
-	* Sets the user name of this e v p division.
-	*
-	* @param userName the user name of this e v p division
-	*/
-	@Override
-	public void setUserName(java.lang.String userName) {
-		_evpDivision.setUserName(userName);
-	}
-
-	/**
-	* Returns the create date of this e v p division.
-	*
-	* @return the create date of this e v p division
-	*/
-	@Override
-	public java.util.Date getCreateDate() {
-		return _evpDivision.getCreateDate();
-	}
-
-	/**
-	* Sets the create date of this e v p division.
-	*
-	* @param createDate the create date of this e v p division
-	*/
-	@Override
-	public void setCreateDate(java.util.Date createDate) {
-		_evpDivision.setCreateDate(createDate);
-	}
-
-	/**
-	* Returns the modified date of this e v p division.
-	*
-	* @return the modified date of this e v p division
-	*/
-	@Override
-	public java.util.Date getModifiedDate() {
-		return _evpDivision.getModifiedDate();
-	}
-
-	/**
-	* Sets the modified date of this e v p division.
-	*
-	* @param modifiedDate the modified date of this e v p division
-	*/
-	@Override
-	public void setModifiedDate(java.util.Date modifiedDate) {
-		_evpDivision.setModifiedDate(modifiedDate);
-	}
-
-	/**
-	* Returns the organization ID of this e v p division.
-	*
-	* @return the organization ID of this e v p division
-	*/
-	@Override
-	public long getOrganizationId() {
-		return _evpDivision.getOrganizationId();
-	}
-
-	/**
-	* Sets the organization ID of this e v p division.
-	*
-	* @param organizationId the organization ID of this e v p division
-	*/
-	@Override
-	public void setOrganizationId(long organizationId) {
-		_evpDivision.setOrganizationId(organizationId);
-	}
-
-	/**
-	* Returns the parent e v p division ID of this e v p division.
-	*
-	* @return the parent e v p division ID of this e v p division
-	*/
-	@Override
-	public long getParentEVPDivisionId() {
-		return _evpDivision.getParentEVPDivisionId();
-	}
-
-	/**
-	* Sets the parent e v p division ID of this e v p division.
-	*
-	* @param parentEVPDivisionId the parent e v p division ID of this e v p division
-	*/
-	@Override
-	public void setParentEVPDivisionId(long parentEVPDivisionId) {
-		_evpDivision.setParentEVPDivisionId(parentEVPDivisionId);
-	}
-
-	/**
-	* Returns the abbreviation of this e v p division.
-	*
-	* @return the abbreviation of this e v p division
-	*/
-	@Override
-	public java.lang.String getAbbreviation() {
-		return _evpDivision.getAbbreviation();
-	}
-
-	/**
-	* Sets the abbreviation of this e v p division.
-	*
-	* @param abbreviation the abbreviation of this e v p division
-	*/
-	@Override
-	public void setAbbreviation(java.lang.String abbreviation) {
-		_evpDivision.setAbbreviation(abbreviation);
-	}
-
-	/**
-	* Returns the type of this e v p division.
-	*
-	* @return the type of this e v p division
-	*/
-	@Override
-	public int getType() {
-		return _evpDivision.getType();
-	}
-
-	/**
-	* Sets the type of this e v p division.
-	*
-	* @param type the type of this e v p division
-	*/
-	@Override
-	public void setType(int type) {
-		_evpDivision.setType(type);
-	}
-
-	@Override
-	public boolean isNew() {
-		return _evpDivision.isNew();
-	}
-
-	@Override
-	public void setNew(boolean n) {
-		_evpDivision.setNew(n);
-	}
-
-	@Override
-	public boolean isCachedModel() {
-		return _evpDivision.isCachedModel();
-	}
-
-	@Override
-	public void setCachedModel(boolean cachedModel) {
-		_evpDivision.setCachedModel(cachedModel);
-	}
-
-	@Override
-	public boolean isEscapedModel() {
-		return _evpDivision.isEscapedModel();
-	}
-
-	@Override
-	public java.io.Serializable getPrimaryKeyObj() {
-		return _evpDivision.getPrimaryKeyObj();
-	}
-
-	@Override
-	public void setPrimaryKeyObj(java.io.Serializable primaryKeyObj) {
-		_evpDivision.setPrimaryKeyObj(primaryKeyObj);
-	}
-
-	@Override
-	public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
-		return _evpDivision.getExpandoBridge();
-	}
-
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portal.model.BaseModel<?> baseModel) {
-		_evpDivision.setExpandoBridgeAttributes(baseModel);
-	}
-
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portlet.expando.model.ExpandoBridge expandoBridge) {
-		_evpDivision.setExpandoBridgeAttributes(expandoBridge);
-	}
-
-	@Override
-	public void setExpandoBridgeAttributes(
-		com.liferay.portal.service.ServiceContext serviceContext) {
-		_evpDivision.setExpandoBridgeAttributes(serviceContext);
-	}
-
-	@Override
-	public java.lang.Object clone() {
-		return new EVPDivisionWrapper((EVPDivision)_evpDivision.clone());
-	}
-
-	@Override
-	public int compareTo(com.liferay.evp.model.EVPDivision evpDivision) {
-		return _evpDivision.compareTo(evpDivision);
-	}
-
-	@Override
-	public int hashCode() {
-		return _evpDivision.hashCode();
-	}
-
-	@Override
-	public com.liferay.portal.model.CacheModel<com.liferay.evp.model.EVPDivision> toCacheModel() {
-		return _evpDivision.toCacheModel();
-	}
-
-	@Override
-	public com.liferay.evp.model.EVPDivision toEscapedModel() {
-		return new EVPDivisionWrapper(_evpDivision.toEscapedModel());
-	}
-
-	@Override
-	public com.liferay.evp.model.EVPDivision toUnescapedModel() {
-		return new EVPDivisionWrapper(_evpDivision.toUnescapedModel());
-	}
-
-	@Override
-	public java.lang.String toString() {
-		return _evpDivision.toString();
-	}
-
-	@Override
-	public java.lang.String toXmlString() {
-		return _evpDivision.toXmlString();
-	}
-
-	@Override
-	public void persist()
-		throws com.liferay.portal.kernel.exception.SystemException {
-		_evpDivision.persist();
+	public Date getModifiedDate() {
+		return model.getModifiedDate();
 	}
 
 	@Override
 	public long getOrganizationGroupId() {
-		return _evpDivision.getOrganizationGroupId();
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-
-		if (!(obj instanceof EVPDivisionWrapper)) {
-			return false;
-		}
-
-		EVPDivisionWrapper evpDivisionWrapper = (EVPDivisionWrapper)obj;
-
-		if (Validator.equals(_evpDivision, evpDivisionWrapper._evpDivision)) {
-			return true;
-		}
-
-		return false;
+		return model.getOrganizationGroupId();
 	}
 
 	/**
-	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedModel}
+	 * Returns the organization ID of this evp division.
+	 *
+	 * @return the organization ID of this evp division
 	 */
-	public EVPDivision getWrappedEVPDivision() {
-		return _evpDivision;
+	@Override
+	public long getOrganizationId() {
+		return model.getOrganizationId();
+	}
+
+	/**
+	 * Returns the parent evp division ID of this evp division.
+	 *
+	 * @return the parent evp division ID of this evp division
+	 */
+	@Override
+	public long getParentEVPDivisionId() {
+		return model.getParentEVPDivisionId();
+	}
+
+	/**
+	 * Returns the primary key of this evp division.
+	 *
+	 * @return the primary key of this evp division
+	 */
+	@Override
+	public long getPrimaryKey() {
+		return model.getPrimaryKey();
+	}
+
+	/**
+	 * Returns the type of this evp division.
+	 *
+	 * @return the type of this evp division
+	 */
+	@Override
+	public int getType() {
+		return model.getType();
+	}
+
+	/**
+	 * Returns the user ID of this evp division.
+	 *
+	 * @return the user ID of this evp division
+	 */
+	@Override
+	public long getUserId() {
+		return model.getUserId();
+	}
+
+	/**
+	 * Returns the user name of this evp division.
+	 *
+	 * @return the user name of this evp division
+	 */
+	@Override
+	public String getUserName() {
+		return model.getUserName();
+	}
+
+	/**
+	 * Returns the user uuid of this evp division.
+	 *
+	 * @return the user uuid of this evp division
+	 */
+	@Override
+	public String getUserUuid() {
+		return model.getUserUuid();
 	}
 
 	@Override
-	public EVPDivision getWrappedModel() {
-		return _evpDivision;
+	public void persist() {
+		model.persist();
+	}
+
+	/**
+	 * Sets the abbreviation of this evp division.
+	 *
+	 * @param abbreviation the abbreviation of this evp division
+	 */
+	@Override
+	public void setAbbreviation(String abbreviation) {
+		model.setAbbreviation(abbreviation);
+	}
+
+	/**
+	 * Sets the company ID of this evp division.
+	 *
+	 * @param companyId the company ID of this evp division
+	 */
+	@Override
+	public void setCompanyId(long companyId) {
+		model.setCompanyId(companyId);
+	}
+
+	/**
+	 * Sets the create date of this evp division.
+	 *
+	 * @param createDate the create date of this evp division
+	 */
+	@Override
+	public void setCreateDate(Date createDate) {
+		model.setCreateDate(createDate);
+	}
+
+	/**
+	 * Sets the evp division ID of this evp division.
+	 *
+	 * @param evpDivisionId the evp division ID of this evp division
+	 */
+	@Override
+	public void setEvpDivisionId(long evpDivisionId) {
+		model.setEvpDivisionId(evpDivisionId);
+	}
+
+	/**
+	 * Sets the modified date of this evp division.
+	 *
+	 * @param modifiedDate the modified date of this evp division
+	 */
+	@Override
+	public void setModifiedDate(Date modifiedDate) {
+		model.setModifiedDate(modifiedDate);
+	}
+
+	/**
+	 * Sets the organization ID of this evp division.
+	 *
+	 * @param organizationId the organization ID of this evp division
+	 */
+	@Override
+	public void setOrganizationId(long organizationId) {
+		model.setOrganizationId(organizationId);
+	}
+
+	/**
+	 * Sets the parent evp division ID of this evp division.
+	 *
+	 * @param parentEVPDivisionId the parent evp division ID of this evp division
+	 */
+	@Override
+	public void setParentEVPDivisionId(long parentEVPDivisionId) {
+		model.setParentEVPDivisionId(parentEVPDivisionId);
+	}
+
+	/**
+	 * Sets the primary key of this evp division.
+	 *
+	 * @param primaryKey the primary key of this evp division
+	 */
+	@Override
+	public void setPrimaryKey(long primaryKey) {
+		model.setPrimaryKey(primaryKey);
+	}
+
+	/**
+	 * Sets the type of this evp division.
+	 *
+	 * @param type the type of this evp division
+	 */
+	@Override
+	public void setType(int type) {
+		model.setType(type);
+	}
+
+	/**
+	 * Sets the user ID of this evp division.
+	 *
+	 * @param userId the user ID of this evp division
+	 */
+	@Override
+	public void setUserId(long userId) {
+		model.setUserId(userId);
+	}
+
+	/**
+	 * Sets the user name of this evp division.
+	 *
+	 * @param userName the user name of this evp division
+	 */
+	@Override
+	public void setUserName(String userName) {
+		model.setUserName(userName);
+	}
+
+	/**
+	 * Sets the user uuid of this evp division.
+	 *
+	 * @param userUuid the user uuid of this evp division
+	 */
+	@Override
+	public void setUserUuid(String userUuid) {
+		model.setUserUuid(userUuid);
 	}
 
 	@Override
-	public void resetOriginalValues() {
-		_evpDivision.resetOriginalValues();
+	protected EVPDivisionWrapper wrap(EVPDivision evpDivision) {
+		return new EVPDivisionWrapper(evpDivision);
 	}
 
-	private EVPDivision _evpDivision;
 }

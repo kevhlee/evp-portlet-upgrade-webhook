@@ -14,22 +14,50 @@
 
 package com.liferay.evp.model;
 
-import com.liferay.portal.model.PersistedModel;
+import com.liferay.portal.kernel.annotation.ImplementationClassName;
+import com.liferay.portal.kernel.model.PersistedModel;
+import com.liferay.portal.kernel.util.Accessor;
+
+import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * The extended model interface for the EVPRequestOrganization service. Represents a row in the &quot;EVPRequestOrganization&quot; database table, with each column mapped to a property of this class.
  *
  * @author Val Nagy
  * @see EVPRequestOrganizationModel
- * @see com.liferay.evp.model.impl.EVPRequestOrganizationImpl
- * @see com.liferay.evp.model.impl.EVPRequestOrganizationModelImpl
  * @generated
  */
-public interface EVPRequestOrganization extends EVPRequestOrganizationModel,
-	PersistedModel {
+@ImplementationClassName(
+	"com.liferay.evp.model.impl.EVPRequestOrganizationImpl"
+)
+@ProviderType
+public interface EVPRequestOrganization
+	extends EVPRequestOrganizationModel, PersistedModel {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add methods to {@link com.liferay.evp.model.impl.EVPRequestOrganizationImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+	 * Never modify this interface directly. Add methods to <code>com.liferay.evp.model.impl.EVPRequestOrganizationImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+	public static final Accessor<EVPRequestOrganization, Long>
+		EVP_REQUEST_ORGANIZATION_ID_ACCESSOR =
+			new Accessor<EVPRequestOrganization, Long>() {
+
+				@Override
+				public Long get(EVPRequestOrganization evpRequestOrganization) {
+					return evpRequestOrganization.getEvpRequestOrganizationId();
+				}
+
+				@Override
+				public Class<Long> getAttributeClass() {
+					return Long.class;
+				}
+
+				@Override
+				public Class<EVPRequestOrganization> getTypeClass() {
+					return EVPRequestOrganization.class;
+				}
+
+			};
+
 }

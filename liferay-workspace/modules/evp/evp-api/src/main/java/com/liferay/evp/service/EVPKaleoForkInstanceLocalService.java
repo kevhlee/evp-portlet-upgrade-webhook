@@ -14,15 +14,30 @@
 
 package com.liferay.evp.service;
 
+import com.liferay.evp.model.EVPKaleoForkInstance;
+import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery;
+import com.liferay.portal.kernel.dao.orm.Projection;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.model.PersistedModel;
+import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
+import com.liferay.portal.kernel.service.BaseLocalService;
+import com.liferay.portal.kernel.service.PersistedModelLocalService;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
-import com.liferay.portal.service.BaseLocalService;
-import com.liferay.portal.service.InvokableLocalService;
-import com.liferay.portal.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.service.ServiceContext;
+
+import java.io.Serializable;
+
+import java.util.List;
+import java.util.Map;
+
+import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * Provides the local service interface for EVPKaleoForkInstance. Methods of this
@@ -32,232 +47,232 @@ import com.liferay.portal.service.PersistedModelLocalService;
  *
  * @author Val Nagy
  * @see EVPKaleoForkInstanceLocalServiceUtil
- * @see com.liferay.evp.service.base.EVPKaleoForkInstanceLocalServiceBaseImpl
- * @see com.liferay.evp.service.impl.EVPKaleoForkInstanceLocalServiceImpl
  * @generated
  */
-@Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
-	PortalException.class, SystemException.class})
-public interface EVPKaleoForkInstanceLocalService extends BaseLocalService,
-	InvokableLocalService, PersistedModelLocalService {
+@ProviderType
+@Transactional(
+	isolation = Isolation.PORTAL,
+	rollbackFor = {PortalException.class, SystemException.class}
+)
+public interface EVPKaleoForkInstanceLocalService
+	extends BaseLocalService, PersistedModelLocalService {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this interface directly. Always use {@link EVPKaleoForkInstanceLocalServiceUtil} to access the e v p kaleo fork instance local service. Add custom service methods to {@link com.liferay.evp.service.impl.EVPKaleoForkInstanceLocalServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+	 * Never modify this interface directly. Add custom service methods to <code>com.liferay.evp.service.impl.EVPKaleoForkInstanceLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the evp kaleo fork instance local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link EVPKaleoForkInstanceLocalServiceUtil} if injection and service tracking are not available.
 	 */
 
 	/**
-	* Adds the e v p kaleo fork instance to the database. Also notifies the appropriate model listeners.
-	*
-	* @param evpKaleoForkInstance the e v p kaleo fork instance
-	* @return the e v p kaleo fork instance that was added
-	* @throws SystemException if a system exception occurred
-	*/
-	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
-	public com.liferay.evp.model.EVPKaleoForkInstance addEVPKaleoForkInstance(
-		com.liferay.evp.model.EVPKaleoForkInstance evpKaleoForkInstance)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	 * Adds the evp kaleo fork instance to the database. Also notifies the appropriate model listeners.
+	 *
+	 * <p>
+	 * <strong>Important:</strong> Inspect EVPKaleoForkInstanceLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
+	 * </p>
+	 *
+	 * @param evpKaleoForkInstance the evp kaleo fork instance
+	 * @return the evp kaleo fork instance that was added
+	 */
+	@Indexable(type = IndexableType.REINDEX)
+	public EVPKaleoForkInstance addEVPKaleoForkInstance(
+		EVPKaleoForkInstance evpKaleoForkInstance);
+
+	public EVPKaleoForkInstance addEVPKaleoForkInstance(
+			int status, int type, Map<String, Serializable> workflowContext,
+			ServiceContext serviceContext)
+		throws PortalException, SystemException;
 
 	/**
-	* Creates a new e v p kaleo fork instance with the primary key. Does not add the e v p kaleo fork instance to the database.
-	*
-	* @param evpKaleoForkInstanceId the primary key for the new e v p kaleo fork instance
-	* @return the new e v p kaleo fork instance
-	*/
-	public com.liferay.evp.model.EVPKaleoForkInstance createEVPKaleoForkInstance(
+	 * Creates a new evp kaleo fork instance with the primary key. Does not add the evp kaleo fork instance to the database.
+	 *
+	 * @param evpKaleoForkInstanceId the primary key for the new evp kaleo fork instance
+	 * @return the new evp kaleo fork instance
+	 */
+	@Transactional(enabled = false)
+	public EVPKaleoForkInstance createEVPKaleoForkInstance(
 		long evpKaleoForkInstanceId);
 
 	/**
-	* Deletes the e v p kaleo fork instance with the primary key from the database. Also notifies the appropriate model listeners.
-	*
-	* @param evpKaleoForkInstanceId the primary key of the e v p kaleo fork instance
-	* @return the e v p kaleo fork instance that was removed
-	* @throws PortalException if a e v p kaleo fork instance with the primary key could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
-	public com.liferay.evp.model.EVPKaleoForkInstance deleteEVPKaleoForkInstance(
-		long evpKaleoForkInstanceId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
+	 * @throws PortalException
+	 */
+	public PersistedModel createPersistedModel(Serializable primaryKeyObj)
+		throws PortalException;
 
 	/**
-	* Deletes the e v p kaleo fork instance from the database. Also notifies the appropriate model listeners.
-	*
-	* @param evpKaleoForkInstance the e v p kaleo fork instance
-	* @return the e v p kaleo fork instance that was removed
-	* @throws SystemException if a system exception occurred
-	*/
-	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
-	public com.liferay.evp.model.EVPKaleoForkInstance deleteEVPKaleoForkInstance(
-		com.liferay.evp.model.EVPKaleoForkInstance evpKaleoForkInstance)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	public com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery();
-
-	/**
-	* Performs a dynamic query on the database and returns the matching rows.
-	*
-	* @param dynamicQuery the dynamic query
-	* @return the matching rows
-	* @throws SystemException if a system exception occurred
-	*/
-	@SuppressWarnings("rawtypes")
-	public java.util.List dynamicQuery(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	 * Deletes the evp kaleo fork instance from the database. Also notifies the appropriate model listeners.
+	 *
+	 * <p>
+	 * <strong>Important:</strong> Inspect EVPKaleoForkInstanceLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
+	 * </p>
+	 *
+	 * @param evpKaleoForkInstance the evp kaleo fork instance
+	 * @return the evp kaleo fork instance that was removed
+	 */
+	@Indexable(type = IndexableType.DELETE)
+	public EVPKaleoForkInstance deleteEVPKaleoForkInstance(
+		EVPKaleoForkInstance evpKaleoForkInstance);
 
 	/**
-	* Performs a dynamic query on the database and returns a range of the matching rows.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.evp.model.impl.EVPKaleoForkInstanceModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param dynamicQuery the dynamic query
-	* @param start the lower bound of the range of model instances
-	* @param end the upper bound of the range of model instances (not inclusive)
-	* @return the range of matching rows
-	* @throws SystemException if a system exception occurred
-	*/
-	@SuppressWarnings("rawtypes")
-	public java.util.List dynamicQuery(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
-		int end) throws com.liferay.portal.kernel.exception.SystemException;
+	 * Deletes the evp kaleo fork instance with the primary key from the database. Also notifies the appropriate model listeners.
+	 *
+	 * <p>
+	 * <strong>Important:</strong> Inspect EVPKaleoForkInstanceLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
+	 * </p>
+	 *
+	 * @param evpKaleoForkInstanceId the primary key of the evp kaleo fork instance
+	 * @return the evp kaleo fork instance that was removed
+	 * @throws PortalException if a evp kaleo fork instance with the primary key could not be found
+	 */
+	@Indexable(type = IndexableType.DELETE)
+	public EVPKaleoForkInstance deleteEVPKaleoForkInstance(
+			long evpKaleoForkInstanceId)
+		throws PortalException;
 
 	/**
-	* Performs a dynamic query on the database and returns an ordered range of the matching rows.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.evp.model.impl.EVPKaleoForkInstanceModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param dynamicQuery the dynamic query
-	* @param start the lower bound of the range of model instances
-	* @param end the upper bound of the range of model instances (not inclusive)
-	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	* @return the ordered range of matching rows
-	* @throws SystemException if a system exception occurred
-	*/
-	@SuppressWarnings("rawtypes")
-	public java.util.List dynamicQuery(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
-		int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Returns the number of rows that match the dynamic query.
-	*
-	* @param dynamicQuery the dynamic query
-	* @return the number of rows that match the dynamic query
-	* @throws SystemException if a system exception occurred
-	*/
-	public long dynamicQueryCount(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Returns the number of rows that match the dynamic query.
-	*
-	* @param dynamicQuery the dynamic query
-	* @param projection the projection to apply to the query
-	* @return the number of rows that match the dynamic query
-	* @throws SystemException if a system exception occurred
-	*/
-	public long dynamicQueryCount(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
-		com.liferay.portal.kernel.dao.orm.Projection projection)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	 * @throws PortalException
+	 */
+	@Override
+	public PersistedModel deletePersistedModel(PersistedModel persistedModel)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.liferay.evp.model.EVPKaleoForkInstance fetchEVPKaleoForkInstance(
-		long evpKaleoForkInstanceId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public DynamicQuery dynamicQuery();
 
 	/**
-	* Returns the e v p kaleo fork instance with the primary key.
-	*
-	* @param evpKaleoForkInstanceId the primary key of the e v p kaleo fork instance
-	* @return the e v p kaleo fork instance
-	* @throws PortalException if a e v p kaleo fork instance with the primary key could not be found
-	* @throws SystemException if a system exception occurred
-	*/
+	 * Performs a dynamic query on the database and returns the matching rows.
+	 *
+	 * @param dynamicQuery the dynamic query
+	 * @return the matching rows
+	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.liferay.evp.model.EVPKaleoForkInstance getEVPKaleoForkInstance(
-		long evpKaleoForkInstanceId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
+	public <T> List<T> dynamicQuery(DynamicQuery dynamicQuery);
 
+	/**
+	 * Performs a dynamic query on the database and returns a range of the matching rows.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>com.liferay.evp.model.impl.EVPKaleoForkInstanceModelImpl</code>.
+	 * </p>
+	 *
+	 * @param dynamicQuery the dynamic query
+	 * @param start the lower bound of the range of model instances
+	 * @param end the upper bound of the range of model instances (not inclusive)
+	 * @return the range of matching rows
+	 */
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public <T> List<T> dynamicQuery(
+		DynamicQuery dynamicQuery, int start, int end);
+
+	/**
+	 * Performs a dynamic query on the database and returns an ordered range of the matching rows.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>com.liferay.evp.model.impl.EVPKaleoForkInstanceModelImpl</code>.
+	 * </p>
+	 *
+	 * @param dynamicQuery the dynamic query
+	 * @param start the lower bound of the range of model instances
+	 * @param end the upper bound of the range of model instances (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching rows
+	 */
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public <T> List<T> dynamicQuery(
+		DynamicQuery dynamicQuery, int start, int end,
+		OrderByComparator<T> orderByComparator);
+
+	/**
+	 * Returns the number of rows matching the dynamic query.
+	 *
+	 * @param dynamicQuery the dynamic query
+	 * @return the number of rows matching the dynamic query
+	 */
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public long dynamicQueryCount(DynamicQuery dynamicQuery);
+
+	/**
+	 * Returns the number of rows matching the dynamic query.
+	 *
+	 * @param dynamicQuery the dynamic query
+	 * @param projection the projection to apply to the query
+	 * @return the number of rows matching the dynamic query
+	 */
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public long dynamicQueryCount(
+		DynamicQuery dynamicQuery, Projection projection);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public EVPKaleoForkInstance fetchEVPKaleoForkInstance(
+		long evpKaleoForkInstanceId);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public ActionableDynamicQuery getActionableDynamicQuery();
+
+	/**
+	 * Returns the evp kaleo fork instance with the primary key.
+	 *
+	 * @param evpKaleoForkInstanceId the primary key of the evp kaleo fork instance
+	 * @return the evp kaleo fork instance
+	 * @throws PortalException if a evp kaleo fork instance with the primary key could not be found
+	 */
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public EVPKaleoForkInstance getEVPKaleoForkInstance(
+			long evpKaleoForkInstanceId)
+		throws PortalException;
+
+	/**
+	 * Returns a range of all the evp kaleo fork instances.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>com.liferay.evp.model.impl.EVPKaleoForkInstanceModelImpl</code>.
+	 * </p>
+	 *
+	 * @param start the lower bound of the range of evp kaleo fork instances
+	 * @param end the upper bound of the range of evp kaleo fork instances (not inclusive)
+	 * @return the range of evp kaleo fork instances
+	 */
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<EVPKaleoForkInstance> getEVPKaleoForkInstances(
+		int start, int end);
+
+	/**
+	 * Returns the number of evp kaleo fork instances.
+	 *
+	 * @return the number of evp kaleo fork instances
+	 */
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public int getEVPKaleoForkInstancesCount();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public IndexableActionableDynamicQuery getIndexableActionableDynamicQuery();
+
+	/**
+	 * Returns the OSGi service identifier.
+	 *
+	 * @return the OSGi service identifier
+	 */
+	public String getOSGiServiceIdentifier();
+
+	/**
+	 * @throws PortalException
+	 */
 	@Override
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.liferay.portal.model.PersistedModel getPersistedModel(
-		java.io.Serializable primaryKeyObj)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
+	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
+		throws PortalException;
 
 	/**
-	* Returns a range of all the e v p kaleo fork instances.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.evp.model.impl.EVPKaleoForkInstanceModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param start the lower bound of the range of e v p kaleo fork instances
-	* @param end the upper bound of the range of e v p kaleo fork instances (not inclusive)
-	* @return the range of e v p kaleo fork instances
-	* @throws SystemException if a system exception occurred
-	*/
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.liferay.evp.model.EVPKaleoForkInstance> getEVPKaleoForkInstances(
-		int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	 * Updates the evp kaleo fork instance in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+	 *
+	 * <p>
+	 * <strong>Important:</strong> Inspect EVPKaleoForkInstanceLocalServiceImpl for overloaded versions of the method. If provided, use these entry points to the API, as the implementation logic may require the additional parameters defined there.
+	 * </p>
+	 *
+	 * @param evpKaleoForkInstance the evp kaleo fork instance
+	 * @return the evp kaleo fork instance that was updated
+	 */
+	@Indexable(type = IndexableType.REINDEX)
+	public EVPKaleoForkInstance updateEVPKaleoForkInstance(
+		EVPKaleoForkInstance evpKaleoForkInstance);
 
-	/**
-	* Returns the number of e v p kaleo fork instances.
-	*
-	* @return the number of e v p kaleo fork instances
-	* @throws SystemException if a system exception occurred
-	*/
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getEVPKaleoForkInstancesCount()
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Updates the e v p kaleo fork instance in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
-	*
-	* @param evpKaleoForkInstance the e v p kaleo fork instance
-	* @return the e v p kaleo fork instance that was updated
-	* @throws SystemException if a system exception occurred
-	*/
-	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
-	public com.liferay.evp.model.EVPKaleoForkInstance updateEVPKaleoForkInstance(
-		com.liferay.evp.model.EVPKaleoForkInstance evpKaleoForkInstance)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Returns the Spring bean ID for this bean.
-	*
-	* @return the Spring bean ID for this bean
-	*/
-	public java.lang.String getBeanIdentifier();
-
-	/**
-	* Sets the Spring bean ID for this bean.
-	*
-	* @param beanIdentifier the Spring bean ID for this bean
-	*/
-	public void setBeanIdentifier(java.lang.String beanIdentifier);
-
-	@Override
-	public java.lang.Object invokeMethod(java.lang.String name,
-		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
-		throws java.lang.Throwable;
-
-	public com.liferay.evp.model.EVPKaleoForkInstance addEVPKaleoForkInstance(
-		int status, int type,
-		java.util.Map<java.lang.String, java.io.Serializable> workflowContext,
-		com.liferay.portal.service.ServiceContext serviceContext)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
 }

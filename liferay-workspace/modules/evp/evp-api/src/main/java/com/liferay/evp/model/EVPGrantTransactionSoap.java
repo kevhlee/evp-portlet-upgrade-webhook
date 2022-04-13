@@ -24,10 +24,15 @@ import java.util.List;
  * This class is used by SOAP remote services.
  *
  * @author Val Nagy
+ * @deprecated As of Athanasius (7.3.x), with no direct replacement
  * @generated
  */
+@Deprecated
 public class EVPGrantTransactionSoap implements Serializable {
-	public static EVPGrantTransactionSoap toSoapModel(EVPGrantTransaction model) {
+
+	public static EVPGrantTransactionSoap toSoapModel(
+		EVPGrantTransaction model) {
+
 		EVPGrantTransactionSoap soapModel = new EVPGrantTransactionSoap();
 
 		soapModel.setEvpGrantTransactionId(model.getEvpGrantTransactionId());
@@ -54,7 +59,9 @@ public class EVPGrantTransactionSoap implements Serializable {
 
 	public static EVPGrantTransactionSoap[] toSoapModels(
 		EVPGrantTransaction[] models) {
-		EVPGrantTransactionSoap[] soapModels = new EVPGrantTransactionSoap[models.length];
+
+		EVPGrantTransactionSoap[] soapModels =
+			new EVPGrantTransactionSoap[models.length];
 
 		for (int i = 0; i < models.length; i++) {
 			soapModels[i] = toSoapModel(models[i]);
@@ -65,10 +72,12 @@ public class EVPGrantTransactionSoap implements Serializable {
 
 	public static EVPGrantTransactionSoap[][] toSoapModels(
 		EVPGrantTransaction[][] models) {
+
 		EVPGrantTransactionSoap[][] soapModels = null;
 
 		if (models.length > 0) {
-			soapModels = new EVPGrantTransactionSoap[models.length][models[0].length];
+			soapModels =
+				new EVPGrantTransactionSoap[models.length][models[0].length];
 		}
 		else {
 			soapModels = new EVPGrantTransactionSoap[0][0];
@@ -83,13 +92,16 @@ public class EVPGrantTransactionSoap implements Serializable {
 
 	public static EVPGrantTransactionSoap[] toSoapModels(
 		List<EVPGrantTransaction> models) {
-		List<EVPGrantTransactionSoap> soapModels = new ArrayList<EVPGrantTransactionSoap>(models.size());
+
+		List<EVPGrantTransactionSoap> soapModels =
+			new ArrayList<EVPGrantTransactionSoap>(models.size());
 
 		for (EVPGrantTransaction model : models) {
 			soapModels.add(toSoapModel(model));
 		}
 
-		return soapModels.toArray(new EVPGrantTransactionSoap[soapModels.size()]);
+		return soapModels.toArray(
+			new EVPGrantTransactionSoap[soapModels.size()]);
 	}
 
 	public EVPGrantTransactionSoap() {
@@ -265,4 +277,5 @@ public class EVPGrantTransactionSoap implements Serializable {
 	private String _bankIBANCode;
 	private String _bankName;
 	private String _purposeOfUse;
+
 }

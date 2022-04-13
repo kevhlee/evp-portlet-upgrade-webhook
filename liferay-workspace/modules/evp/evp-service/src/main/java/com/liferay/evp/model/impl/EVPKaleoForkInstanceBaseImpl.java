@@ -17,8 +17,6 @@ package com.liferay.evp.model.impl;
 import com.liferay.evp.model.EVPKaleoForkInstance;
 import com.liferay.evp.service.EVPKaleoForkInstanceLocalServiceUtil;
 
-import com.liferay.portal.kernel.exception.SystemException;
-
 /**
  * The extended model base implementation for the EVPKaleoForkInstance service. Represents a row in the &quot;EVPKaleoForkInstance&quot; database table, with each column mapped to a property of this class.
  *
@@ -28,23 +26,26 @@ import com.liferay.portal.kernel.exception.SystemException;
  *
  * @author Val Nagy
  * @see EVPKaleoForkInstanceImpl
- * @see com.liferay.evp.model.EVPKaleoForkInstance
+ * @see EVPKaleoForkInstance
  * @generated
  */
 public abstract class EVPKaleoForkInstanceBaseImpl
 	extends EVPKaleoForkInstanceModelImpl implements EVPKaleoForkInstance {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this class directly. All methods that expect a e v p kaleo fork instance model instance should use the {@link EVPKaleoForkInstance} interface instead.
+	 * Never modify or reference this class directly. All methods that expect a evp kaleo fork instance model instance should use the <code>EVPKaleoForkInstance</code> interface instead.
 	 */
 	@Override
-	public void persist() throws SystemException {
+	public void persist() {
 		if (this.isNew()) {
 			EVPKaleoForkInstanceLocalServiceUtil.addEVPKaleoForkInstance(this);
 		}
 		else {
-			EVPKaleoForkInstanceLocalServiceUtil.updateEVPKaleoForkInstance(this);
+			EVPKaleoForkInstanceLocalServiceUtil.updateEVPKaleoForkInstance(
+				this);
 		}
 	}
+
 }

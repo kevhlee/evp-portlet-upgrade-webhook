@@ -14,375 +14,304 @@
 
 package com.liferay.evp.service.persistence;
 
+import com.liferay.evp.exception.NoSuchDivisionException;
 import com.liferay.evp.model.EVPDivision;
+import com.liferay.portal.kernel.service.persistence.BasePersistence;
 
-import com.liferay.portal.service.persistence.BasePersistence;
+import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * The persistence interface for the e v p division service.
+ * The persistence interface for the evp division service.
  *
  * <p>
  * Caching information and settings can be found in <code>portal.properties</code>
  * </p>
  *
  * @author Val Nagy
- * @see EVPDivisionPersistenceImpl
  * @see EVPDivisionUtil
  * @generated
  */
+@ProviderType
 public interface EVPDivisionPersistence extends BasePersistence<EVPDivision> {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this interface directly. Always use {@link EVPDivisionUtil} to access the e v p division persistence. Modify <code>service.xml</code> and rerun ServiceBuilder to regenerate this interface.
+	 * Never modify or reference this interface directly. Always use {@link EVPDivisionUtil} to access the evp division persistence. Modify <code>service.xml</code> and rerun ServiceBuilder to regenerate this interface.
 	 */
 
 	/**
-	* Returns all the e v p divisions where companyId = &#63; and type = &#63;.
-	*
-	* @param companyId the company ID
-	* @param type the type
-	* @return the matching e v p divisions
-	* @throws SystemException if a system exception occurred
-	*/
-	public java.util.List<com.liferay.evp.model.EVPDivision> findByC_T(
-		long companyId, int type)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	 * Returns all the evp divisions where companyId = &#63; and type = &#63;.
+	 *
+	 * @param companyId the company ID
+	 * @param type the type
+	 * @return the matching evp divisions
+	 */
+	public java.util.List<EVPDivision> findByC_T(long companyId, int type);
 
 	/**
-	* Returns a range of all the e v p divisions where companyId = &#63; and type = &#63;.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.evp.model.impl.EVPDivisionModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param companyId the company ID
-	* @param type the type
-	* @param start the lower bound of the range of e v p divisions
-	* @param end the upper bound of the range of e v p divisions (not inclusive)
-	* @return the range of matching e v p divisions
-	* @throws SystemException if a system exception occurred
-	*/
-	public java.util.List<com.liferay.evp.model.EVPDivision> findByC_T(
-		long companyId, int type, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	 * Returns a range of all the evp divisions where companyId = &#63; and type = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>EVPDivisionModelImpl</code>.
+	 * </p>
+	 *
+	 * @param companyId the company ID
+	 * @param type the type
+	 * @param start the lower bound of the range of evp divisions
+	 * @param end the upper bound of the range of evp divisions (not inclusive)
+	 * @return the range of matching evp divisions
+	 */
+	public java.util.List<EVPDivision> findByC_T(
+		long companyId, int type, int start, int end);
 
 	/**
-	* Returns an ordered range of all the e v p divisions where companyId = &#63; and type = &#63;.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.evp.model.impl.EVPDivisionModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param companyId the company ID
-	* @param type the type
-	* @param start the lower bound of the range of e v p divisions
-	* @param end the upper bound of the range of e v p divisions (not inclusive)
-	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	* @return the ordered range of matching e v p divisions
-	* @throws SystemException if a system exception occurred
-	*/
-	public java.util.List<com.liferay.evp.model.EVPDivision> findByC_T(
+	 * Returns an ordered range of all the evp divisions where companyId = &#63; and type = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>EVPDivisionModelImpl</code>.
+	 * </p>
+	 *
+	 * @param companyId the company ID
+	 * @param type the type
+	 * @param start the lower bound of the range of evp divisions
+	 * @param end the upper bound of the range of evp divisions (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching evp divisions
+	 */
+	public java.util.List<EVPDivision> findByC_T(
 		long companyId, int type, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator<EVPDivision>
+			orderByComparator);
 
 	/**
-	* Returns the first e v p division in the ordered set where companyId = &#63; and type = &#63;.
-	*
-	* @param companyId the company ID
-	* @param type the type
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the first matching e v p division
-	* @throws com.liferay.evp.NoSuchDivisionException if a matching e v p division could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public com.liferay.evp.model.EVPDivision findByC_T_First(long companyId,
-		int type,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.evp.NoSuchDivisionException,
-			com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Returns the first e v p division in the ordered set where companyId = &#63; and type = &#63;.
-	*
-	* @param companyId the company ID
-	* @param type the type
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the first matching e v p division, or <code>null</code> if a matching e v p division could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public com.liferay.evp.model.EVPDivision fetchByC_T_First(long companyId,
-		int type,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Returns the last e v p division in the ordered set where companyId = &#63; and type = &#63;.
-	*
-	* @param companyId the company ID
-	* @param type the type
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the last matching e v p division
-	* @throws com.liferay.evp.NoSuchDivisionException if a matching e v p division could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public com.liferay.evp.model.EVPDivision findByC_T_Last(long companyId,
-		int type,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.evp.NoSuchDivisionException,
-			com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Returns the last e v p division in the ordered set where companyId = &#63; and type = &#63;.
-	*
-	* @param companyId the company ID
-	* @param type the type
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the last matching e v p division, or <code>null</code> if a matching e v p division could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public com.liferay.evp.model.EVPDivision fetchByC_T_Last(long companyId,
-		int type,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Returns the e v p divisions before and after the current e v p division in the ordered set where companyId = &#63; and type = &#63;.
-	*
-	* @param evpDivisionId the primary key of the current e v p division
-	* @param companyId the company ID
-	* @param type the type
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the previous, current, and next e v p division
-	* @throws com.liferay.evp.NoSuchDivisionException if a e v p division with the primary key could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public com.liferay.evp.model.EVPDivision[] findByC_T_PrevAndNext(
-		long evpDivisionId, long companyId, int type,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.evp.NoSuchDivisionException,
-			com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Returns all the e v p divisions that the user has permission to view where companyId = &#63; and type = &#63;.
-	*
-	* @param companyId the company ID
-	* @param type the type
-	* @return the matching e v p divisions that the user has permission to view
-	* @throws SystemException if a system exception occurred
-	*/
-	public java.util.List<com.liferay.evp.model.EVPDivision> filterFindByC_T(
-		long companyId, int type)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Returns a range of all the e v p divisions that the user has permission to view where companyId = &#63; and type = &#63;.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.evp.model.impl.EVPDivisionModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param companyId the company ID
-	* @param type the type
-	* @param start the lower bound of the range of e v p divisions
-	* @param end the upper bound of the range of e v p divisions (not inclusive)
-	* @return the range of matching e v p divisions that the user has permission to view
-	* @throws SystemException if a system exception occurred
-	*/
-	public java.util.List<com.liferay.evp.model.EVPDivision> filterFindByC_T(
-		long companyId, int type, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Returns an ordered range of all the e v p divisions that the user has permissions to view where companyId = &#63; and type = &#63;.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.evp.model.impl.EVPDivisionModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param companyId the company ID
-	* @param type the type
-	* @param start the lower bound of the range of e v p divisions
-	* @param end the upper bound of the range of e v p divisions (not inclusive)
-	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	* @return the ordered range of matching e v p divisions that the user has permission to view
-	* @throws SystemException if a system exception occurred
-	*/
-	public java.util.List<com.liferay.evp.model.EVPDivision> filterFindByC_T(
+	 * Returns an ordered range of all the evp divisions where companyId = &#63; and type = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>EVPDivisionModelImpl</code>.
+	 * </p>
+	 *
+	 * @param companyId the company ID
+	 * @param type the type
+	 * @param start the lower bound of the range of evp divisions
+	 * @param end the upper bound of the range of evp divisions (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param useFinderCache whether to use the finder cache
+	 * @return the ordered range of matching evp divisions
+	 */
+	public java.util.List<EVPDivision> findByC_T(
 		long companyId, int type, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator<EVPDivision>
+			orderByComparator,
+		boolean useFinderCache);
 
 	/**
-	* Returns the e v p divisions before and after the current e v p division in the ordered set of e v p divisions that the user has permission to view where companyId = &#63; and type = &#63;.
-	*
-	* @param evpDivisionId the primary key of the current e v p division
-	* @param companyId the company ID
-	* @param type the type
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the previous, current, and next e v p division
-	* @throws com.liferay.evp.NoSuchDivisionException if a e v p division with the primary key could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public com.liferay.evp.model.EVPDivision[] filterFindByC_T_PrevAndNext(
-		long evpDivisionId, long companyId, int type,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.evp.NoSuchDivisionException,
-			com.liferay.portal.kernel.exception.SystemException;
+	 * Returns the first evp division in the ordered set where companyId = &#63; and type = &#63;.
+	 *
+	 * @param companyId the company ID
+	 * @param type the type
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching evp division
+	 * @throws NoSuchDivisionException if a matching evp division could not be found
+	 */
+	public EVPDivision findByC_T_First(
+			long companyId, int type,
+			com.liferay.portal.kernel.util.OrderByComparator<EVPDivision>
+				orderByComparator)
+		throws NoSuchDivisionException;
 
 	/**
-	* Removes all the e v p divisions where companyId = &#63; and type = &#63; from the database.
-	*
-	* @param companyId the company ID
-	* @param type the type
-	* @throws SystemException if a system exception occurred
-	*/
-	public void removeByC_T(long companyId, int type)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	 * Returns the first evp division in the ordered set where companyId = &#63; and type = &#63;.
+	 *
+	 * @param companyId the company ID
+	 * @param type the type
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching evp division, or <code>null</code> if a matching evp division could not be found
+	 */
+	public EVPDivision fetchByC_T_First(
+		long companyId, int type,
+		com.liferay.portal.kernel.util.OrderByComparator<EVPDivision>
+			orderByComparator);
 
 	/**
-	* Returns the number of e v p divisions where companyId = &#63; and type = &#63;.
-	*
-	* @param companyId the company ID
-	* @param type the type
-	* @return the number of matching e v p divisions
-	* @throws SystemException if a system exception occurred
-	*/
-	public int countByC_T(long companyId, int type)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	 * Returns the last evp division in the ordered set where companyId = &#63; and type = &#63;.
+	 *
+	 * @param companyId the company ID
+	 * @param type the type
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching evp division
+	 * @throws NoSuchDivisionException if a matching evp division could not be found
+	 */
+	public EVPDivision findByC_T_Last(
+			long companyId, int type,
+			com.liferay.portal.kernel.util.OrderByComparator<EVPDivision>
+				orderByComparator)
+		throws NoSuchDivisionException;
 
 	/**
-	* Returns the number of e v p divisions that the user has permission to view where companyId = &#63; and type = &#63;.
-	*
-	* @param companyId the company ID
-	* @param type the type
-	* @return the number of matching e v p divisions that the user has permission to view
-	* @throws SystemException if a system exception occurred
-	*/
-	public int filterCountByC_T(long companyId, int type)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	 * Returns the last evp division in the ordered set where companyId = &#63; and type = &#63;.
+	 *
+	 * @param companyId the company ID
+	 * @param type the type
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching evp division, or <code>null</code> if a matching evp division could not be found
+	 */
+	public EVPDivision fetchByC_T_Last(
+		long companyId, int type,
+		com.liferay.portal.kernel.util.OrderByComparator<EVPDivision>
+			orderByComparator);
 
 	/**
-	* Caches the e v p division in the entity cache if it is enabled.
-	*
-	* @param evpDivision the e v p division
-	*/
-	public void cacheResult(com.liferay.evp.model.EVPDivision evpDivision);
+	 * Returns the evp divisions before and after the current evp division in the ordered set where companyId = &#63; and type = &#63;.
+	 *
+	 * @param evpDivisionId the primary key of the current evp division
+	 * @param companyId the company ID
+	 * @param type the type
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next evp division
+	 * @throws NoSuchDivisionException if a evp division with the primary key could not be found
+	 */
+	public EVPDivision[] findByC_T_PrevAndNext(
+			long evpDivisionId, long companyId, int type,
+			com.liferay.portal.kernel.util.OrderByComparator<EVPDivision>
+				orderByComparator)
+		throws NoSuchDivisionException;
 
 	/**
-	* Caches the e v p divisions in the entity cache if it is enabled.
-	*
-	* @param evpDivisions the e v p divisions
-	*/
-	public void cacheResult(
-		java.util.List<com.liferay.evp.model.EVPDivision> evpDivisions);
+	 * Removes all the evp divisions where companyId = &#63; and type = &#63; from the database.
+	 *
+	 * @param companyId the company ID
+	 * @param type the type
+	 */
+	public void removeByC_T(long companyId, int type);
 
 	/**
-	* Creates a new e v p division with the primary key. Does not add the e v p division to the database.
-	*
-	* @param evpDivisionId the primary key for the new e v p division
-	* @return the new e v p division
-	*/
-	public com.liferay.evp.model.EVPDivision create(long evpDivisionId);
+	 * Returns the number of evp divisions where companyId = &#63; and type = &#63;.
+	 *
+	 * @param companyId the company ID
+	 * @param type the type
+	 * @return the number of matching evp divisions
+	 */
+	public int countByC_T(long companyId, int type);
 
 	/**
-	* Removes the e v p division with the primary key from the database. Also notifies the appropriate model listeners.
-	*
-	* @param evpDivisionId the primary key of the e v p division
-	* @return the e v p division that was removed
-	* @throws com.liferay.evp.NoSuchDivisionException if a e v p division with the primary key could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public com.liferay.evp.model.EVPDivision remove(long evpDivisionId)
-		throws com.liferay.evp.NoSuchDivisionException,
-			com.liferay.portal.kernel.exception.SystemException;
-
-	public com.liferay.evp.model.EVPDivision updateImpl(
-		com.liferay.evp.model.EVPDivision evpDivision)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	 * Caches the evp division in the entity cache if it is enabled.
+	 *
+	 * @param evpDivision the evp division
+	 */
+	public void cacheResult(EVPDivision evpDivision);
 
 	/**
-	* Returns the e v p division with the primary key or throws a {@link com.liferay.evp.NoSuchDivisionException} if it could not be found.
-	*
-	* @param evpDivisionId the primary key of the e v p division
-	* @return the e v p division
-	* @throws com.liferay.evp.NoSuchDivisionException if a e v p division with the primary key could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public com.liferay.evp.model.EVPDivision findByPrimaryKey(
-		long evpDivisionId)
-		throws com.liferay.evp.NoSuchDivisionException,
-			com.liferay.portal.kernel.exception.SystemException;
+	 * Caches the evp divisions in the entity cache if it is enabled.
+	 *
+	 * @param evpDivisions the evp divisions
+	 */
+	public void cacheResult(java.util.List<EVPDivision> evpDivisions);
 
 	/**
-	* Returns the e v p division with the primary key or returns <code>null</code> if it could not be found.
-	*
-	* @param evpDivisionId the primary key of the e v p division
-	* @return the e v p division, or <code>null</code> if a e v p division with the primary key could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public com.liferay.evp.model.EVPDivision fetchByPrimaryKey(
-		long evpDivisionId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	 * Creates a new evp division with the primary key. Does not add the evp division to the database.
+	 *
+	 * @param evpDivisionId the primary key for the new evp division
+	 * @return the new evp division
+	 */
+	public EVPDivision create(long evpDivisionId);
 
 	/**
-	* Returns all the e v p divisions.
-	*
-	* @return the e v p divisions
-	* @throws SystemException if a system exception occurred
-	*/
-	public java.util.List<com.liferay.evp.model.EVPDivision> findAll()
-		throws com.liferay.portal.kernel.exception.SystemException;
+	 * Removes the evp division with the primary key from the database. Also notifies the appropriate model listeners.
+	 *
+	 * @param evpDivisionId the primary key of the evp division
+	 * @return the evp division that was removed
+	 * @throws NoSuchDivisionException if a evp division with the primary key could not be found
+	 */
+	public EVPDivision remove(long evpDivisionId)
+		throws NoSuchDivisionException;
+
+	public EVPDivision updateImpl(EVPDivision evpDivision);
 
 	/**
-	* Returns a range of all the e v p divisions.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.evp.model.impl.EVPDivisionModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param start the lower bound of the range of e v p divisions
-	* @param end the upper bound of the range of e v p divisions (not inclusive)
-	* @return the range of e v p divisions
-	* @throws SystemException if a system exception occurred
-	*/
-	public java.util.List<com.liferay.evp.model.EVPDivision> findAll(
-		int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	 * Returns the evp division with the primary key or throws a <code>NoSuchDivisionException</code> if it could not be found.
+	 *
+	 * @param evpDivisionId the primary key of the evp division
+	 * @return the evp division
+	 * @throws NoSuchDivisionException if a evp division with the primary key could not be found
+	 */
+	public EVPDivision findByPrimaryKey(long evpDivisionId)
+		throws NoSuchDivisionException;
 
 	/**
-	* Returns an ordered range of all the e v p divisions.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.evp.model.impl.EVPDivisionModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param start the lower bound of the range of e v p divisions
-	* @param end the upper bound of the range of e v p divisions (not inclusive)
-	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	* @return the ordered range of e v p divisions
-	* @throws SystemException if a system exception occurred
-	*/
-	public java.util.List<com.liferay.evp.model.EVPDivision> findAll(
+	 * Returns the evp division with the primary key or returns <code>null</code> if it could not be found.
+	 *
+	 * @param evpDivisionId the primary key of the evp division
+	 * @return the evp division, or <code>null</code> if a evp division with the primary key could not be found
+	 */
+	public EVPDivision fetchByPrimaryKey(long evpDivisionId);
+
+	/**
+	 * Returns all the evp divisions.
+	 *
+	 * @return the evp divisions
+	 */
+	public java.util.List<EVPDivision> findAll();
+
+	/**
+	 * Returns a range of all the evp divisions.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>EVPDivisionModelImpl</code>.
+	 * </p>
+	 *
+	 * @param start the lower bound of the range of evp divisions
+	 * @param end the upper bound of the range of evp divisions (not inclusive)
+	 * @return the range of evp divisions
+	 */
+	public java.util.List<EVPDivision> findAll(int start, int end);
+
+	/**
+	 * Returns an ordered range of all the evp divisions.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>EVPDivisionModelImpl</code>.
+	 * </p>
+	 *
+	 * @param start the lower bound of the range of evp divisions
+	 * @param end the upper bound of the range of evp divisions (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of evp divisions
+	 */
+	public java.util.List<EVPDivision> findAll(
 		int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator<EVPDivision>
+			orderByComparator);
 
 	/**
-	* Removes all the e v p divisions from the database.
-	*
-	* @throws SystemException if a system exception occurred
-	*/
-	public void removeAll()
-		throws com.liferay.portal.kernel.exception.SystemException;
+	 * Returns an ordered range of all the evp divisions.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>EVPDivisionModelImpl</code>.
+	 * </p>
+	 *
+	 * @param start the lower bound of the range of evp divisions
+	 * @param end the upper bound of the range of evp divisions (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param useFinderCache whether to use the finder cache
+	 * @return the ordered range of evp divisions
+	 */
+	public java.util.List<EVPDivision> findAll(
+		int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<EVPDivision>
+			orderByComparator,
+		boolean useFinderCache);
 
 	/**
-	* Returns the number of e v p divisions.
-	*
-	* @return the number of e v p divisions
-	* @throws SystemException if a system exception occurred
-	*/
-	public int countAll()
-		throws com.liferay.portal.kernel.exception.SystemException;
+	 * Removes all the evp divisions from the database.
+	 */
+	public void removeAll();
+
+	/**
+	 * Returns the number of evp divisions.
+	 *
+	 * @return the number of evp divisions
+	 */
+	public int countAll();
+
 }

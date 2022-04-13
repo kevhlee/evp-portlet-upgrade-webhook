@@ -24,9 +24,12 @@ import java.util.List;
  * This class is used by SOAP remote services.
  *
  * @author Val Nagy
+ * @deprecated As of Athanasius (7.3.x), with no direct replacement
  * @generated
  */
+@Deprecated
 public class EVPGrantRequestSoap implements Serializable {
+
 	public static EVPGrantRequestSoap toSoapModel(EVPGrantRequest model) {
 		EVPGrantRequestSoap soapModel = new EVPGrantRequestSoap();
 
@@ -39,10 +42,14 @@ public class EVPGrantRequestSoap implements Serializable {
 		soapModel.setContactEmailAddressId(model.getContactEmailAddressId());
 		soapModel.setContactPhoneId(model.getContactPhoneId());
 		soapModel.setContactUserId(model.getContactUserId());
-		soapModel.setEvpRequestOrganizationId(model.getEvpRequestOrganizationId());
-		soapModel.setParentEVPGrantRequestId(model.getParentEVPGrantRequestId());
-		soapModel.setRequestOrganizationAddressId(model.getRequestOrganizationAddressId());
-		soapModel.setRequestOrganizationWebsiteId(model.getRequestOrganizationWebsiteId());
+		soapModel.setEvpRequestOrganizationId(
+			model.getEvpRequestOrganizationId());
+		soapModel.setParentEVPGrantRequestId(
+			model.getParentEVPGrantRequestId());
+		soapModel.setRequestOrganizationAddressId(
+			model.getRequestOrganizationAddressId());
+		soapModel.setRequestOrganizationWebsiteId(
+			model.getRequestOrganizationWebsiteId());
 		soapModel.setSubsidiaryGroupId(model.getSubsidiaryGroupId());
 		soapModel.setDescription(model.getDescription());
 		soapModel.setEmploymentType(model.getEmploymentType());
@@ -60,7 +67,8 @@ public class EVPGrantRequestSoap implements Serializable {
 	}
 
 	public static EVPGrantRequestSoap[] toSoapModels(EVPGrantRequest[] models) {
-		EVPGrantRequestSoap[] soapModels = new EVPGrantRequestSoap[models.length];
+		EVPGrantRequestSoap[] soapModels =
+			new EVPGrantRequestSoap[models.length];
 
 		for (int i = 0; i < models.length; i++) {
 			soapModels[i] = toSoapModel(models[i]);
@@ -71,10 +79,12 @@ public class EVPGrantRequestSoap implements Serializable {
 
 	public static EVPGrantRequestSoap[][] toSoapModels(
 		EVPGrantRequest[][] models) {
+
 		EVPGrantRequestSoap[][] soapModels = null;
 
 		if (models.length > 0) {
-			soapModels = new EVPGrantRequestSoap[models.length][models[0].length];
+			soapModels =
+				new EVPGrantRequestSoap[models.length][models[0].length];
 		}
 		else {
 			soapModels = new EVPGrantRequestSoap[0][0];
@@ -89,7 +99,9 @@ public class EVPGrantRequestSoap implements Serializable {
 
 	public static EVPGrantRequestSoap[] toSoapModels(
 		List<EVPGrantRequest> models) {
-		List<EVPGrantRequestSoap> soapModels = new ArrayList<EVPGrantRequestSoap>(models.size());
+
+		List<EVPGrantRequestSoap> soapModels =
+			new ArrayList<EVPGrantRequestSoap>(models.size());
 
 		for (EVPGrantRequest model : models) {
 			soapModels.add(toSoapModel(model));
@@ -203,6 +215,7 @@ public class EVPGrantRequestSoap implements Serializable {
 
 	public void setRequestOrganizationAddressId(
 		long requestOrganizationAddressId) {
+
 		_requestOrganizationAddressId = requestOrganizationAddressId;
 	}
 
@@ -212,6 +225,7 @@ public class EVPGrantRequestSoap implements Serializable {
 
 	public void setRequestOrganizationWebsiteId(
 		long requestOrganizationWebsiteId) {
+
 		_requestOrganizationWebsiteId = requestOrganizationWebsiteId;
 	}
 
@@ -336,4 +350,5 @@ public class EVPGrantRequestSoap implements Serializable {
 	private long _statusByUserId;
 	private String _statusByUserName;
 	private Date _statusDate;
+
 }

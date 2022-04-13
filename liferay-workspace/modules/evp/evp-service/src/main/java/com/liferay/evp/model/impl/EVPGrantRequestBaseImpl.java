@@ -17,8 +17,6 @@ package com.liferay.evp.model.impl;
 import com.liferay.evp.model.EVPGrantRequest;
 import com.liferay.evp.service.EVPGrantRequestLocalServiceUtil;
 
-import com.liferay.portal.kernel.exception.SystemException;
-
 /**
  * The extended model base implementation for the EVPGrantRequest service. Represents a row in the &quot;EVPGrantRequest&quot; database table, with each column mapped to a property of this class.
  *
@@ -28,18 +26,19 @@ import com.liferay.portal.kernel.exception.SystemException;
  *
  * @author Val Nagy
  * @see EVPGrantRequestImpl
- * @see com.liferay.evp.model.EVPGrantRequest
+ * @see EVPGrantRequest
  * @generated
  */
-public abstract class EVPGrantRequestBaseImpl extends EVPGrantRequestModelImpl
-	implements EVPGrantRequest {
+public abstract class EVPGrantRequestBaseImpl
+	extends EVPGrantRequestModelImpl implements EVPGrantRequest {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this class directly. All methods that expect a e v p grant request model instance should use the {@link EVPGrantRequest} interface instead.
+	 * Never modify or reference this class directly. All methods that expect a evp grant request model instance should use the <code>EVPGrantRequest</code> interface instead.
 	 */
 	@Override
-	public void persist() throws SystemException {
+	public void persist() {
 		if (this.isNew()) {
 			EVPGrantRequestLocalServiceUtil.addEVPGrantRequest(this);
 		}
@@ -47,4 +46,5 @@ public abstract class EVPGrantRequestBaseImpl extends EVPGrantRequestModelImpl
 			EVPGrantRequestLocalServiceUtil.updateEVPGrantRequest(this);
 		}
 	}
+
 }

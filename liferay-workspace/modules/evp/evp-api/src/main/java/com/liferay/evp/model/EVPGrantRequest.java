@@ -14,21 +14,46 @@
 
 package com.liferay.evp.model;
 
-import com.liferay.portal.model.PersistedModel;
+import com.liferay.portal.kernel.annotation.ImplementationClassName;
+import com.liferay.portal.kernel.model.PersistedModel;
+import com.liferay.portal.kernel.util.Accessor;
+
+import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * The extended model interface for the EVPGrantRequest service. Represents a row in the &quot;EVPGrantRequest&quot; database table, with each column mapped to a property of this class.
  *
  * @author Val Nagy
  * @see EVPGrantRequestModel
- * @see com.liferay.evp.model.impl.EVPGrantRequestImpl
- * @see com.liferay.evp.model.impl.EVPGrantRequestModelImpl
  * @generated
  */
+@ImplementationClassName("com.liferay.evp.model.impl.EVPGrantRequestImpl")
+@ProviderType
 public interface EVPGrantRequest extends EVPGrantRequestModel, PersistedModel {
+
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add methods to {@link com.liferay.evp.model.impl.EVPGrantRequestImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+	 * Never modify this interface directly. Add methods to <code>com.liferay.evp.model.impl.EVPGrantRequestImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+	public static final Accessor<EVPGrantRequest, Long>
+		EVP_GRANT_REQUEST_ID_ACCESSOR = new Accessor<EVPGrantRequest, Long>() {
+
+			@Override
+			public Long get(EVPGrantRequest evpGrantRequest) {
+				return evpGrantRequest.getEvpGrantRequestId();
+			}
+
+			@Override
+			public Class<Long> getAttributeClass() {
+				return Long.class;
+			}
+
+			@Override
+			public Class<EVPGrantRequest> getTypeClass() {
+				return EVPGrantRequest.class;
+			}
+
+		};
+
 }
