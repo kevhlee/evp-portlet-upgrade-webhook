@@ -234,7 +234,7 @@ public static class EVPWorkflowUtil extends com.liferay.evp.util.EVPWorkflowUtil
 						_log.info("Creating new permission checker");
 					}
 
-					PermissionChecker permissionChecker = PermissionCheckerFactoryUtil.create(user, true);
+					PermissionChecker permissionChecker = PermissionCheckerFactoryUtil.create(user, true); <%-- FIXME: @deprecated As of 6.2.0, replaced by {#create(User)} --%>
 
 					PermissionThreadLocal.setPermissionChecker(permissionChecker);
 				}
