@@ -14,8 +14,8 @@ tasks:
       # - plugins-convert-build
       # - maven-migrate-code
       # - plugins-migrate-code
-      - remove-legacy-files
-      # - update-service-builder-modules
+      # - remove-legacy-files
+      - update-service-builder-modules
       # - upgrade-workspace-version
       # - use-target-platform
       # - use-release-api
