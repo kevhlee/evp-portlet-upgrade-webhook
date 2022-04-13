@@ -18,8 +18,8 @@ tasks:
       # - update-service-builder-modules
       # - upgrade-workspace-version
       # - use-target-platform
-      - use-release-api
-      # - auto-correct-breaking-changes
+      # - use-release-api
+      - auto-correct-breaking-changes
       # - finding-breaking-changes
       # - upgrade-portal-properties
       # - cfg-to-config-file
