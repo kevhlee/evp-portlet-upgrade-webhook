@@ -25,10 +25,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
-import com.liferay.portlet.journal.model.JournalArticle;
-import com.liferay.portlet.journal.model.JournalArticleDisplay;
-import com.liferay.portlet.journal.service.JournalArticleLocalService;
-import com.liferay.portlet.journal.service.JournalArticleLocalServiceWrapper;
+import com.liferay.journal.model.JournalArticle;
+import com.liferay.journal.model.JournalArticleDisplay;
+import com.liferay.journal.service.JournalArticleLocalService;
+import com.liferay.journal.service.JournalArticleLocalServiceWrapper;
 
 import java.math.RoundingMode;
 
