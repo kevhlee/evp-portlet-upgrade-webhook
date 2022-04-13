@@ -8,7 +8,7 @@ tasks:
     pluginsSDKPath: liferay-plugins-sdk-6.2-ee-sp20/
     upgrades:
       # - create-workspace
-      - maven-create-modules
-      - plugins-create-modules
-      # - maven-convert-build
-      # - plugins-convert-build
+      # - maven-create-modules
+      # - plugins-create-modules
+      - maven-convert-build
+      - plugins-convert-build
