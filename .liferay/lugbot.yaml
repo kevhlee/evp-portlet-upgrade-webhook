@@ -10,5 +10,8 @@ tasks:
       # - create-workspace
       # - maven-create-modules
       # - plugins-create-modules
-      - maven-convert-build
-      - plugins-convert-build
+      # - maven-convert-build
+      # - plugins-convert-build
+      - maven-migrate-code
+      - plugins-migrate-code
+
