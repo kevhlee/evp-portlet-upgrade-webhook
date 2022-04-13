@@ -23,3 +23,15 @@ tasks:
       # - find-breaking-changes
       - upgrade-portal-properties
       # - cfg-to-config-file
+#tasks:
+#  upgrade:
+#    upgrades:
+#    - name: upgrade-portal-properties
+#      params:
+#        properties:
+#        - liferay-plugins-sdk-6.2-ee-sp20/portlets/evp-portlet/docroot/WEB-INF/src/portal.properties
+#        - liferay-workspace/configs/dev/portal-ext.properties
+#        - liferay-workspace/configs/local/portal-ext.properties
+#        - liferay-workspace/configs/prod/portal-ext.properties
+#        - liferay-workspace/configs/uat/portal-ext.properties
+#        - liferay-workspace/modules/evp/evp-portlet/src/main/java/portal.properties
