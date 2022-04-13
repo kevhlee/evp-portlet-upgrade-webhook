@@ -69,7 +69,7 @@ public static class EVPValidator {
 			StringBundler sb = new StringBundler(enabledEmploymentTypeLabels.size() * 2);
 
 			for (String enabledEmploymentTypeLabel : enabledEmploymentTypeLabels) {
-				sb.append(LanguageUtil.get(themeDisplay.getLocale(), enabledEmploymentTypeLabel));
+				sb.append(LanguageUtil.get(themeDisplay.getLocale(), enabledEmploymentTypeLabel)); <%-- FIXME: PortletConfig get/format methods --%>
 				sb.append(StringPool.COMMA_AND_SPACE);
 			}
 
@@ -281,7 +281,7 @@ public static class EVPValidator {
 	protected static String translate(HttpServletRequest request, ThemeDisplay themeDisplay, String pattern, Object... arguments) {
 		PortletConfig portletConfig = (PortletConfig)request.getAttribute(JavaConstants.JAVAX_PORTLET_CONFIG);
 
-		return LanguageUtil.format(portletConfig, themeDisplay.getLocale(), pattern, arguments);
+		return LanguageUtil.format(portletConfig, themeDisplay.getLocale(), pattern, arguments); <%-- FIXME: PortletConfig get/format methods --%>
 	}
 
 }
