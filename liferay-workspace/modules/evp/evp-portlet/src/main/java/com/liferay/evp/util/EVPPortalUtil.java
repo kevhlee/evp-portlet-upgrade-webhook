@@ -17,13 +17,13 @@ package com.liferay.evp.util;
 import com.liferay.alloy.mvc.AlloyException;
 import com.liferay.alloy.mvc.AlloyServiceInvoker;
 import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.model.Contact;
-import com.liferay.portal.model.EmailAddress;
-import com.liferay.portal.model.ListType;
-import com.liferay.portal.model.ListTypeConstants;
-import com.liferay.portal.model.User;
-import com.liferay.portal.service.ListTypeServiceUtil;
-import com.liferay.portal.util.PortalUtil;
+import com.liferay.portal.kernel.model.Contact;
+import com.liferay.portal.kernel.model.EmailAddress;
+import com.liferay.portal.kernel.model.ListType;
+import com.liferay.portal.kernel.model.ListTypeConstants;
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.service.ListTypeServiceUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
 
 import java.util.List;
 

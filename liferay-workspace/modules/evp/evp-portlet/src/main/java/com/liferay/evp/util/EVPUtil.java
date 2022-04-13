@@ -29,9 +29,9 @@ import com.liferay.portal.kernel.util.DateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.model.User;
+import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.security.ldap.PortalLDAPImporterUtil;
-import com.liferay.portal.service.UserLocalServiceUtil;
+import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 
 import java.net.SocketTimeoutException;
 import java.net.URL;

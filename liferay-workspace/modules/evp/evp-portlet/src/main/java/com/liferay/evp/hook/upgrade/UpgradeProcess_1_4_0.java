@@ -21,8 +21,8 @@ import com.liferay.evp.hook.upgrade.v1_4_0.UpgradeEVPServiceRequest;
 import com.liferay.evp.hook.upgrade.v1_4_0.UpgradeMBMessage;
 import com.liferay.evp.hook.upgrade.v1_4_0.UpgradeResource;
 import com.liferay.evp.hook.upgrade.v1_4_0.UpgradeUser;
-import com.liferay.portal.service.ServiceContext;
-import com.liferay.portal.service.ServiceContextThreadLocal;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.service.ServiceContextThreadLocal;
 
 /**
  * @author Ethan Bustad

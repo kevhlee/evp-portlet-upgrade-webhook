@@ -18,7 +18,7 @@ import com.liferay.compat.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.evp.model.EVPGrantRequest;
 import com.liferay.evp.model.EVPServiceRequest;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
-import com.liferay.portal.service.ResourceLocalServiceUtil;
+import com.liferay.portal.kernel.service.ResourceLocalServiceUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

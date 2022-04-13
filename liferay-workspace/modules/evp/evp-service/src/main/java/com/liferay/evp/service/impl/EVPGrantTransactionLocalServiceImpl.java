@@ -18,7 +18,7 @@ import com.liferay.evp.model.EVPGrantTransaction;
 import com.liferay.evp.service.base.EVPGrantTransactionLocalServiceBaseImpl;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.model.User;
+import com.liferay.portal.kernel.model.User;
 
 import java.util.Date;
 

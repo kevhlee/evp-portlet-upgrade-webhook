@@ -16,11 +16,11 @@ package com.liferay.evp.hook.service.impl;
 
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
-import com.liferay.portlet.messageboards.model.MBMessage;
-import com.liferay.portlet.messageboards.service.MBMessageLocalService;
-import com.liferay.portlet.messageboards.service.MBMessageLocalServiceWrapper;
-import com.liferay.portlet.messageboards.service.persistence.MBMessageUtil;
-import com.liferay.portlet.messageboards.util.comparator.MessageCreateDateComparator;
+import com.liferay.message.boards.kernel.model.MBMessage;
+import com.liferay.message.boards.kernel.service.MBMessageLocalService;
+import com.liferay.message.boards.kernel.service.MBMessageLocalServiceWrapper;
+import com.liferay.message.boards.kernel.service.persistence.MBMessageUtil;
+import com.liferay.message.boards.kernel.util.comparator.MessageCreateDateComparator;
 
 import java.util.List;
 

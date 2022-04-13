@@ -14,8 +14,8 @@
 
 package com.liferay.evp.model.impl;
 
-import com.liferay.portal.model.Organization;
-import com.liferay.portal.service.OrganizationLocalServiceUtil;
+import com.liferay.portal.kernel.model.Organization;
+import com.liferay.portal.kernel.service.OrganizationLocalServiceUtil;
 
 /**
  * @author Val Nagy

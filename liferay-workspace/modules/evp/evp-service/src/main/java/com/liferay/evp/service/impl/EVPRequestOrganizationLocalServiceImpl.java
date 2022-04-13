@@ -20,13 +20,13 @@ import com.liferay.evp.model.EVPRequestOrganization;
 import com.liferay.evp.service.base.EVPRequestOrganizationLocalServiceBaseImpl;
 import com.liferay.evp.util.EVPPortalUtil;
 import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.model.ListTypeConstants;
-import com.liferay.portal.model.Organization;
-import com.liferay.portal.model.User;
-import com.liferay.portal.service.AddressLocalServiceUtil;
-import com.liferay.portal.service.OrganizationLocalServiceUtil;
-import com.liferay.portal.service.ServiceContext;
-import com.liferay.portal.service.WebsiteLocalServiceUtil;
+import com.liferay.portal.kernel.model.ListTypeConstants;
+import com.liferay.portal.kernel.model.Organization;
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.service.AddressLocalServiceUtil;
+import com.liferay.portal.kernel.service.OrganizationLocalServiceUtil;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.service.WebsiteLocalServiceUtil;
 
 import java.util.Date;
 
